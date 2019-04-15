@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>静态方法-each方法的掌握</title>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+        var arr = [1, 3, 5, 7, 9,];
+        arr.forEach(function (value, index){
+          console.log(index,value);
+        })
+
+        var obj = {0:1, 1:3, 2:5, 3:7, 4:9, length:5};
+        // obj.forEach(function(value, index){
+        //   console.log(index,value);
+        // })  原生JS forEach方法只能遍历到数组,伪数组无法遍历.
+
+        $.each(arr, function (index, value) {
+          console.log(index,value);
+        })
+        $.each(obj, function (index, value) {
+          console.log(index,value);
+        })
+    </script>
+  </head>
+  <body>
+    <h1>静态方法-each方法的掌握</h1>
+    <p>原生javascript的each方法</p>
+    <pre>
+      var arr = [1, 3, 5, 7, 9,];
+      var obj = {0:1, 1:3, 2:5, 3:7, 4:9, length:5};
+      第一个参数value ,遍历到元素的值
+      第二个参数index ,遍历到的索引
+      注意点:原生JS只能遍历到数组,不能遍历到伪数组.
+        arr.forEach(function (value, index){
+        console.log(index,value);
+      })
+
+      第一个参数index,遍历到元素的索引.
+      第二个参数,遍历到元素的值.
+      jQuery可以遍历到伪数组.
+      $.each(arr, function (index, value) {
+        console.log(index,value);
+      })
+
+      $.each(obj, function (index, value) {
+        console.log(index,value);
+      })
+    </pre>
+  </body>
+</html>

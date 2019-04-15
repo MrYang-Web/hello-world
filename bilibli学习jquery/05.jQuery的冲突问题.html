@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery的冲突问题</title>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var ha = jQuery.noConflict();
+      ha(function(){
+        alert("hello world!")
+      });
+    </script>
+  </head>
+  <body>
+    <h1>jQuery的冲突问题</h1>
+    <p>1.当jQuery与其他框架冲图的时候,可以释放$的使用权</p>
+    <pre>
+      jQuery.noConflict();
+      在使用jQuery之前,实行上述函数,那么$符号的使用全就被释放了.
+      可以使用jQuery来代替$符号使用.
+    </pre>
+    <p>2.还可以自定义一个访问符号</p>
+    <pre>
+      var ha = jQuery.noConflict();
+      使用此方法可以自定义一个jQuery的访问符号.
+      可以看到弹窗效果一样实现了.
+    </pre>
+  </body>
+</html>
