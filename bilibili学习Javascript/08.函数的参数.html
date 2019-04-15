@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>08.函数的参数</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+        //定义一个用来求两个数和的函数
+        function sum(a,b) {
+          console.log(a+b);
+        }
+        sum(1,2);
+        sum("hello",true);
+        sum(123,456,"hello",false);
+        sum(1);
+    </script>
+  </head>
+  <body>
+    <h1>08.函数的参数</h1>
+    <pre>
+      //定义一个用来求两个数和的函数
+      //设置形参(形式上的参数)a,b
+      //多个形参用逗号 ,  隔开.声明形参就相当于在内部声明了对应的变量.
+      //但是并不赋值.
+      //
+      //调用函数的时候,就可以在()输入实参(实际参数).
+      //实参将会赋值给对应的形参.
+      function sum(a,b) {
+        console.log(a+b);
+      }
+      sum(1,2);   打印  3
+      sum("hello",true);  打印   hellotrue
+
+      //调用函数的解析器,不会检查实参的类型.
+      //如果有需要,那么就得对数据类型进行检查,避免程序出错.
+
+      sum(123,456,"hello",false);  将会打印   579
+      //调用函数时,解析器也不检查实参的数量.
+      //多余的实参不会赋值,但是会做声明检查.
+
+      sum(1);   会打印   NaN   因为是a+b   1+undefind = NaN
+      //如果实参的数量少于形参,那么多余的形参将会是  undefind.
+
+    </pre>
+  </body>
+</html>

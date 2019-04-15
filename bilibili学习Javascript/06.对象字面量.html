@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>对象字面量</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      //用构造函数创建一个对象
+      // var obj = Object();
+
+
+
+      //使用对象字面量创建一个函数
+      var obj = {};
+      obj.name = "孙悟空";
+      obj.age = 18;
+      console.log(obj);
+      console.log(typeof obj);
+
+
+      //使用对象字面量,可以在对象创建时直接指定对象的属性
+      //语法:  对象{属性名:属性值,属性名:属性值,属性名:属性值,}
+      //对象字面量的属性名可以加引号,也可以不加,建议不加.
+      //如果要使用一些特殊名字,则必须加引号.
+      //
+      //属性和属性值是一组一组的名值对称结构
+      //名和值之间使用冒号 :  连接,多个名值之间使用逗号  , 隔开;
+      //如果一个属性之后,没有其他属性了,就不需要加逗号
+      var obj2 = {nanme:"猪八戒",
+                  age:"16",
+                  face:"500px"
+                };
+      console.log(obj2);
+      console.log(typeof obj2);
+    </script>
+  </head>
+  <body>
+    <h1>对象字面量</h1>
+    <pre>
+      //用构造函数创建一个对象
+        var obj = Object();
+
+      //使用对象字面量创建一个函数
+      var obj = {};
+      obj.name = "孙悟空";
+      obj.age = 18;
+      console.log(obj);
+      console.log(typeof obj);
+
+
+
+      //使用对象字面量,可以在对象创建时直接指定对象的属性
+      //语法:  对象{属性名:属性值,属性名:属性值,属性名:属性值,}
+      //对象字面量的属性名可以加引号,也可以不加,建议不加.
+      //如果要使用一些特殊名字,则必须加引号.
+      //
+      //属性和属性值是一组一组的名值对称结构
+      //名和值之间使用冒号 :  连接,多个名值之间使用逗号  , 隔开;
+      //如果一个属性之后,没有其他属性了,就不需要加逗号
+      var obj2 = {nanme:"猪八戒",
+                  age:"16",
+                  face:"500px"
+                }
+      console.log(obj2);
+      console.log(typeof obj2);
+    </pre>
+  </body>
+</html>
