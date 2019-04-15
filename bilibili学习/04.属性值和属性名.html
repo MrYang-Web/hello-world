@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>属性值和属性名</title>
+    <link rel="stylesheet" href="demo.css">
+  </head>
+  <body>
+    <h1>属性名</h1>
+    <p>1.不强制要求遵守标识符的规范,什么乱七八糟的名字都可以使用.</p>
+    <p>但是我使用时,还是尽量按照标识符的规范去做.</p>
+
+    <pre>
+      var obj = new Object();
+
+      obj.var = "hello world!";
+      这个属性可以被添加上
+    </pre>
+    <p>2.如果需要使用特殊的属性名 不能才用.的方式来操作</p>
+    <p>语法: 对象["属性名"] = 属性值</p>
+    <pre>
+      obj["123"] = 789;
+
+      读取时也要采用这种方式
+      console.log(["123"]);
+    </pre>
+    <p>3.使用中括号 [ ] 去操作属性,更加的灵活</p>
+    <p>因为[ ] . new 的运算优先级是最高的</p>
+    <p>在 [ ] 中可以传递一个变量,这样变量的值是多少,就会读取哪个属性.</p>
+    <pre>
+      obj ["nihao"] = "hello world";
+      var a = "nihao";
+      console.log["nihao"];  与  console.log[a] 打印的结果将一样.
+    </pre>
+<hr>
+    <h1>属性值</h1>
+    <p>1.属性值可以是任意的数据类型,甚至是一个对象</p>
+    <pre>
+      obj.test = "hello"; 属性值是string 字符串
+
+      var obj2 = new Object();
+      obj2.name = "猪八戒";
+      obj.test = obj2;
+      console.log(obj.test);
+      打印将返回猪八戒
+    </pre>
+<hr>
+    <h1>查询属性方法</h1>
+    <p>in 运算符</p>
+    <p>通过in运算符查询是否存在属性,存在返回true,不存在返回false</p>
+    <p>语法:</p>
+    <pre>
+      console.log("test2" in obj);   返回false
+      console.log("test" in obj);    返回true
+      console.log("name" in obj);    返回true
+    </pre>
+    <script>
+      var obj = new Object();
+      obj.var = "hello world";
+      obj["123"] = 789;
+
+
+      obj ["nihao"] = "hello world";
+      var a = "nihao";
+
+
+      var obj2 = new Object();
+      obj2.name = "猪八戒";
+      obj.test = obj2;
+      console.log(obj.test);
+
+      console.log("test2" in obj);
+      console.log("test" in obj);
+      console.log("name" in obj);
+    </script>
+  </body>
+</html>
