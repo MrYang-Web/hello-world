@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>13.对象的知识点</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+        //创建一个对象并向里面添加属性 这里的O记得要大写......
+        // var obj = new Object();
+        // obj.name = "孙悟空";
+        // obj.age = "18";
+
+
+        //用对象字面量创建一个对象并添加属性 这里记得后面的断句符号是逗号  , 不是分号
+        var obj = {
+          name:"孙悟空",
+          age:18,
+        }
+
+        //向对象中添加sayName属性.
+        //对象中的属性可以是任何值 函数\ 对象\ 等等......
+        obj.sayName =function (){
+          alert(obj.name);
+        }
+
+        //调用sayName属性的函数.
+
+        //调用 obj对象的 sayName方法
+        obj.sayName();
+
+
+
+        function fun() {
+          console.log(obj.name);
+        }
+        //这里称为调用fun函数;
+        fun();
+
+
+
+        //函数也可以是对象的属性.
+        //当一个函数是对象的属性时,我们就把这个函数称为<strong>对象的方法!!!!!!!</strong>
+        //调用函数就说调用对象的方法(<strong>method</strong>)
+        //
+        //注意:他们只是名称上的区别没有其他的区别
+
+        //<strong>比如:</strong>
+        document.write("hello");
+        //这里就称为调用document的write方法
+
+        "hello".toString();
+        //这里就称为调用toString方法.
+
+
+
+
+
+    </script>
+  </head>
+  <body>
+    <h1>13.补充对象的知识点</h1>
+
+    <pre>
+      //创建一个对象并向里面添加属性 这里的O记得要大写......
+      // var obj = new Object();
+      // obj.name = "孙悟空";
+      // obj.age = "18";
+
+
+      //用对象字面量创建一个对象并添加属性 这里记得后面的断句符号是逗号  , 不是分号
+      var obj = {
+        name:"孙悟空",
+        age:18,
+      }
+
+      //向对象中添加sayName属性.
+      //对象中的属性可以是任何值 函数\ 对象\ 等等......
+      obj.sayName =function (){
+        alert(obj.name);
+      }
+
+      //调用sayName属性的函数.
+
+      //调用 obj对象的 sayName方法
+      obj.sayName();
+
+
+
+      function fun() {
+        console.log(obj.name);
+      }
+      //这里称为调用fun函数;
+      fun();
+
+
+
+      //函数也可以是对象的属性.
+      //当一个函数是对象的属性时,我们就把这个函数称为<strong>对象的方法!!!!!!!</strong>
+      //调用函数就说调用对象的方法(<strong>method</strong>)
+      //
+      //注意:他们只是名称上的区别没有其他的区别
+
+      //<strong>比如:</strong>
+      document.write("hello");
+      //这里就称为调用document的write方法
+
+      "hello".toString();
+      //这里就称为调用toString方法.
+
+    </pre>
+  </body>
+</html>

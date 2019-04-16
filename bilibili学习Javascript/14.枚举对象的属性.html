@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>14.枚举对象的属性</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+        var obj = {
+          name:"孙悟空",
+          age:18,
+          gender:"男",
+          address:"花果山"
+        }
+      //实际开发中,通常都是使用已经制定好的对象.
+      //所以我们并不知道对象中有哪些属性.
+      //那么如果我们要使用对象其中的一个属性,这个时候就要用到枚举属性
+      //使用  for...in 语句 语法:
+      //   for (var 变量 in 对象) {
+      //
+      //   }
+      //   for ... in语句 对象中有几个属性,循环体就会执行几次
+      //   每次执行时,都会将对象的属性,赋值给变量.
+
+       for (var a in obj) {
+          console.log(a);
+       }
+       //这里只能查询属性名不够过瘾.下面的语句可以查询属性名和属性值
+       for (var a in obj) {
+          console.log(a+":"+obj[a]);
+       }
+       //---------------------------------------------------
+       for (var b in document) {
+          console.log("属性名: " + b + "属性值: " + document[b]);
+       }
+      //这里可以查询到document有超级多的属性!!!∑(ﾟДﾟノ)ノ
+
+
+    </script>
+  </head>
+  <body>
+    <h1>14.枚举对象的属性</h1>
+    <pre>
+      var obj = {
+        name:"孙悟空",
+        age:18,
+        gender:"男",
+        address:"花果山"
+      }
+    //实际开发中,通常都是使用已经制定好的对象.
+    //所以我们并不知道对象中有哪些属性.
+    //那么如果我们要使用对象其中的一个属性,这个时候就要用到枚举属性
+    //使用  for...in 语句 语法:
+    //   for (var 变量 in 对象) {
+    //
+    //   }
+    //   for ... in语句 对象中有几个属性,循环体就会执行几次
+    //   每次执行时,都会将对象的属性,赋值给变量.
+
+     for (var a in obj) {
+        console.log(a);
+     }
+     //这里只能查询属性名不够过瘾.下面的语句可以查询属性名和属性值
+     for (var a in obj) {
+        console.log(a+":"+obj[a]);
+     }
+     //---------------------------------------------------
+     for (var b in document) {
+        console.log("属性名: " + b + "属性值: " + document[b]);
+     }
+    //这里可以查询到document有超级多的属性!!!∑(ﾟДﾟノ)ノ
+    </pre>
+  </body>
+</html>
