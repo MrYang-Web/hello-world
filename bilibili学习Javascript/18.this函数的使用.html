@@ -5,14 +5,92 @@
     <title>this函数的使用</title>
     <link rel="stylesheet" href="demo.css">
     <script>
-      function fun(a,b) {
-        console.log("a = " a + ", b =" + b);
+      // function fun(a,b) {
+      //   console.log("a = " + a + ", b =" + b);
+      // }
+      // fun(111,222);
+      //------------------------------------------
+
+
+      // function fun(a,b) {
+      //   console.log(this);
+      // }
+      // fun();          //这里打印的是window对象.
+
+
+
+      var obj = {
+        name : "孙悟空",
+        sayName : fun
       }
-      fun(123,456);
+      var obj2 = {
+        name : "沙和尚",
+        sayName : fun
+      }
+      // console.log(obj.sayName == fun);    //这里返回trun 说明两个是一样的
+
+      // obj.sayName();    //这里打印的是name属性为孙悟空的obj对象.
+      // obj2.sayName();   //这里打印的是name属性为沙和尚的obj对象.
+
+
+
+      //---------------------------------------------------------------
+       //如果我先给window添加一个全局的name 属性,使用函数形式调用上述函数
+      var name = "全局的name属性";
+      function fun(a,b) {
+        console.log(this.name);
+      }
+      obj.sayName();    //这里打印的将会是孙悟空.
+      obj2.sayName();   //这里打印的将会是沙和尚.
+      fun();            //这里打印的将会是 "全局的name属性";也就是window的name属性.
     </script>
   </head>
   <body>
     <h1>this函数的使用</h1>
     <p>解析器在调用函数时,每次都会向函数内部传递进一个隐含的参数</p>
+    <p>这个隐含的参数就是this,指向的是一个函数执行的上下文对象.</p>
+    <p>根据函数调用方式的不同,this会指向不同的对象.</p>
+    <p>1.以函数的形式调用时,this永远都是window</p>
+    <p>2.以方法形式调用时,this就是调用方法的对象</p>
+    <pre>
+      // function fun(a,b) {
+      //   console.log("a = " + a + ", b =" + b);
+      // }
+      // fun(111,222);
+      //------------------------------------------
+
+
+      // function fun(a,b) {
+      //   console.log(this);
+      // }
+      // fun();          //这里打印的是window对象.
+
+
+
+      var obj = {
+        name : "孙悟空",
+        sayName : fun
+      }
+      var obj2 = {
+        name : "沙和尚",
+        sayName : fun
+      }
+      // console.log(obj.sayName == fun);    //这里返回trun 说明两个是一样的
+
+      // obj.sayName();    //这里打印的是name属性为孙悟空的obj对象.
+      // obj2.sayName();   //这里打印的是name属性为沙和尚的obj对象.
+
+
+
+      //---------------------------------------------------------------
+       //如果我先给window添加一个全局的name 属性,使用函数形式调用上述函数
+      var name = "全局的name属性";
+      function fun(a,b) {
+        console.log(this.name);
+      }
+      obj.sayName();    //这里打印的将会是孙悟空.
+      obj2.sayName();   //这里打印的将会是沙和尚.
+      fun();            //这里打印的将会是 "全局的name属性";也就是window的name属性.
+    </pre>
   </body>
 </html>
