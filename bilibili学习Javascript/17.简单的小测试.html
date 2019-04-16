@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>17.简单的小测试</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <h1>说出以下代码的执行结果</h1>
+    <pre>
+  1.----------------------------------------------------
+      var a = 123;
+      function fun(){
+        alert(a);
+      }
+      fun();   <strong>弹窗提示   123</strong>
+
+
+  2.----------------------------------------------------
+      var a = 123;
+      function fun(){
+        console.log(a);
+        var a = 234;
+      }
+      fun();     <strong>弹窗undefind  然后再弹窗123</strong>
+      alert(a);
+
+  3.----------------------------------------------------
+      var a = 123;
+      function fun(a){
+        alert(a);
+        a = 456;
+      }
+      fun();
+      alert(a);   <strong>先弹窗123  然后再弹窗456</strong>
+
+  4.----------------------------------------------------
+      var a = 123;
+      function fun(a){
+        alert(a);
+        a = 456;
+      }
+      fun();
+      alert(a);   <strong>先是弹窗undefind 再弹窗123</strong>
+
+  5.----------------------------------------------------
+      var a =123;
+      function fun(a){
+        alert(a);
+        a = 456;
+      }
+      fun(123);
+      alert(a);  <strong>先弹窗123  再弹窗123</strong>
+    </pre>
+
+  </body>
+</html>
