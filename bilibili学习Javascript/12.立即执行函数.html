@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>12.立即执行函数</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+        //立即执行函数:
+        //当一个函数并不需要声明,只需要简单被调用一次的时候.
+        //可以使用立即执行函数,
+        //函数被创建的时候,就会马上执行.
+        //语法:   (function(){
+        //          代码语句....
+        //        })();
+
+        (function () {
+          alert("hello world!");
+        })();
+        // (function (a,b) {
+        //   console.log("a =" + a);
+        //   console.log("b = "+ b);
+        // })(1111,2222);
+    </script>
+  </head>
+  <body>
+      <h1>12.立即执行函数</h1>
+      <pre>
+        //立即执行函数:
+        //当一个函数并不需要声明,只需要简单被调用一次的时候.
+        //可以使用立即执行函数,
+        //函数被创建的时候,就会马上执行.
+        //语法:   (function(){
+                      代码语句....
+                  });
+        (function () {
+          alert("hello world!");
+        });
+        (function (a,b) {
+          console.log("a =" + a);
+          console.log("b = "+ b);
+        })(1111,2222);
+      </pre>
+  </body>
+</html>

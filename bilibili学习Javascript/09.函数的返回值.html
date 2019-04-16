@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>09.函数的返回值</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+    //创建一个函数,用来计算三个数字
+    //可以用return返回函数执行的结果
+    // 可以定义一个变量来接受改结果
+    function sum(a,b,c) {
+      var d = a + b + c;
+      return d;
+      alert("hello");
+    }
+    //return后的语句都不会被执行.
+    //return后面如果不跟值,就相当return 一个  undefind
+    //如果函数中不写return,也会返回一个  undefind
+
+     var result =  sum(4,5,6);
+     console.log("resule =" result );
+    </script>
+  </head>
+  <body>
+    <h1>09.函数的返回值</h1>
+    <pre>
+      //创建一个函数,用来计算三个数字
+      //可以用return返回函数执行的结果
+      // 可以定义一个变量来接受改结果
+      function sum(a,b,c) {
+        var d = a + b + c;
+        return d;
+        alert("hello");
+      }
+      //return后的语句都不会被执行.
+      //return后面如果不跟值,就相当return 一个  undefind
+      //如果函数中不写return,也会返回一个  undefind
+
+       var result =  sum(4,5,6);
+       console.log("resule =" result );
+    </pre>
+  </body>
+</html>
