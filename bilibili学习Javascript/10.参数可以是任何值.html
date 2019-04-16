@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>10.参数可以是任何值</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+
+
+      // 题目一:定义一个函数,输入一个数,判断是否为偶数,是则返回true,否在返回false;
+      // function sum(a) {
+      //   if (a%2 == 0) {
+      //     return true;
+      //   }else {
+      //     return false;
+      //   }
+      // }
+      //这样写,可以是可以,但是,不够    优雅...
+      //可以写成这样
+       function isOu(num) {
+         return num%2 == 0;
+       }
+      //------------------------------------------------
+
+      // 题目二:定义一个函数,输入一个半径,求圆的面积.
+       // function circ(r) {
+       //   var a = 3.14;
+       //   var s = a*(r*r);
+       //   return s;
+       // }
+       //这样写,可以是可以,但是,不够    优雅...
+       //可以写成这样
+        function circ(r) {
+          return 3.14*r*r;
+        }
+      //-------------------------------------------------
+
+      //题目三:定义一个函数,可以在控制台输出一个人的信息.
+      //可以输出人的name,age,gender,addres
+      // function sayHello(name,age,address) {
+      //   console.log("我是"+name,"今年"+age,"我住在"+address);
+      // }
+      // sayHello("孙悟空",18,"大上海");
+      //要传的参数过多,会容易导致出错,可以在变量过多的时候,把变量封装到一个对象内.
+
+      function hello(o) {
+        // console.log("o = " + o);
+        console.log("我是"+o.name,"今年"+o.age,"我住在"+o.address);
+      }
+      var obj = {
+        name:"猪八戒",
+        age:29,
+        address:"高老庄",
+      }
+      //这样只要属性名对了,顺序怎么错都能够传进去参数.
+      //------------------------------------------------
+
+      //参数可以是任何值,函数也可以做为参数.
+      function fun(a) {
+        console.log("a ="+ a);
+        a(obj);
+      }
+      fun(hello);
+
+      fun(function () {
+        alert("hello");
+      })
+      fun(circ(10));
+      // circ();
+      //  调用函数.
+      //  -相当于使用函数的返回值.
+      // circ
+      //  函数本身.
+      //  -相当于直接使用函数对象,而不是使用函数的返回值.
+    </script>
+  </head>
+  <body>
+    <h1>10.参数可以是任何值</h1>
+    <pre>
+      // 题目一:定义一个函数,输入一个数,判断是否为偶数,是则返回true,否在返回false;
+      // function sum(a) {
+      //   if (a%2 == 0) {
+      //     return true;
+      //   }else {
+      //     return false;
+      //   }
+      // }
+      //这样写,可以是可以,但是,不够    优雅...
+      //可以写成这样
+       function isOu(num) {
+         return num%2 == 0;
+       }
+      //------------------------------------------------
+
+      // 题目二:定义一个函数,输入一个半径,求圆的面积.
+       // function circ(r) {
+       //   var a = 3.14;
+       //   var s = a*(r*r);
+       //   return s;
+       // }
+       //这样写,可以是可以,但是,不够    优雅...
+       //可以写成这样
+        function circ(r) {
+          return 3.14*r*r;
+        }
+        //-------------------------------------------------
+
+        //题目三:定义一个函数,可以在控制台输出一个人的信息.
+        //可以输出人的name,age,gender,addres
+        // function sayHello(name,age,address) {
+        //   console.log("我是"+name,"今年"+age,"我住在"+address);
+        // }
+        // sayHello("孙悟空",18,"大上海");
+        //要传的参数过多,会容易导致出错,可以在变量过多的时候,把变量封装到一个对象内.
+
+        function hello(o) {
+          // console.log("o = " + o);
+          console.log("我是"+o.name,"今年"+o.age,"我住在"+o.address);
+        }
+        var obj = {
+          name:"猪八戒",
+          age:29,
+          address:"高老庄",
+        }
+        //这样只要属性名对了,顺序怎么错都能够传进去参数.
+        //------------------------------------------------
+
+        //参数可以是任何值,函数也可以做为参数.
+        function fun(a) {
+          console.log("a ="+ a);
+          a(obj);
+        }
+        fun(hello);
+
+        fun(function () {
+          alert("hello");
+        })
+        fun(circ(10));
+        // circ();
+        //  调用函数.
+        //  -相当于使用函数的返回值.
+        // circ
+        //  函数本身.
+        //  -相当于直接使用函数对象,而不是使用函数的返回值.
+    </pre>
+  </body>
+</html>
