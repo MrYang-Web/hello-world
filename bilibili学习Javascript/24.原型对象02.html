@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>24.原型对象02</title>
+  </head>
+  <body>
+    <h1>24.原型对象02</h1>
+    <p>使用in检查对象中是否含有某个属性时,如果对象中没有但原型中有</p>
+    <p>也会返回true</p>
+    <pre>
+      function MyClass () {
+
+      }
+      Myclass.prototype.name = "我是原型对象中的name";
+      var mc = new MyClass();
+        mc.age = 18;
+      console.log("name" in mc); 返回true;
+    </pre>
+    <p>所以用in无法检查实例对象中的属性</p>
+    <p>这个时候就可以用对象的hasOwnProperty()方法来检查对象自身中是否含有该属性</p>
+      <pre>
+        console.log(mc.hasOwnProperty("name"));
+      </pre>
+      <p>返回false</p>
+      <pre>
+        console.log(mc.hasOwnProperty("age"));
+      </pre>
+      <p>返回true</p>
+      <p>这个hasOwnPreoperty()是在原型对象中的原型对象中.</p>
+      <pre>
+        console.log(mc.__proto__.hasOwnProperty(hasOwnProperty));  返回false;
+
+        console.log(mc.__proto__.__proto__.hasOwnProperty(hasOwnProperty)); 返回true;
+      </pre>
+      <p>原型对象也是对象,所以它也有原型</p>
+      <p>当我们使用一个对象的属性和方法时,它会先在对象自身中寻找</p>
+      <p>如果没有则会去原型对象中寻找.如果原型对象有,则使用</p>
+      <p>如果原型对象中没有,则去原型的原型去寻找,直到找到Object对象的原型</p>
+      <p>Object的原型没有原型,如果在Object中依然没有找到,则返回undefind</p>
+  </body>
+</html>
