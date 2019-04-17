@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>19.this方法的补充内容</title>
+    <link rel="stylesheet" href="demo.css">
+      <script>
+        //创建一个全局变量name
+        var name = "全局";
+
+        //创建一个fun()函数
+        // function fun() {
+        //   console.log(name);
+        // }
+
+        //创建两个对象
+        var obj = {
+          name:"孙悟空",
+          sayName:fun
+        };
+        var obj2 = {
+          name:"沙和尚",
+          sayName:fun
+        };
+
+        //我们希望调用obj.sayName()时可以输出obj的名字
+        // obj.sayName();
+        //打印的却是全局,因为我们调用的是fun函数
+        //fun函数在自己作用域内没找到name属性,就往上找到了全局name属性
+
+        //我们希望调用obj2.sayName()时可以输出obj2的名字
+        // obj2.sayName();
+        //打印的也会是全局.原因跟上述一样.
+        //那么要做到谁调用fun函数,就打印谁,就需要借助this方法了.
+
+        function fun() {
+          console.log(this.name);
+        }
+         obj.sayName();
+         obj2.sayName();
+
+         // 这个时候,我们再打印,就会是我们期望的值.
+      </script>
+  </head>
+  <body>
+    <h1>19.this方法的补充内容</h1>
+    <p>创建一个全局变量name</p>
+    <pre>
+       var name = "全局";
+    </pre>
+       <p>创建一个fun()函数</p>
+    <pre>
+       function fun() {
+         console.log(name);
+       }
+    </pre>
+       <p>创建两个对象</p>
+    <pre>
+         var obj = {
+           name:"孙悟空",
+           sayName:fun
+         };
+         var obj2 = {
+           name:"沙和尚",
+           sayName:fun
+         };
+    </pre>
+       <p>我们希望调用obj.sayName()时可以输出obj的名字</p>
+    <pre>obj.sayName();</pre>
+       <p>打印的却是全局,因为我们调用的是fun函数</p>
+       <p>fun函数在自己作用域内没找到name属性,就往上找到了全局name属性</p>
+       <p>我们希望调用obj2.sayName()时可以输出obj2的名字</p>
+       <p>打印的也会是全局.原因跟上述一样.</p>
+    <pre>obj2.sayName();</pre>
+       <p>那么要做到谁调用fun函数,就打印谁,就需要借助this方法了.</p>
+    <pre>
+        function fun() {
+          console.log(this.name);
+        }
+         obj.sayName();
+         obj2.sayName();
+    </pre>
+        <p>这个时候,我们再打印,就会是我们期望的值.</p>
+  </body>
+</html>
