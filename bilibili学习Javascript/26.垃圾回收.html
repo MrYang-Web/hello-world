@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>26.垃圾回收</title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <h1>26.垃圾回收</h1>
+    <p>当一个对象没有任何一个变量或属性对它进行引用,此时我们无法对其进行操作</p>
+    <p>此时这种对象就是垃圾,过多会大量的占用内存空间,导致程序变慢</p>
+    <p>在js中拥有自动垃圾回收机制,会自动将这些垃圾对象从内存中销毁</p>
+    <p>我们不需要也不能进行垃圾回收的操作</p>
+    <p>我们需要做的,只是需要将我们不在使用的对象设置为null即可</p>
+    <pre>
+      var obj = new Object;
+
+      obj = null;
+    </pre>
+  </body>
+</html>

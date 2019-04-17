@@ -4,9 +4,36 @@
     <meta charset="utf-8">
     <title>25.toString()方法的使用.html</title>
     <link rel="stylesheet" href="demo.css">
+    <script>
+    function Person(name,age,gander) {
+      this.name = name;
+      this.age = age;
+      this.gander = gander;
+    }
+
+      var per = new Person("孙悟空",19,"男");
+      var per2 = new Person("猪八戒",25,"男");
+
+      alert(per);
+      console.log(per);
+      console.log(per2);
+      console.log(per.__proto__.__proto__.hasOwnProperty("toString"));
+    </script>
   </head>
   <body>
     <h1>25.toString()方法的使用.html</h1>
+    <p>当我们直接在页面中打印一个对象时,实际上是输出的对象的toString();方法的返回值</p>
+    <p>这一节了解一下就可以了,谷歌浏览器,打印直接就是详细对象</p>
+    <pre>
+      function Person() {
+        name ="孙悟空";
+        age = 18;
+        gander = "男";
+      }
+      var per = new Person();
 
+      alert(per.toString());
+      console.log(per.__proto__.__proto__.hasOwnProperty("toString")); 返回ture;
+    </pre>
   </body>
 </html>

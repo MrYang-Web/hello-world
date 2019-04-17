@@ -38,5 +38,13 @@
       <p>如果没有则会去原型对象中寻找.如果原型对象有,则使用</p>
       <p>如果原型对象中没有,则去原型的原型去寻找,直到找到Object对象的原型</p>
       <p>Object的原型没有原型,如果在Object中依然没有找到,则返回undefind</p>
+      <pre>
+        console.log(mc.__proto__.__proto__.__proto__);
+
+        这里是教程中的一个争议点,返回的是 null
+        老师却说是返回undefind.
+        其实意思是,prototype的值是空.但是是有这个属性名的.
+        返回undefind说的是方法.并没有这种方法,也就是名字都没有.
+      </pre>
   </body>
 </html>

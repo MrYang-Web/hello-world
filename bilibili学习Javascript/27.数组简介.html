@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>27.数组简介</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var arr = new Array();
+      console.log(typeof arr);  //会打印 object;
+      arr[0] = 10;
+      arr[1] = 11;
+      arr[2] = 22;
+      arr[3] = 33;
+      arr[4] = 44;
+      console.log(arr.length);
+      arr.length = 100;
+      console.log(arr);
+      arr.length = 2;
+      console.log(arr);
+    </script>
+  </head>
+  <body>
+    <h1>27.数组简介</h1>
+    <p>数组(Array)</p>
+    <p>数组也是对象,它和我们普通的对象功能相似,也是用来储存一些值得</p>
+    <p>不同的是普通对象是使用字符串做属性名</p>
+    <p>而数组是使用数字来作为索引操作元素</p>
+    <p>索引:从0开始的整数,也就是顺序.</p>
+    <p>数组的存储性能要比普通对象要好,在开发中我们经常使用数组来储存一些数据.</p>
+    <pre>
+      1.创建一个数组对象
+      var arr = new Array();
+      console.log(arr);
+
+      2.向数组对象中添加元素
+      语法:  数组[索引] = 值;
+      arr[0] = 10;
+      arr[1] = 33;
+      arr[2] = 22;
+      arr[3] = 33;
+      arr[4] = 44;
+      3.读取数组中的元素
+      语法:  数组[索引];
+
+      4.如果读取不存在的索引,会返回undefind;
+
+      5.获取数组的长度 length 方法;
+
+      console.log(arr.length); 将会打印arr的长度.
+      对于连续的数组length可以获得数组的长度
+      对于非连续的数组,length会获得最大索引的数值+1
+      尽量不要创建非连续的数组.
+
+      6.修改 length
+      arr.length = 100;
+      如果我们修改了length 大于原长度,则多余的部分就会空出来.
+      如果小于原长度,则会从最大索引开始向前删除小于的长度.
+      所以可通过修改length删除多余的元素.
+
+      7.向数组的最后一个位置添加元素.
+      语法:    数组[数组.length] = 值;
+      arr[arr.length] = 55;
+    </pre>
+  </body>
+</html>
