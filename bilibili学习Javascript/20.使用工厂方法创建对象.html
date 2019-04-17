@@ -14,8 +14,8 @@
         obj.name = name,
         obj.age = age,
         obj.gender = gender,
-        sayName = function(){
-          alert("this.name")
+        obj.sayName = function(){
+          alert(this.name);
         }
         //将新的对象返回-----这一步是关键!
         return obj;
@@ -25,6 +25,16 @@
       var obj3 = createPerson("白骨精",18,"女");
       var obj4 = createPerson("琵琶精",18,"女");
 
+      function createDog(name,age){
+        var obj = new Object();
+        obj.name = name,
+        obj.age = age,
+        obj.sayHello = function(){
+          alert("旺旺!");
+        }
+        return obj;
+      }
+      var dog = createDog("旺财",3);
     </script>
   </head>
   <body>
@@ -35,13 +45,14 @@
         name:"孙悟空",
         age:18,
         gander:"男",
-        sayName:function(){
-          alert("this.name")
+        sayName = function(){
+          alert(this.name);
         }
       };
     </pre>
     <p>当我们需要创建N个类似的obj,就可以用工厂方法来创建</p>
     <p>通过该方法可以大批量创建对象</p>
+    <p>这里因为是通过new关键词创建的对象,所以在添加属性的时候,要在前面添加<strong>obj.</strong></p>
     <pre>
       首先创建一个工厂函数
       function createPerson(name,age,gander){
@@ -53,8 +64,8 @@
         obj.name = name,
         obj.age = age,
         obj.gender = gender,
-        sayName:function(){
-          alert("this.name")
+        obj.sayName = function(){
+          alert(this.name)
 
         //将新的对象返回-----这一步是关键!
         return obj;
@@ -66,5 +77,20 @@
       var obj3 = createPerson("白骨精",18,"女");
       var obj4 = createPerson("琵琶精",18,"女");
     </pre>
+
+    <p>注意点:使用工厂方法创建的对象,使用的构造函数都是Object</p>
+    <p>所以创建的类型都是Object这个类型</p>
+    <p>就导致我们无法区分多种类型</p>
+    function createDog(name,age){
+      var obj = new Object();
+      obj.name = name,
+      obj.age = age,
+      obj.sayHello = function(){
+        alert("旺旺!");
+      }
+      return obj;
+    }
+    var dog = createDog("旺财",3);
+
   </body>
 </html>
