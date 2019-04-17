@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>22.构造函数的补充内容</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+        var Preson = function (name,age,gander) {
+          this.name = name,
+          this.age = age,
+          this.gander = gander
+          this.sayName = fun;
+        }
+        function fun() {
+          alert("大家好,我是:" + this.name);
+        }
+
+        var per = new Preson("孙悟空",18,"男");
+        var per1 = new Preson("猪八戒",28,"男");
+
+        per.sayName();
+        per1.sayName();
+
+        console.log(per.sayName == per1.sayName);
+    </script>
+  </head>
+  <body>
+    <h1>22.构造函数的补充内容</h1>
+    <p>新建一个构造函数</p>
+    <pre>
+      var Preson = function (name,age,gander) {
+        this.name = name,
+        this.age = age,
+        this.gander = gander
+        this.sayName = function(){
+          alert("大家好,我是:" + this.name);
+        };
+      }
+      var per = new Preson("孙悟空",18,"男");
+      var per1 = new Preson("猪八戒",28,"男");
+
+      console.log(per.sayName == per1.sayName);   这里打印的结果将为false;
+    </pre>
+    <p>发现这个函数里面有一个方法,如果创建1万个对象,则这个方法也被创建了1万次.</p>
+    <p>并且这一万次方法虽然功能一样,但是却并不是同一个,这样就造成了极大的浪费.</p>
+    <h1>优化方案</h1>
+    <p>让这一万个对象共享一个方法.</p>
+    <p>将这个方法提升到全局作用域内.</p>
+    <pre>
+      var Preson = function (name,age,gander) {
+        this.name = name,
+        this.age = age,
+        this.gander = gander
+        this.sayName = fun;
+      }
+      function fun() {
+        alert("大家好,我是:" + this.name);
+      }
+
+      var per = new Preson("孙悟空",18,"男");
+      var per1 = new Preson("猪八戒",28,"男");
+
+
+      console.log(per.sayName == per1.sayName);
+    </pre>
+  </body>
+</html>
