@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+ul {
+  list-style: none;
+}
+
+.daily-box {
+  width: 600px;
+  height: 905px;
+  background-color: #eee;
+  margin: 20px auto;
+}
+.daily-list {
+  width: 510px;
+  height: 685px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.daily-list li {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  float: left;
+  margin:8px 8px;
+  border: 1px solid transparent;
+  color: #fff;
+  background-color: #333;
+}
+.daily-list li h5{
+  font-size: 80px;
+  text-align: center;
+  line-height: 80px;
+  padding: 10px 0;
+}
+.daily-list li p {
+  font-size: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+.text-box {
+  width: 510px;
+  height: 173px;
+  background-color: #444;
+  margin: 10px auto;
+}
