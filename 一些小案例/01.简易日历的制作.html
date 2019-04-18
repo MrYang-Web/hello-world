@@ -5,13 +5,61 @@
     <title>01.简易日历的制作</title>
     <link rel="stylesheet" href="demo.css">
     <script>
+        //  1.Javascript入口函数,如果不编写这个函数
+        //  会造成脚本读取了,但是DOM结构没读取,从而出现undefined的问题.
+        window.onload = function () {
 
+
+        //  2.利用var 关键字以及document方法获取需要用到的变量;
+          var box = document.getElementById("tab");
+          var oLi = box.getElementsByTagName("li");
+          var text = box.getElementsByTagName("div")[0];
+
+
+        // 8.新建一个数组,储存p标签的文本信息.
+          var arr = [
+            '快过年了,大家浪起来啊!!!!!ψ(*｀ー´)ψ',
+            '新年好呀,新年好呀,祝福大家新年好!',
+            '为什么寒假过的这么快啊,完全都不知道自己干了什么(ಥ_ಥ) ',
+            '新学期!新计划!新鸡血!冲啊!!!!!',
+            '五一劳动节,是国家法定节日,就应该好好睡觉,好好玩耍!!!',
+            '我真的还想再过儿童节~~~~~~~~',
+            '暑假为什么要招生啊,读职中走捷径,不来是傻子!!!',
+            '浪起来,划船不靠浆,全靠一双手o(´^｀)o',
+            '不要开学,不要开学,不要开学,重要的事说三次',
+            '我能给祖国母亲庆生两次吗?(✪ω✪)',
+            '纵有疾风起, 人生不言弃!',
+            '叮叮当,叮叮当,铃儿响叮当~'
+          ]
+
+
+
+        //  3.利用for循环为每个需要添加触发事件的标签添加事件.
+          for (var i = 0; i < oLi.length; i++) {
+
+            // 6.首先让oLi的索引是一个数组
+            // 那么这里就让oLi的第 i 位,等于他本身,使index变成一个数字.
+            oLi[i].index = i;
+            oLi[i].onmouseover = function () {
+
+                //  4.添加class样式之前,要先去除原本的样式.
+                for (var i = 0; i < oLi.length; i++) {
+                  oLi[i].className = "";
+                }
+                //5.这里是当鼠标移动到当前目标时,添加class样式.
+                this.className = "active";
+
+                //7.再在利用onmuseover以及this提取当前index这得值+1变成月份;
+                text.innerHTML = '<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+            };
+          }
+        };
     </script>
   </head>
   <body>
-    <div class="daily-box">
+    <div class="daily-box" id="tab">
       <ul class="daily-list">
-        <li><h5>1</h5><p>JAN</p></li>
+        <li class="active"><h5>1</h5><p>JAN</p></li>
         <li><h5>2</h5><p>FER</p></li>
         <li><h5>3</h5><p>MAR</p></li>
         <li><h5>4</h5><p>APR</p></li>
@@ -25,7 +73,8 @@
         <li><h5>12</h5><p>DEC</p></li>
       </ul>
       <div class="text-box">
-
+          <h2>1月活动</h2>
+          <p>安安心心过大年ψ(*｀ー´)ψ</p>
       </div>
     </div>
   </body>

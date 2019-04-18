@@ -20,10 +20,9 @@ ul {
   margin: 0 auto;
   padding-top: 20px;
 }
-.daily-list li {
+li {
   width: 150px;
   height: 150px;
-  background-color: red;
   float: left;
   margin:8px 8px;
   border: 1px solid transparent;
@@ -46,4 +45,17 @@ ul {
   height: 173px;
   background-color: #444;
   margin: 10px auto;
+  color: #fff;
+}
+.active {
+  border:1px solid #f40;
+  background: #fff;
+  color: #f40;
+}
+
+.text-box h2,
+.text-box p {
+  padding-top: 16px;
+  padding-left: 40px;
+
 }
