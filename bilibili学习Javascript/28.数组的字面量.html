@@ -5,10 +5,109 @@
     <title>28.数组的字面量</title>
     <link rel="stylesheet" href="demo.css">
     <script>
+        var arr = new Array();
+        arr[0] = 1234;
+        arr.hello = "helo world";
+        console.log(arr.hello);
 
+
+        var arr2 = [1,2,3,4,5,6,10];
+
+        console.log(arr);
+
+        var arr3 =new Array(10,20,30);
+
+        arr4 = new Array(10);
+        console.log(arr4);
+
+        arr5 = ["hello",1,true,null];
+        console.log(arr5);
+
+        var obj = {name:"孙悟空"};
+        arr5[arr5.length] = obj;
+        console.log(arr5[4].name);
+
+
+        arr6 = [{name:"白骨精"},{name:"沙和尚"},{name:"蜘蛛精"}];
+
+        console.log(arr6[0].name,arr6[2].name);
+
+
+
+        arr7 = [function(){alert(1)},function(){alert(2)},function(){alert(3)}];
+
+        console.log(arr7);
+
+        arr7[0]();
+
+
+        arr8 =[[1,2,3],[4,5,6],[7,8,9]];
+
+        console.log(arr8);
     </script>
   </head>
   <body>
     <h1>28.数组的字面量</h1>
+    <p>数组也是对象</p>
+    <p>但是如果数组不储存数字,就没有意义了.</p>
+    <pre>
+      var arr = new Array();
+      arr[0] = 1234;
+      arr.hello = "helo world";
+      console.log(arr.hello);
+    </pre>
+    <p>这里是可以打印hello world的.</p>
+    <p>数组也可以用字面量的形式来创建</p>
+    <p>语法: 数组 = []</p>
+    <pre>
+      var arr2 = [1,2,3,4,5,6,10];
+
+      console.log(arr2);
+
+    </pre>
+    <p>会打印出数组</p>
+    <p>第二种写法:使用构造函数创建数组时,也可以同时添加元素</p>
+    <p>将要添加的元素作为构造函数的参数传递</p>
+    <pre>
+      var arr3 =new Array(10,20,30);
+    </pre>
+    <p>这里有一个主意点:</p>
+    <pre>
+      创建一个数组中只有一个元素10
+      arr4 = new Array(10);
+      console.log(arr4);
+    </pre>
+    <p>会打印一串逗号...所以这个10其实是表示这个数组的长度是10</p>
+    <h3>数组中的元素可以是任意数据类型</h3>
+    <pre>
+
+      arr5 = ["hello",1,true,null,undefind];
+      console.log(arr5);
+
+    </pre>
+    <p>也可以是对象</p>
+    <pre>
+      var obj = {name:"孙悟空"};
+      var[arr5.length] = obj;
+      console.log(arr5[5].name);
+      打印结果为孙悟空;
+
+      arr6 = [{name:白骨精},{name:沙和尚},{name:蜘蛛精}];
+
+      console.log(arr6[0],arr6[2]);
+    </pre>
+    <p>数组里的元素也可以在是一个函数</p>
+    <pre>
+
+      arr7 = [function(){},function(){},function(){}];
+
+    </pre>
+    <p>也可以调用:   arr7[0]();</p>
+    <h3>数组里的元素也可以是数组(二维数组)</h3>
+    <pre>
+
+      arr8 =[[1,2,3],[4,5,6],[7,8,9]];
+
+    </pre>
   </body>
 </html>

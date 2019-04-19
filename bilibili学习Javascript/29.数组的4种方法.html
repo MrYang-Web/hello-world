@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>29.数组的四种方法</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var arr = ["孙悟空","猪八戒","沙和尚"];
+      var result = arr.push("唐僧","蜘蛛精","白骨精");
+      console.log(arr);
+      console.log("result  = "+ result);
+      arr.pop();
+      console.log(arr);
+      arr.unshift("玉兔精");
+      console.log(arr);
+      arr.shift();
+      console.log(arr);
+    </script>
+  </head>
+  <body>
+    <h1>29.数组的四种方法</h1>
+    <h2>push()方法</h2>
+    <p>该方法可以向数组的末尾添加一个或多个元素,并返回数组的长度.</p>
+    <p>可以将要添加的元素做方法的参数传递.</p>
+    <pre>
+      var arr = ["孙悟空","猪八戒","沙和尚"];
+      arr.push("唐僧");
+    </pre>
+    <h2>pop()方法</h2>
+    <p>方法可以向数组的末尾删除一个或多个元素,并返回数组的长度.</p>
+    <p>和push()功能相反的方法</p>
+    <p>调用一次就删除一次</p>
+    <pre>
+      arr.pop();
+    </pre>
+    <h2>unshift()方法</h2>
+    <p>方法可以向数组的前端添加一个或多个元素,并返回数组的长度.</p>
+    <pre>
+      arr.unshift("玉兔精");
+    </pre>
+    <p>该方法需要注意的是:向前面添加元素以后,后面所有元素的索引都要依次向后加一位.</p>
+    <h2>shift()方法</h2>
+    <p>方法可以向数组的前端删除一个或多个元素,并返回数组的长度.</p>
+    <p>调用一次就删除一次</p>
+    <pre>
+      arr.shift();
+    </pre>
+    <p>该方法需要注意的是:向前面删除元素以后,后面所有元素的索引都要依次向前减一位.</p>
+  </body>
+</html>
