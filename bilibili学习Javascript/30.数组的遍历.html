@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>30.数组的遍历</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      // arr = ["孙悟空","猪八戒","沙和尚","唐僧"];
+      // for (i=0;i<arr.length;i++) {
+      //     console.log(arr[i]);
+      // }
+
+      function Person(name,age,gander){
+        this.name = name;
+        this.age =age;
+      }
+
+      //修改Person圆形的toString 可以让我们控制台打印的时候看清楚详细的属性名和值.
+      //在谷歌浏览器内可以不用这样做,直接打印就可以获得湘西的属性名和值.
+      //Person.prototype.toString = function(){
+      //  return "Person[name=" +this.name+ ",age="+this.age+"]";
+      //}
+
+      var per = new Person("孙悟空",12);
+      var per2 = new Person("猪八戒",28);
+      var per3 = new Person("蜘蛛精",46);
+      var per4 = new Person("红孩儿",6);
+      var per5 = new Person("二郎神",18);
+
+      console.log(per);
+
+      //创建一个数组,放入这5个对象.
+
+      var perArr = [per,per2,per3,per4,per5];
+
+      console.log(perArr);
+
+      function getAdult(arr){
+        //创建一个新数组
+        var newArr = [];
+
+        //遍历arr,获取arr中的Person对象
+        for(i=0;i<arr.length;i++){
+
+          //判断Person对象是否大于等于18
+          if(arr[i].age == 18 || arr[i].age > 18){
+
+            // 如果大于等于18,则将这个对象添加到newArr中.
+            newArr.unshift(arr[i]);
+          }
+        }
+
+        // 返回新数组
+        return newArr;
+      }
+
+    var result = getAdult(perArr);
+
+    console.log(result);
+
+    </script>
+  </head>
+  <body>
+    <h1>30.数组的遍历</h1>
+    <p>遍历数组,就是将数组中所有的元素都取出来</p>
+    <pre>
+      arr = ["孙悟空","猪八戒","沙和尚","唐僧"];
+      for (i=0;i<arr.length;i++) {
+          console.log(arr[i]);
+      }
+    </pre>
+    <h3>练习题:</h3>
+    <pre>
+      function Person(name,age,gander){
+        this.name = name;
+        this.age =age;
+      }
+
+      //修改Person圆形的toString 可以让我们控制台打印的时候看清楚详细的属性名和值.
+      //在谷歌浏览器内可以不用这样做,直接打印就可以获得湘西的属性名和值.
+      //Person.prototype.toString = function(){
+      //  return "Person[name=" +this.name+ ",age="+this.age+"]";
+      //}
+
+      var per = new Person("孙悟空",18,)
+      var per2 = new Person("猪八戒",18,)
+      var per3 = new Person("蜘蛛精",16,)
+      var per4 = new Person("红孩儿",6,)
+      var per5 = new Person("二郎神",12,)
+
+      console.log(per);
+
+      //创建一个数组,放入这5个对象.
+
+      var perArr = [per,per2,per3,per4,per5];
+
+      console.log(perArr);
+
+      // !!创建一个函数,可以将数组中未满18岁的Person提取出来.
+      //    然后封装到一个新的数组中并返回.
+    </pre>
+    <p>答案:</p>
+    <pre>
+        function getAdult(arr){
+          //创建一个新数组
+          var newArr = [];
+
+          //遍历arr,获取arr中的Person对象
+          for(i=0;i<arr.length;i++){
+
+            //判断Person对象是否大于等于18
+            if(arr[i].age == 18 || arr[i].age > 18){
+
+              //如果大于等于18,则将这个对象添加到newArr中.
+              newArr.unshift(arr[i]);
+            }
+          }
+
+          //返回新数组
+          return newArr;
+        }
+
+      var result = getAdult(perArr);
+
+      console.log(result);
+    </pre>
+  </body>
+</html>
