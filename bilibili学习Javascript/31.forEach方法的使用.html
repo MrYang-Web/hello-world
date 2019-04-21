@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>31.forEach方法的使用</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var arr = ["孙悟空","猪八戒","沙和尚","唐僧","白骨精"];
+
+      arr.forEach(function(value,index,arr){
+        console.log("value = " + value);
+        console.log("index = " + index);
+        console.log("arr = " + arr);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>forEach方法的使用</h1>
+    <p>一般我们都是用for方法遍历数组</p>
+    <p>JS还为我们提供了forEach()方法,用来遍历数组</p>
+    <pre>
+      var arr = ["孙悟空","猪八戒","沙和尚","唐僧","白骨精"];
+
+    </pre>
+    <p>forEach需要一个函数作为参数</p>
+    <p>像这种函数,由我们创建,但是不由我们调用,我们称为回调函数</p>
+    <pre>
+      arr.forEach(function(){
+        console.log("hello");
+      });
+    </pre>
+    <p>数组中有几个元素,函数就会执行几次.每次执行时,浏览器会将遍历到的元素以实参的形式传递进来.</p>
+    <p>浏览器会在回调函数中传递三个函数.</p>
+    <pre>
+      arr.forEach(function(a,b,c){
+        console.log("a =" + a);
+        console.log("b =" + b);
+        console.log("c =" + c);
+      });
+    </pre>
+    <p>第一个元素是遍历的元素value</p>
+    <p>第二个元素是遍历到元素的索引index</p>
+    <p>第三个元素是遍历的数组arr</p>
+  </body>
+</html>

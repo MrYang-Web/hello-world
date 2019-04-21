@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>34.数组的剩余方法</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var arr = ["孙悟空","猪八戒","沙和尚"];
+      var arr2 = ["白骨精","玉兔精","蜘蛛精"];
+      var arr3 = ["太上老君","二郎神","玉皇大帝"];
+      var result = arr.concat(arr2,arr3,"牛魔王","铁扇公主");
+      console.log(result);
+
+      var arrString = arr.join();
+      console.log(typeof arrString);
+
+      var arrString = arr.join("hello");
+      console.log(arrString);
+
+      var arr4 = [1,2,3,4,5,6];
+
+      arr4.reverse();
+      console.log(arr4);
+
+      var arr5 = ["b","d","c","e","a","f"];
+      arr5.sort();
+      console.log(arr5);
+
+
+      var arr6 = [5,4,2,6,7,8,9,111,];
+      arr6.sort(function(a,b){
+
+          //如果前边的大
+          if(a>b){
+            return 1;
+          }else if (a < b){
+            return -1;
+          }else {
+            return 0;
+          }
+      });
+      console.log(arr6);
+
+      arr6.sort(function(a,b){
+        //升序排列
+        //return a-b;
+
+        //降序排列
+        return b-a;
+      });
+      console.log(arr6);
+    </script>
+  </head>
+  <body>
+    <h1>34.数组的剩余方法</h1>
+    <p>concat()可以连接两个或多个数组,并将新的数组返回</p>
+    <pre>
+      var arr = ["孙悟空","猪八戒","沙和尚"];
+      var arr2 = ["白骨精","玉兔精","蜘蛛精"];
+      var arr3 = ["太上老君","二郎神","玉皇大帝"];
+
+
+      //传进去几个数组,就拼接几个数组都是按顺序接在arr的后面
+      //并且可以传元素.
+      var result = arr.concat(arr2,arr3,"牛魔王","铁扇公主");
+      console.log(result);
+    </pre>
+    <p>该方法不会对原数组产生影响</p>
+    <hr>
+    <h3>jion()</h3>
+    <p>该方法可以将数组转换为字符串</p>
+    <p>该方法不会对原数组产生影响,而是将转换后的字符串作为结果返回.</p>
+    <pre>
+      var arrString = arr.join();
+      console.log(typeof arrString);
+    </pre>
+    <p>在join()中可以传一个字符串作为参数,这个字符串将会成为数组中元素的连接符</p>
+    <p>如果不指定的话,则默认使用逗号做为连接符 </p>
+    <pre>
+      var arrString = arr.join("hello");
+      console.log(arrString);
+    </pre>
+    <hr>
+    <h3>reverse</h3>
+    <p>该方法可以翻转数组顺序</p>
+    <p>该方法会直接修改原数组</p>
+    <pre>
+      var arr4 = [1,2,3,4,5,6];
+
+      arr4.reverse();
+      console.log(arr4);
+    </pre>
+    <hr>
+    <h3>sort()</h3>
+    <p>该数组可以对数组进行排序</p>
+    <pre>
+      var arr5 = ["b","d","c","e","a","f"];
+
+      arr5.sort();
+      console.log(arr5);
+    </pre>
+    <p>该方法也会影响原数组.</p>
+    <p>即使针对纯数字的数组,排序也只会按照Unicode的编码排序</p>
+    <p>所以使用sort()对数字排序,可能会得到错误的排序</p>
+    <p>可以自己设定排序的规则</p>
+    <p>可以在sort中添加一个回调函数</p>
+    <p>回调函数中,我们需要定义两个形参</p>
+    <p>浏览器将会分别使用数组中的元素作为实参去调用回调函数</p>
+    <p>使用哪个元素调用不确定,但是肯定的是在数组中a一定在b前边</p>
+    <p>浏览器会根据回调函数的值来决定返回元素的顺序</p>
+    <p>如果返回一个大于0的值,则元素会交换位置</p>
+    <p>如果返回一个小于0的值,则元素位置不变</p>
+    <p>如果返回一个0,则认为两个元素相等,也不交换位置.</p>
+    <pre>
+      var arr6 = [5,4,2,6,7,8,9,111,];
+      arr6.sort(function(a,b){
+
+          //如果前边的大
+          if(a>b){
+            return 1;
+          }else if (a < b){
+            return -1;
+          }else {
+            return 0;
+          }
+      });
+    </pre>
+    <p>可以简写成下面的形式</p>
+    <pre>
+      var arr6 = [5,4,2,6,7,8,9,111,];
+      arr6.sort(function(a,b){
+        //升序排列
+        return a-b;
+
+        //降序排列
+        return b-a;
+      });
+    </pre>
+  </body>
+</html>

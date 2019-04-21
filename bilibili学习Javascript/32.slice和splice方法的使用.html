@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>32.slice和splice方法的使用</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var arr = ["孙悟空","猪八戒","沙和尚","唐僧","白骨精"];
+      var a = arr.slice(1,4);
+      var b = arr.slice(1);
+      var c = arr.slice(0,-1);
+      console.log(arr);
+      console.log("a = "+a);
+      console.log("b = "+b);
+      console.log("c = "+c);
+
+
+
+
+      var d = arr.splice(1,0,"牛魔王","铁扇公主","红孩儿");
+      console.log(arr);
+      console.log("d = "+d);
+
+
+    </script>
+  </head>
+  <body>
+    <h1>slice和splice方法的使用</h1>
+    <h3>silce可以从指定的数组中提取指定元素</h3>
+    <p>语法:   数组对象.silce(开始位置,结束位置)</p>
+    <p>1.截取开始位置的索引,包含开始索引的元素</p>
+    <p>2.截取结束位置的索引,不包含结束索引的元素</p>
+    <pre>
+        var arr = ["孙悟空","猪八戒","沙和尚","唐僧","白骨精"];
+
+        arr.slice(1,3);
+    </pre>
+    <p>该方法不会影响原数组,而是将截取的元素封装到一个新的数组中返回.</p>
+    <p>第二个参数可以不写,表示开始后的元素都保留</p>
+    <pre>
+      arr.slice(1);
+    </pre>
+    <p>索引可以是一个负值,如果是负值,则从最后一个开始计数</p>
+    <pre>
+      arr.slice(0,-1);
+    </pre>
+    <h3>splice()可以用于删除数组中的指定元素</h3>
+    <pre>
+      arr.splice(1,1);
+    </pre>
+    <p>使用splice会影响到原数组,会将指定的元素从数组中删除.</p>
+    <p>并将被删除的元素作为返回值返回.</p>
+    <p>第一个参数表示开始位置的索引.</p>
+    <p>第二个参数表示删除的元素数量.</p>
+    <p>第三个参数以及以后,可以传递一个新的元素,这些元素将会自动插入到开始删除位置索引前面</p>
+    <p>如果将第二个参数设置为0,将不删除元素,但是可以在这个前面插入元素</p>
+    <p>arr.splice(1,0,"牛魔王","铁扇公主","红孩儿")</p>
+  </body>
+</html>
