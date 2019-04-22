@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>35.call和apply</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      function foo(){
+        alert(this);
+      }
+      var obj = {name:1};
+      foo.call(obj);
+
+      function foo1(a,b){
+        console.log(a);
+        console.log(b);
+      }
+      foo1.call(obj, 1, 2);
+
+      function foo2(a,b){
+        console.log(a);
+        console.log(b);
+      }
+      foo2.apply(obj, [1, 2]);
+
+
+
+      var obj2 = {
+        name:"我是obj2name",
+        sayName: function() {
+          console.log(this.name);
+        }
+      };
+
+
+      var obj3 = {name:"我是obj3name"};
+      function foo3(){
+        console.log(this.name);
+      }
+      foo3.call(obj2);
+      foo3.apply(obj3);
+
+      obj2.sayName();
+
+      //当使用call()方法并传入对象参数时,this的上下文关系发生了变化.
+      obj2.sayName.call(obj3);
+
+      obj2.sayName.apply(obj3);
+
+    </script>
+  </head>
+  <body>
+    <h1>35.call和apply</h1>
+    <p>call()和apply()是函数的两个方法,需要通过函数对象来调用</p>
+    <p>当对函数调用call()和apply(),都会调用函数执行</p>
+    <p>再调用这两个方法的时候,可以将一个对象制定为第一个参数</p>
+    <p>此时这个对象将会成为函数执行时的this</p>
+    <pre>
+      function foo(){
+        alert(this);
+      }
+      var obj = {name:1;};
+      foo.call(obj);
+      foo.apply(obj);
+    </pre>
+    <p>call()方法可以在对象之后依次传递</p>
+    <pre>
+      function foo1(a,b){
+        console.log(a);
+        console.log(b);
+      }
+      foo1.call(obj, 1, 2);
+    </pre>
+    <p>apply()需要将实参封装到一个数组中统一传递.</p>
+    <pre>
+      function foo2(a,b){
+        console.log(a);
+        console.log(b);
+      }
+      foo2.apply(obj, 1, 2);
+    </pre>
+    <h2>call()和apply()方法通常用来修改this的上下文关系.</h2>
+    <pre>
+      var obj2 = {name:"我是obj2"};
+      var obj3 = {name:"我是obj3"};
+      function foo3(){
+        console.log(this.name);
+      }
+      foo3.all(obj2);
+      foo3.apply(obj3);
+    </pre>
+    <h2>this的情况</h2>
+    <h4>1.以函数情况调用时,this永远都是window.</h4>
+    <h4>2.以方法形式调用时,this是调用方法的对象.</h4>
+    <h4>3.以构造函数的形式调用时,this是新创建的那个对象.</h4>
+    <h4>4.使用call和apply调用时,this是制定的那个对象.</h4>
+  </body>
+</html>

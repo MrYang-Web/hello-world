@@ -5,6 +5,8 @@
     <title>01.简易日历的制作</title>
     <link rel="stylesheet" href="demo.css">
     <script>
+
+
         //  1.Javascript入口函数,如果不编写这个函数
         //  会造成脚本读取了,但是DOM结构没读取,从而出现undefined的问题.
         window.onload = function () {
@@ -39,6 +41,7 @@
 
             // 6.首先让oLi的索引是一个数组
             // 那么这里就让oLi的第 i 位,等于他本身,使index变成一个数字.
+            console.log(oLi[i].index);
             oLi[i].index = i;
             oLi[i].onmouseover = function () {
 
