@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>39.包装类</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var num = new Number(3);
+      var str = new String("hello");
+      var bool = new Boolean(true);
+
+      console.log(typeof num);
+      console.log(num);
+
+      console.log(typeof str);
+      console.log(str);
+
+      console.log(typeof bool);
+      console.log(bool);
+
+      num.hello = "添加成功";
+      console.log(num.hello);
+    </script>
+  </head>
+  <body>
+    <h1>39.包装类</h1>
+    <p>在JS中为我们提供了三个包装类,可以把基本数据类型的数据转化为对象.</p>
+    <p>String() 可以将基本数据类型转化为String对象</p>
+    <p>Number() 可以将基本数据类型转化为Number对象</p>
+    <p>Boolean() 可以将基本数据类型转化为Boolean对象</p>
+    <pre>
+      //创建一个Number类型的对象.
+       var num = new Number(3);
+       var str = new String("hello");
+       var bool = new Boolean(true);
+
+       console.log(typeof num);
+       console.log(num);
+
+       console.log(typeof str);
+       console.log(str);
+
+       console.log(typeof bool);
+       console.log(bool);
+    </pre>
+    <p>向num里面添加一个属性</p>
+    <pre>
+      num.hello = "添加成功";
+
+      console.log(num.hello);
+    </pre>
+  </body>
+</html>
