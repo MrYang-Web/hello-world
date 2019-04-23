@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>40.字符串的方法</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var str = "hello world!";
+      console.log(str.length);
+      console.log(str[0]);
+      console.log(str[1]);
+      console.log(str[2]);
+      console.log(str[3]);
+      console.log(str[4]);
+
+      var result = str.charAt(0);
+
+      console.log(result);
+
+      console.log(str[0]);
+
+      console.log(str.charCodeAt(0));
+
+      var result2 = String.fromCharCode(0x2682);
+      console.log(result2);
+
+      var result3 = str.concat("你好,","再见!");
+      console.log(result3);
+
+
+      result4 = str.indexOf("l",4);
+      console.log(result4);
+
+      var result5 = str.slice(0,5);
+      console.log(result5);
+
+
+      str2 = "abc,efg,hij,klm";
+
+      var result6 = str2.split(",");
+      console.log(result6);
+
+      var result7 = str.split("");
+      console.log(result7);
+    </script>
+  </head>
+  <body>
+    <h1>40.字符串的方法</h1>
+    <p>在底层字符串是以字符数组的形式保存的</p>
+    <p>["h","e","l","l","o"]</p>
+    <p>length是一个属性,可以获得字符串的长度</p>
+    <pre>
+      var str = "hello world!";
+      console.log(str.length);
+
+      打印结果是12;
+    </pre>
+    <p>charAt()可以返回字符串中制定位置的字符</p>
+    <pre>
+      var str = "hello world!";
+
+      var result = str.charAt(0);
+
+      console.log(result);  打印的结果是"h";
+
+      使用中括号的方法更简便
+      console.log(str[0]);  打印的结果也是"h";
+
+
+    </pre>
+    <p>charCodeAt()可以获得制定字符数组的Unicode编码</p>
+    <pre>
+      var str = "hello world!";
+
+      console.log(str.charCodeAt(0));
+
+      打印的结果是104;
+
+
+    </pre>
+    <p>fromCharCode()可以根据字符编码输出字符</p>
+    <p>此方法需要用构造函数的方法调用</p>
+    <pre>
+      var result = String.fromCharCode(20034);
+      console.log(result);
+
+
+    </pre>
+    <p>concat()可以用来连接两个或多个字符串  其实就跟 + 号一样</p>
+    <pre>
+      result3 = str.concat("你好");
+      console.log(result3);
+
+
+    </pre>
+    <p>indexOf()该方法可以检索一个字符串中是否含有指定内容</p>
+    <p>如果字符串中含有该内容,则会返回其第一次出现的索引</p>
+    <p>如果没有找到指定内容,则返回-1</p>
+    <p>可以指定第二参数,为开始查找的位置</p>
+    <pre>
+      result4 = str.indexOf("h");
+      console.log(result4);
+
+
+    </pre>
+    <p>lastIndexOf()该方法和indexOf()一样</p>
+    <p>不同的是indexOf()是从前往后找</p>
+    <p>lastIndexOf()是从后往前找</p>
+    <p>也可以制定第二参数,为开始查找的位置</p>
+    <pre>
+
+
+
+    </pre>
+    <p>slice()可以从字符串中截取一个指定的内容</p>
+    <p>跟数组的slice()方法一样</p>
+    <p>如果我们省略第二参数,将截取后面的所有元素</p>
+    <p>也可以传递一个负数,将会从后面开始计算</p>
+    <pre>
+      var result5 = str.slice(0,5);
+      console.log(result5);
+
+
+    </pre>
+    <p>subString()可以截取一个字符串,跟slice()相似</p>
+    <p>不同的是,这个方法不能传递负值,如果是负值,则默认0</p>
+    <p>而且会自动调整参数的位置,如果参数小于第一个,则自动交换</p>
+
+    <h3>split()可以将一个字符串拆分为数组</h3>
+    <pre>
+      str2 = "abc,efg,hij,klm";
+
+      var result6 = str.split(",");
+      console.log(result6);
+
+      var result7 = str.split("");
+      console.log(result7);
+    </pre>
+    <p>传递一个空号,就会将字符串中所有元素拆开成为一个个元素</p>
+  </body>
+</html>
