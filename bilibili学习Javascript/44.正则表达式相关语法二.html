@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>44.正则表达式相关语法</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      //检查一个字符串是否有   .
+      var reg = /./;
+      console.log(reg.test("asdasda")); //打印为true;出现错误;
+      //这么做是错误的,  /./代表了任意字符;
+      //需要使用反斜杠\转义字符;
+      var reg = /\./;
+      console.log(reg.test("asdasdasd")); //打印结果为false;没有错误;
+
+      //如果需要检查\反斜杠,就需要输入两个\\;
+      var reg = /\\/;
+      console.log(reg.test("b.\\"));  //打印结果为true;
+
+
+      //注意:使用构造函数的时候,
+      //由于他的参数是一个字符串,
+      //而\反斜杠是字符串中转义字符.
+      //如果需要使用\则使用两个\\来代替
+
+      var reg = new RegExp("\.");
+      console.log(reg.test("asda123"));  //打印结果为true;
+      console.log(reg);
+
+      var reg = new RegExp("\\.");
+      console.log(reg.test("asda123"));  //打印结果为false;
+      console.log(reg);
+
+
+      //其他元字符
+      //-  \w
+      //-  任意字母,数字,_   [A-z0-9_]
+
+      //-  \W
+      //-  除了任意字母,数字,_  [^A-z0-9_]
+
+      //-  \d
+      //-  任意的数字[0-9]
+
+      //-  \D
+      //-  除了数字[^0-9]
+
+      //-  \s
+      //-  空格
+
+      //-  \S
+      //-  除了空格
+
+      //-  \b
+      //-  单词边界
+
+      //-  \B
+      //-  除了单词边界
+
+      //创建一个正则表达式检查一个字符串中是否含有单词child;
+      var reg = /"child"/;
+      console.log(reg.test("hello children"));  //返回true;
+      //返回的结果为true,但是逻辑上,检查的children并不符合条件.
+      //那么如果要精确的找出child这个单词,就需要单词边界也就是单词前后的空格
+      var reg = /"\bchild\b"/;
+      console.log(reg.test("hello children"));  //返回false;
+
+      //接受用户的输入
+      var str = prompt("请输入你的用户名:");
+      //祛除掉字符串的空格;
+      var str =  str.replace(/\s/g , "");
+
+      //祛除掉前面和后面的空格
+      str = str.replace(/^\s/* , "");   //开头空格
+      str = str.replace(/$\s/* , "");   //结尾空格
+      //整合
+      str = str.replace(/ ^\s | $\s /* , "");
+    </script>
+  </head>
+  <body>
+    <h1>44.正则表达式相关语法</h1>
+    <pre>
+
+    </pre>
+  </body>
+</html>

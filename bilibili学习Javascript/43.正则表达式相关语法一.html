@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>43.正则表达式相关语法</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      //创建一个正则表达式
+      var reg = /aaa/;
+      //如果要检查的重复性数据过多,可以写成下面这种形式
+      var reg = /a{3}/;
+      console.log(reg.test("aaabbb"));  //打印true;
+      //注意,量词只对前面一个器作用
+      //比如:
+      var reg = /ababab/;
+      //如果写以下形式,将会出错
+      var reg = /ab{3}/;
+      console.log(reg.test("ababab")); //打印false;
+      //要让上述检查打印结果为true,需要使用下面的方法
+      var reg = /(ab){3}/;
+      console.log(reg.test("ababab")); //打印true;
+      //要检查出现x到y次的话,写法如下:
+      var reg = /ab{1,3}c/;  //这种写法表示出现ab(b连续出现1或者2或者3次)c;
+      console.log(reg.test("abc"));
+      console.log(reg.test("abbc"));
+      console.log(reg.test("abbbc"));
+      console.log(reg.test("abbbbc"));
+      //如果逗号,后面不写值,那表示大于等于前面的值;
+      var reg = /ab{1,}/;  //表示b出现大于1次;
+      //如果有加号 +  表示至少出现+号前面的值一次;
+      var reg = /ab+c/;   //表示出现至少一次b;相当于{1,}
+      //如果有*号,表示0个或多个*号前面的值
+      var reg = /ab*c/; //表示有零个b或者多个b;相当于{0,}
+      //如果有?号,表示0个或一个
+      var reg = /ab?c/; //表示零个或者一个;相当于{0,1}
+
+      //检查一个字符串是否以特定条件开头:  ^
+      var reg = /^a/;  //表示开头是否以a开始;
+
+      //检查一个字符串是否以特定条件结尾:  $
+      var reg = /a$/;  //表示结尾是否以a结尾;
+
+      //如果在一个正则表达式中,同时使用^ $ 则要求字符串必须完全符合正则表达式;
+      var reg = /^a$/;   //这里表示a开头马上就要a结尾
+      //如果要以a开头或者以a结尾 应该写成:
+      var reg = /^a|a$/;
+
+      //练习:创建一个正则表达式,检查一个字符串是否是一个合法的手机号
+
+      //第一步:先用正则表达式定义合法手机号的规则:
+      //    18174314886
+      //  第一位必须是  1
+      //  第二位是 3-9
+      //  第三位以后任意数字9个
+      //   ^1 [3-9] [0-9]{9}$
+      var phoneNum = 18174314886;
+      var phoneReg = /^1[3-9][0-9]{9}$/;
+      console.log(phoneReg.test(phoneNum));
+     </script>
+  </head>
+  <body>
+    <h1>43.正则表达式相关语法</h1>
+    <pre>
+      //创建一个正则表达式
+      var reg = /aaa/;
+      //如果要检查的重复性数据过多,可以写成下面这种形式
+      var reg = /a{3}/;
+      console.log(reg.test("aaabbb"));  //打印true;
+      //注意,量词只对前面一个器作用
+      //比如:
+      var reg = /ababab/;
+      //如果写以下形式,将会出错
+      var reg = /ab{3}/;
+      console.log(reg.test("ababab")); //打印false;
+      //要让上述检查打印结果为true,需要使用下面的方法
+      var reg = /(ab){3}/;
+      console.log(reg.test("ababab")); //打印true;
+      //要检查出现x到y次的话,写法如下:
+      var reg = /ab{1,3}c/;  //这种写法表示出现ab(b连续出现1或者2或者3次)c;
+      console.log(reg.test("abc"));
+      console.log(reg.test("abbc"));
+      console.log(reg.test("abbbc"));
+      console.log(reg.test("abbbbc"));
+      //如果逗号,后面不写值,那表示大于等于前面的值;
+      var reg = /ab{1,}/;  //表示b出现大于1次;
+      //如果有加号 +  表示至少出现+号前面的值一次;
+      var reg = /ab+c/;   //表示出现至少一次b;相当于{1,}
+      //如果有*号,表示0个或多个*号前面的值
+      var reg = /ab*c/; //表示有零个b或者多个b;相当于{0,}
+      //如果有?号,表示0个或一个
+      var reg = /ab?c/; //表示零个或者一个;相当于{0,1}
+
+      //检查一个字符串是否以特定条件开头:  ^
+      var reg = /^a/;  //表示开头是否以a开始;
+
+      //检查一个字符串是否以特定条件结尾:  $
+      var reg = /a$/;  //表示结尾是否以a结尾;
+
+      //如果在一个正则表达式中,同时使用^ $ 则要求字符串必须完全符合正则表达式;
+      var reg = /^a$/;   //这里表示a开头马上就要a结尾
+      //如果要以a开头或者以a结尾 应该写成:
+      var reg = /^a|a$/;
+
+      //练习:创建一个正则表达式,检查一个字符串是否是一个合法的手机号
+
+      //第一步:先用正则表达式定义合法手机号的规则:
+      //    18174314886
+      //  第一位必须是  1
+      //  第二位是 3-9
+      //  第三位以后任意数字9个
+      //   ^1 [3-9] [0-9]{9}$
+      var phoneNum = 18174314886;
+      var phoneReg = /^1[3-9][0-9]{9}$/;
+      console.log(phoneReg.test(phoneNum));
+    </pre>
+  </body>
+</html>
