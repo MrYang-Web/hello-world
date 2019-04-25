@@ -17,6 +17,11 @@ strong {
   color: black;
 }
 
+i {
+  font-weight: 600;
+  font-size: 18px;
+  color: #f40;
+}
 table th,td,tr {
   border: 1px solid #111;
   padding: 5px 5px;

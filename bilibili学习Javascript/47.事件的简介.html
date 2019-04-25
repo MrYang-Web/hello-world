@@ -10,5 +10,30 @@
   </head>
   <body>
     <h1>47.事件的简介</h1>
+    <p>事件,就是文档或浏览器窗口中发生的一些特定的交互瞬间</p>
+    <p>Javascript与HTML之间的交互是通过事件实现的</p>
+    <p>对于web应用来说,有下面这些代表性的事件:点击某个元素,将鼠标移至某个元素上方,按下键盘某个键,等等</p>
+    <p>事件并不关键,关键的是事件发生以后,要有行为反馈.</p>
+    <pre>
+      我们可以在JavaScript事件中设置一些代码,这样当事件被触发时,这些代码将会执行.
+    </pre>
+    <button type="button" name="button" onclick="alert("讨厌,你点我干嘛!")"></button>
+    <button type="button" name="button" onmouseover="alert("讨厌,你点我干嘛!")"></button>
+    <pre>
+    <button type="button" name="button" onclick="alert("讨厌,你点我干嘛!")"></button>
+    <button type="button" name="button" onmouseover="alert("讨厌,你点我干嘛!")"></button>
+    </pre>
+    <p>这种写法称为结构和行为耦合,不方便维护,不推荐使用</p>
+    <p>我们可以为按钮对应事件绑定处理函数的形式来响应事件</p>
+    <pre>
+      获取按钮对象
+      var btn = document.getElementById("btn");
+
+      再绑定一个处理函数.
+      btn.onclick = function(){
+        alert("讨厌,你还点");
+      }
+      像这种为单击事件绑定的函数,我们称为单击回调函数.
+    </pre>
   </body>
 </html>

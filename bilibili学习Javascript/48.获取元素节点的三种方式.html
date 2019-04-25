@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>48.获取元素节点的三种方式</title>
+    <link rel="stylesheet" href="demo.css">
+    <style media="screen">
+      .list-box{
+        width:340px;
+        height:600px;
+        float:left;
+      }
+      ul {
+        list-style:none;
+        width:400px;
+        height:80px;
+      }
+      li {
+        float:left;
+        padding:6px 6px;
+        margin:6px 6px;
+        background-color:orange;
+      }
+      .top-list, .bottom-list{
+        border:1px solid black;
+        margin:10px 0;
+      }
+      p {
+        padding-left:20px;
+      }
+      .button-box{
+        width:420px;
+        height:510px;
+        float:right;
+        margin:6px 0;
+      }
+      button {
+        width:400px;
+        margin:6px 6px;
+      }
+      body {
+        height:1100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>48.获取元素节点(标签)的三种方式</h1>
+    <p>getElementById("")</p>
+    <p>通过ID获取的<i>一个</i>元素节点</p>
+    <br>
+    <p>getElementsByTagName("")</p>
+    <p>通过标签名获取<i>一组</i>元素节点</p>
+    <br>
+    <p>getElementsByClassName("")</p>
+    <p>通过CSS样式名获取<i>一组</i>元素节点</p>
+    <br>
+    <p>getElementsByName("")</p>
+    <p>通过name属性获取<i>一组</i>元素节点</p>
+    <hr>
+    <h1>获取元素练习</h1>
+    <div class="list-box">
+      <div class="top-list">
+        <p>你喜欢那个城市?</p>
+        <ul>
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>东京</li>
+        <li>首尔</li>
+        </ul>
+        <p>你喜欢哪款单击游戏?</p>
+        <ul>
+        <li>红警</li>
+        <li>实况</li>
+        <li>极品飞车</li>
+        <li>魔兽</li>
+        </ul>
+        <p>你手机的操作系统是什么?</p>
+        <ul>
+        <li>IOS</li>
+        <li>Android</li>
+        <li>Windos Phone</li>
+        </ul>
+      </div>
+      <div class="bottom-list">
+        <p>gander:
+          <input type="radio" name="gander" value="male">Male
+          <input type="radio" name="gander" value="female">Female
+        </p>
+        <p>name: <input type="text" name="name" id="username" value="abcde"></p>
+      </div>
+    </div>
+    <div class="button-box">
+      <button type="button" name="button" id="btn01">查找#bj节点</button>
+      <button type="button" name="button" id="btn02">查找所有li节点</button>
+      <button type="button" name="button" id="btn03">查找name=gander所有节点</button>
+      <button type="button" name="button" id="btn04">查找#city下所有li节点</button>
+      <button type="button" name="button" id="btn05">查找#city所有的自节点</button>
+      <button type="button" name="button" id="btn06">返回#Phone的第一个子节点</button>
+      <button type="button" name="button" id="btn07">返回#bj的父节点</button>
+      <button type="button" name="button" id="btn08">返回#android的前一个兄弟节点</button>
+      <button type="button" name="button" id="btn09">返回#username的value属性值</button>
+      <button type="button" name="button" id="btn10">返回#username的value属性值</button>
+      <button type="button" name="button" id="btn11">返回#bj的文本值</button>
+    </div>
+
+
+
+    <script>
+
+    window.onload = function () {
+
+          //查找#bj节点
+          //先抓取id为btn01的元素并赋值
+          var btn01 = document.getElementById("btn01");
+
+          //为ID为btn01的元素绑定一个单击响应函数
+          btn01.onclick = function () {
+
+            //抓取id为bj的元素并赋值bj
+            var bj = document.getElementById("bj")
+
+            //innerHTML可以获取到元素(标签)内部的html代码
+            alert(bj.innerHTML);
+          }
+
+
+          //查找所有li节点
+          var btn02 = document.getElementById("btn02");
+          btn02.onclick = function () {
+
+            //这个方法可以给我返回一个类数组,所有查询到的元素都会封装到一个数组中.
+            //即使查询到的元素只有一个,也会封装到数组中.
+            var lis = document.getElementsByTagName("li");
+            for (var i = 0; i < lis.length; i++) {
+              alert(lis[i].innerHTML);
+            }
+          }
+
+
+          //查找name=gander的所有节点
+          var btn03 = document.getElementById("btn03");
+          btn03.onclick = function () {
+            var inputs = document.getElementsByName("gander");
+            for (var i = 0; i < inputs.length; i++) {
+              alert(inputs[i].value);
+            }
+          }
+
+
+          //查找#city下所有的li节点
+          //查找#city所有的自节点
+          //返回#Phone的第一个子节点
+          //返回#bj的父节点
+          //返回#android的前一个兄弟节点
+          //返回#username的value属性值
+          //返回#username的value属性值
+          //返回#bj的文本值
+
+    }
+
+
+
+
+
+    </script>
+  </body>
+</html>
