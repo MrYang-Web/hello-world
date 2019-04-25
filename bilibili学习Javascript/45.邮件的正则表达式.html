@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>45.邮件的正则表达式</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+      var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+      var email = "31466416@qq.com";
+      console.log(emailReg.test(email));
+    </script>
+  </head>
+  <body>
+    <h1>45.邮件的正则表达式</h1>
+    <p>先滤清电子邮件的规则</p>
+    <pre>
+      电子邮件格式:   hello.nihao@abc.com.cn
+
+      hello       .nihao     @     abc           .    com           .   cn
+      任意数字字母下划线       @      任意字母数字  .    任意字母{2,5}  .  任意字母{2,5} 可选
+      \w{3,}      (\.\w+)*   @    [A-z0-9]+     (\.[A-z]{2,5}){1,2}
+    </pre>
+    <p>合并: var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;</p>
+    <p>鬼都不认识这个东西.</p>
+    <p>这个正则还有缺陷,必须在最前面和后面加上开始结尾标记,表示这是一个完整的邮件</p>
+    <p>开头标记^   结尾标记$</p>
+    <p>大多数网上的正则表达式,都会有错误,拿过来以后需要自己修改,所以还是得学这些语法</p>
+  </body>
+</html>

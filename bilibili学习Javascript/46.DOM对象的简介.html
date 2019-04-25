@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>46.DOM对象的简介</title>
+    <link rel="stylesheet" href="demo.css">
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <h1>46.DOM对象的简介</h1>
+    <h3>DOM是什么:  Document Object Model 文本对象模型</h3>
+    <p>Javascript通过对DOM来对HTML文档进行操作,只要了解了DOM,就可以随心所欲的操作WEB页面.</p>
+    <ul>
+      <li>文档</li>
+      <li>- 文档就是整个的HTML网页文档</li>
+      <li>对象</li>
+      <li>- 对象表示将网页中的每一个部分都转换为了一个对象<li>
+      <li>模型</li>
+      <li>- 使用模型来表示对象之间的关系,这样方便我们获取</li>
+    </ul>
+    <hr>
+    <h3>Node 节点:节点是构成我们网页的最基本组成部分,网页中的每一个部分都可以称为一个节点</h3>
+    <ul>
+      <li>比如:html标签,属性,文本,注释,整个文档都是一个节点</li>
+      <li>虽然都是节点,但是实际上他们的具体类型是不同的</li>
+      <li>比如:标签我们称之为元素节点,属性被称为属性节点,文本被称为文本节点,文档称为文档节点.</li>
+      <li>节点的类型不同,属性和方法也都不尽相同.</li>
+    </ul>
+    <h3>常用的节点分为四类</h3>
+    <ul>
+      <li>文档节点:整个HTML文档</li>
+      <li>元素节点:HTML文档中的HTML标签</li>
+      <li>属性节点:元素的属性</li>
+      <li>文本节点:HTMl标签中的文本内容</li>
+    </ul>
+    <h3>节点的属性</h3>
+    <table>
+      <tr>
+      <th> </th><th>nodeName</th><th>nodeType</th><th>nodeValue</th>
+      </tr>
+      <tr>
+      <td>文档节点</td><td>#document</td><td>9</td><td>null</td>
+      </tr>
+      <tr>
+        <td>元素节点</td><td>标签名</td><td>1</td><td>null</td>
+      </tr>
+      <tr>
+        <td>属性节点</td><td>属性名</td><td>2</td><td>属性值</td>
+      </tr>
+      <tr>
+        <td>文本节点</td><td>#text</td><td>3</td><td>★文本内容</td>
+      </tr>
+    </table>
+    <hr>
+    <h3>如何获取网页中的元素节点</h3>
+    <p>浏览器已经给我们提供了文档节点对象,这个对象是window的属性.</p>
+    <p>可以在页面中直接使用,文档节点代表的是整个网页.</p>
+    <button type="button" name="button" id="btn">按钮节点</button>
+    <pre>
+        var btn = document.getELementById("btn");
+    </pre>
+    <p>修改对象中的文本内容</p>
+    <p>1.使用方法 2.修改属性</p>
+    <pre>
+       btn.innerHTML = "修改按钮文字";
+    </pre>
+  <script>
+    var btn = document.getElementById("btn");
+    console.log(btn);
+     btn.innerHTML = "修改按钮文字";
+  </script>
+  </body>
+</html>
