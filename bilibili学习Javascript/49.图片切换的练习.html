@@ -4,11 +4,78 @@
     <meta charset="utf-8">
     <title>图片切换的练习</title>
     <link rel="stylesheet" href="demo.css">
+    <style media="screen">
+      img {
+        width: 500px;
+        display:block;
+        margin:20px 0;
+      }
+    </style>
     <script>
+      window.onload = function () {
+        //1.获取两个按钮
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
 
+        //3.要切换图片就是修改img标签的src属性
+        var img = document.getElementsByTagName("img")[0];
+
+        //5.因为有五张图片,所以要先把五张图片的路径存在变量里面.
+        var srcArr = [
+          "imgs/1.jpg",
+          "imgs/2.jpg",
+          "imgs/3.jpg",
+          "imgs/4.jpg",
+          "imgs/5.jpg"
+        ];
+
+        //6.创建一个变量储存当前图片的索引
+        var index = 0;
+
+        //8.设置提示文字
+        //获取info元素
+        var info = document.getElementById("info");
+        console.log(info);
+        info.innerHTML = "一共"+srcArr.length+"张图片,当前第"+(index+1)+"张";
+
+        //2.分别为两个按钮绑定单击响应事件.
+        prev.onclick = function () {
+          //切换到上一张,索引自减
+          index--;
+
+          //7.做一个判断
+          if ( index < 0) {
+            //index = 0;  //这里如果让index等于0,那么在第一张图片的时候就不能翻页了.
+            index = srcArr.length-1;  //进行调换,可以循环
+          }
+          //4.修改图片的src
+          img.src = srcArr[index];
+
+          //将设置提示文字的代码拷贝过来
+          info.innerHTML = "一共"+srcArr.length+"张图片,当前第"+(index+1)+"张";
+        }
+        next.onclick = function () {
+          //切换到下一张,索引自加
+          index++;
+          if ( index > srcArr.length-1) {
+            index = 0; //进行调换,可以循环
+            //index = srcArr.length-1;  //这里如果让index长度等于最大索引,翻到最后一页就不能翻页了.
+          }
+          img.src = srcArr[index];
+          
+          //将设置提示文字的代码拷贝过来
+          info.innerHTML = "一共"+srcArr.length+"张图片,当前第"+(index+1)+"张";
+        }
+      }
     </script>
   </head>
   <body>
     <h1>49.图片切换的练习</h1>
+    <div id="outer">
+      <p id="info">11</p>
+      <img src="imgs/1.jpg" alt="松鼠">
+      <button id="prev"type="button" name="button">上一张</button>
+      <button id="next"type="button" name="button">下一张</button>
+    </div>
   </body>
 </html>
