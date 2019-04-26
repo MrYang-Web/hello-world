@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>50.全选练习</title>
+    <link rel="stylesheet" href="demo.css">
+    <style media="screen">
+      input {
+        margin: 10px 10px;
+      }
+    </style>
+    <script>
+      window.onload = function (){
+
+            //1.全选功能
+            //全选按钮,点击按钮以后,四个多选框全都被选中
+            var checkedAllBtn = document. getElementById("checkedAllBtn");
+            checkedAllBtn.onclick = function () {
+              //设置四个多选框变成选定状态
+              var items = document.getElementsByName("items");
+              for (var i = 0; i < items.length; i++) {
+                items[i].checked = true;
+              }
+            }
+
+            //2.全不选功能
+            var checkedNobtn = document. getElementById("checkedNobtn");
+            checkedNobtn.onclick = function () {
+              var items = document.getElementsByName("items");
+              for (var i = 0; i < items.length; i++) {
+                items[i].checked = false;
+              }
+            }
+
+
+            //3.反选功能
+            var checkedRevBtn = document. getElementById("checkedRevBtn");
+            checkedRevBtn.onclick = function () {
+              var items = document.getElementsByName("items");
+              for (var i = 0; i < items.length; i++) {
+                // if(items[i].checked){
+                //   items[i].checked = false;
+                // }else {
+                //   items[i].checked = true;
+                // }
+                items[i].checked = !items[i].checked;
+                //这是简写方式.
+              }
+            }
+
+            //4.提交功能
+            var sendBtn = document. getElementById("sendBtn");
+            sendBtn.onclick = function () {
+              var items = document.getElementsByName("items");
+              for (var i = 0; i < items.length; i++) {
+                if(items[i].checked){
+                  alert(items[i].value);
+                }
+              }
+            }
+
+            //5.全选/全不选功能 当它选中时,其余的全选中,当他没选中时,其他的都不选中.
+            var checkedAllBox = document.getElementById("checkedAllBox")
+            checkedAllBox.onclick = function () {
+
+              //在事件响应函数中,响应函数是给谁绑定的this就是谁.
+              //alert(this === checkedAllBox);  //用这种方法可以测试this是谁
+
+              var items = document.getElementsByName("items");
+              for (var i = 0; i < items.length; i++) {
+                items[i].checked = this.checked;
+              }
+            }
+
+            //6.全选/全不选的功能的补全.
+            //为四个多选框绑定点击响应函数
+            var items = document.getElementsByName("items");
+            for (var i = 0; i < items.length; i++) {
+              items[i].onclick = function () {
+                checkedAllBox.checked = true;
+                for (var j = 0; i < items.length; i++) {
+                  //只要有一个没选中,就不是全选
+                  if (itmes[j].checked) {
+                      //一旦进入判断,则进入不全选状态
+                      checkedAllBox.checked = false;                  }
+                }
+              }
+            }
+
+
+      }
+    </script>
+  </head>
+  <body>
+    <h1>全选练习</h1>
+    <hr>
+    <form action="" method="post">
+      你爱好的运动是? <input type="checkbox" id="checkedAllBox">全选/全不选
+      <br>
+      <input type="checkbox" name="items" value="足球"> 足球
+      <input type="checkbox" name="items" value="篮球"> 篮球
+      <input type="checkbox" name="items" value="羽毛球"> 羽毛球
+      <input type="checkbox" name="items" value="乒乓球"> 乒乓球
+      <br>
+      <input type="button" id="checkedAllBtn" value="全选">
+      <input type="button" id="checkedNobtn" value="全不选">
+      <input type="button" id="checkedRevBtn" value="反选">
+      <input type="button" id="sendBtn" value="提 交">
+    </form>
+  </body>
+</html>
