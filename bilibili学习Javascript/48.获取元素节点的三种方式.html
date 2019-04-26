@@ -39,12 +39,12 @@
         margin:6px 6px;
       }
       body {
-        height:1100px;
+        height:1600px;
       }
     </style>
   </head>
   <body>
-    <h1>48.获取元素节点(标签)的三种方式</h1>
+    <h1>48.获取元素节点(标签)的三种方式,通过document对象调用</h1>
     <p>getElementById("")</p>
     <p>通过ID获取的<i>一个</i>元素节点</p>
     <br>
@@ -56,6 +56,15 @@
     <br>
     <p>getElementsByName("")</p>
     <p>通过name属性获取<i>一组</i>元素节点</p>
+    <hr>
+    <h1>获取元素的子节点,通过具体的元素节点调用</h1>
+    <p>1.getElementsByTagName() <strong>方法</strong>,返回当前节点的指定标签后代节点</p>
+    <p>2.childNodes <strong>属性</strong>,表示当前子节点的所有子节点</p>
+    <p><strong>- 注意:childNodes属性会获取包括文本节点在内的所有节点.</strong></p>
+    <p><strong>- 注意:本章练习中的文本节点,只的就是标签之间的换行间隔</strong></p>
+    <p><strong>- 注意:在IE8及以下版本中,不会将换行间隔空白当成子节点</strong></p>
+    <p>3.firstChild <strong>属性</strong>,表示当前子节点的第一个子节点</p>
+    <p>4.lastChild <strong>属性</strong>,表示当前节点的最后一个子节点</p>
     <hr>
     <h1>获取元素练习</h1>
     <div class="list-box">
@@ -75,11 +84,7 @@
         <li>魔兽</li>
         </ul>
         <p>你手机的操作系统是什么?</p>
-        <ul id="phone">
-        <li>IOS</li>
-        <li>Android</li>
-        <li>Windos Phone</li>
-        </ul>
+        <ul id="phone"><li>IOS</li><li>Android</li><li>Windos Phone</li></ul>
       </div>
       <div class="bottom-list">
         <p>gander:
@@ -94,7 +99,7 @@
       <button type="button" name="button" id="btn02">查找所有li节点</button>
       <button type="button" name="button" id="btn03">查找name=gander所有节点</button>
       <button type="button" name="button" id="btn04">查找#city下所有li节点</button>
-      <button type="button" name="button" id="btn05">查找#city所有的自节点</button>
+      <button type="button" name="button" id="btn05">查找#city所有的子节点</button>
       <button type="button" name="button" id="btn06">返回#Phone的第一个子节点</button>
       <button type="button" name="button" id="btn07">返回#bj的父节点</button>
       <button type="button" name="button" id="btn08">返回#android的前一个兄弟节点</button>
@@ -148,8 +153,43 @@
 
 
           //查找#city下所有的li节点
+          var btn04 = document.getElementById("btn04");
+          btn04.onclick = function () {
+            var city = document.getElementById("city");
+
+            var lis = city.getElementsByTagName("li");
+            //这里可以简写为  city.children;
+
+            for (var i = 0; i < lis.length; i++) {
+              alert(lis[i].innerHTML);
+            }
+          }
+
+
           //查找#city所有的子节点
+          var btn05 = document.getElementById("btn05");
+          btn05.onclick = function () {
+            var city = document.getElementById("city");
+            var cns = city.childNodes;
+            console.log(cns);
+          }
+
+
+
           //返回#Phone的第一个子节点
+                  var btn06 = document.getElementById("btn06");
+                  btn06.onclick = function () {
+                    var phone = document.getElementById("phone");
+
+                    // alert(phone.children[0].innerHTML);        这是获取子元素,并不是节点
+                    //这里还可以写成 phone.firstElementChild        同是获取第一个子元素
+
+
+                    var fChild = phone.firstChild;
+                    alert(fChild.innerHTML);                //虽然打印的结果是一样的,但是如果li标签与ul标签有断行,这里就会打印断行空白!!!
+                  }
+
+
           //返回#bj的父节点
           //返回#android的前一个兄弟节点
           //返回#username的value属性值
@@ -157,9 +197,6 @@
           //返回#bj的文本值
 
     }
-
-
-
 
 
     </script>
