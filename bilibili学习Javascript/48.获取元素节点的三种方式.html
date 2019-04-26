@@ -39,7 +39,7 @@
         margin:6px 6px;
       }
       body {
-        height:1600px;
+        height:1800px;
       }
     </style>
   </head>
@@ -66,6 +66,11 @@
     <p>3.firstChild <strong>属性</strong>,表示当前子节点的第一个子节点</p>
     <p>4.lastChild <strong>属性</strong>,表示当前节点的最后一个子节点</p>
     <hr>
+    <h1>获取父节点和兄弟节点</h1>
+    <p>通过具体的节点调用</p>
+    <p>parentNode <strong>-属性</strong>表示当前节点的父节点</p>
+    <p>previousSibling <strong>-属性</strong>表示当前节点的前一个兄弟节点</p>
+    <p>nextSibling <strong>-属性</strong>表示当前节点的后一个兄弟节点</p>
     <h1>获取元素练习</h1>
     <div class="list-box">
       <div class="top-list">
@@ -84,7 +89,7 @@
         <li>魔兽</li>
         </ul>
         <p>你手机的操作系统是什么?</p>
-        <ul id="phone"><li>IOS</li><li>Android</li><li>Windos Phone</li></ul>
+        <ul id="phone"><li>IOS</li><li id="android">Android</li><li>Windos Phone</li></ul>
       </div>
       <div class="bottom-list">
         <p>gander:
@@ -111,6 +116,18 @@
 
 
     <script>
+
+    //重复性的代码一定要尝试进行整合
+    //   参数:
+    //     idStr  要绑定单击响应函数的对象的id属性值
+    //     fun   表示事件的回调函数,当单击元素时,该函数将会被触发
+    function myClick(idStr , fun) {
+      var btn = document.getElementById(idStr);
+      btn.onclick = fun;
+      }
+
+
+
 
     window.onload = function () {
 
@@ -177,28 +194,63 @@
 
 
           //返回#Phone的第一个子节点
-                  var btn06 = document.getElementById("btn06");
-                  btn06.onclick = function () {
-                    var phone = document.getElementById("phone");
+          var btn06 = document.getElementById("btn06");
+          btn06.onclick = function () {
+            var phone = document.getElementById("phone");
 
-                    // alert(phone.children[0].innerHTML);        这是获取子元素,并不是节点
-                    //这里还可以写成 phone.firstElementChild        同是获取第一个子元素
+            // alert(phone.children[0].innerHTML);        这是获取子元素,并不是节点
+            //这里还可以写成 phone.firstElementChild        同是获取第一个子元素
 
 
-                    var fChild = phone.firstChild;
-                    alert(fChild.innerHTML);                //虽然打印的结果是一样的,但是如果li标签与ul标签有断行,这里就会打印断行空白!!!
-                  }
+            var fChild = phone.firstChild;
+            alert(fChild.innerHTML);                //虽然打印的结果是一样的,但是如果li标签与ul标签有断行,这里就会打印断行空白!!!
+          }
 
 
           //返回#bj的父节点
+          myClick("btn07",function(){
+            var bj = document.getElementById("bj");
+            var pn = bj.parentNode;
+            alert(pn.innerHTML);
+            alert(pn.innerText);
+          })
+          //  innerText 和innerHTMl相似,但是可以祛除标签
+
+
+
+
           //返回#android的前一个兄弟节点
+          myClick("btn08",function(){
+            var and = document.getElementById("android");
+            var ps = and.previousSibling; //这个属性也会获取到空白文本
+            var pe = and.previousElementSibling;
+            alert(ps.innerHTML);
+            alert(pe.innerHTML);
+          })
+
+
           //返回#username的value属性值
-          //返回#username的value属性值
+          myClick("btn09",function(){
+            var um = document.getElementById("username");
+            alert(um.value);   //文本框的value的属性值,就是文本框中填写的内容.
+          })
+
+          //设置#username的value属性值
+          myClick("btn10",function(){
+            var um = document.getElementById("username");
+            um.value = "今天天气很不错";
+          })
           //返回#bj的文本值
+          myClick("btn11",function(){
+            var bj = document.getElementById("bj");
+            alert(bj.innerHTML);
 
+            var fc = bj.firstChild;
+            alert(fc.nodeValue);
+
+            alert(bj.firstChild.nodeValue);
+          })
     }
-
-
     </script>
   </body>
 </html>
