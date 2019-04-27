@@ -11,7 +11,7 @@
     </style>
     <script>
       window.onload = function (){
-
+            var checkedAllBox = document.getElementById("checkedAllBox");
             //1.全选功能
             //全选按钮,点击按钮以后,四个多选框全都被选中
             var checkedAllBtn = document. getElementById("checkedAllBtn");
@@ -21,6 +21,7 @@
               for (var i = 0; i < items.length; i++) {
                 items[i].checked = true;
               }
+              checkedAllBox.checked = true;
             }
 
             //2.全不选功能
@@ -30,6 +31,8 @@
               for (var i = 0; i < items.length; i++) {
                 items[i].checked = false;
               }
+              checkedAllBox.checked = false;
+
             }
 
 
@@ -45,8 +48,24 @@
                 // }
                 items[i].checked = !items[i].checked;
                 //这是简写方式.
+
+
+                checkedAllBox.checked = true;
+                for (var j = 0; j < items.length; j++) {
+                  //只要有一个没选中,就不是全选
+                  if (!items[j].checked) {
+                      //一旦进入判断,则进入不全选状态
+                      checkedAllBox.checked = false;
+
+                      //一旦进入判断,则获得结果,则中断循环
+                      break;
+                  }
+                }
               }
             }
+
+
+
 
             //4.提交功能
             var sendBtn = document. getElementById("sendBtn");
@@ -60,7 +79,7 @@
             }
 
             //5.全选/全不选功能 当它选中时,其余的全选中,当他没选中时,其他的都不选中.
-            var checkedAllBox = document.getElementById("checkedAllBox")
+            var checkedAllBox = document.getElementById("checkedAllBox");
             checkedAllBox.onclick = function () {
 
               //在事件响应函数中,响应函数是给谁绑定的this就是谁.
@@ -78,14 +97,18 @@
             for (var i = 0; i < items.length; i++) {
               items[i].onclick = function () {
                 checkedAllBox.checked = true;
-                for (var j = 0; i < items.length; i++) {
+                for (var j = 0; j < items.length; j++) {
                   //只要有一个没选中,就不是全选
-                  if (itmes[j].checked) {
+                  if (!items[j].checked) {
                       //一旦进入判断,则进入不全选状态
-                      checkedAllBox.checked = false;                  }
+                      checkedAllBox.checked = false;
+
+                      //一旦进入判断,则获得结果,则中断循环
+                      break;
+                  }
                 }
               }
-            }
+            };
 
 
       }
