@@ -5,14 +5,104 @@
     <title>51.DOM查询的其他方法</title>
     <link rel="stylesheet" href="demo.css">
     <script>
-        window.onload = function ()
-        
+        window.onload = function () {
+          // var body = document.getElementsByTagName("body")[0];
+          //在document中有一个body属性,它保存的就是body的引用.
+          var body = document.body;
+                    console.log(body);
 
-        };
+          //document.documentElement保存的就是html根标签
+          var html = document.documentElement;
+                    console.log(html);
+
+
+          //获取页面所有元素
+          var all = document.getElementsByTagName("*");
+          //可以简写为:
+          var all = document.all;
+                    console.log(all);
+          for (var i = 0; i < all.length; i++) {
+            console.log(all[i]);
+          }
+
+
+          //根据元素的class属性值查询一组元素节点.
+          //获取页面中的所有DIV , 次方法只在IE9以上版本兼容
+          var box = document.getElementsByClassName("box1");
+          for (var i = 0; i < box.length; i++) {
+            console.log(box[i]);
+          }
+
+
+          //document.querySelector
+          //    -需要一个选择器的字符串作为参数,可以根据一个css选择器来查询一个元素节点对象
+          //    -虽然IE8中没有getElementsByClassName但是可以使用querySelector代替使用
+          //    -使用该方法总会放回唯一的一个元素,如果满足条件的元素过多,那么只会返回第一个元素.
+          var div = document.querySelector(".box1 div");
+          var box = document.querySelector(".box1");
+
+          console.log(div);
+          console.log(box);
+
+
+          //该方法和querySelectorAll相似,但是会返回一个类数组,即使符合条件的元素只有一个,也会返回一个数组.
+          var box1 = document.querySelectorAll(".box1");
+          console.log(box1);
+
+        }
     </script>
   </head>
   <body>
     <h1>51.DOM查询的其他方法</h1>
+    <div class="box1">
+      <div>我是BOX1中的div</div>
+    </div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <pre>
+      // var body = document.getElementsByTagName("body")[0];
+      //在document中有一个body属性,它保存的就是body的引用.
+      var body = document.body;
+                console.log(body);
 
+      //document.documentElement保存的就是html根标签
+      var html = document.documentElement;
+                console.log(html);
+
+
+      //获取页面所有元素
+      var all = document.getElementsByTagName("*");
+      //可以简写为:
+      var all = document.all;
+                console.log(all);
+      for (var i = 0; i < all.length; i++) {
+        console.log(all[i]);
+      }
+
+
+      //根据元素的class属性值查询一组元素节点.
+      //获取页面中的所有DIV , 次方法只在IE9以上版本兼容
+      var box = document.getElementsByClassName("box1");
+      for (var i = 0; i < box.length; i++) {
+        console.log(box[i]);
+      }
+
+
+      //document.querySelector
+      //    -需要一个选择器的字符串作为参数,可以根据一个css选择器来查询一个元素节点对象
+      //    -虽然IE8中没有getElementsByClassName但是可以使用querySelector代替使用
+      //    -使用该方法总会放回唯一的一个元素,如果满足条件的元素过多,那么只会返回第一个元素.
+      var div = document.querySelector(".box1 div");
+      var box = document.querySelector(".box1");
+
+      console.log(div);
+      console.log(box);
+
+
+      //该方法和querySelectorAll相似,但是会返回一个类数组,即使符合条件的元素只有一个,也会返回一个数组.
+      var box1 = document.querySelectorAll(".box1");
+      console.log(box1);
+    </pre>
   </body>
 </html>
