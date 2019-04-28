@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>53.添加删除记录</title>
+    <link rel="stylesheet" href="demo.css">
+    <style media="screen">
+      table {
+        border:1px solid black;
+      }
+      .input-box {
+        width:300px;
+        height:250px;
+        border:1px solid black;
+        margin-top:10px;
+        padding-left:25px;
+      }
+    </style>
+    <script>
+      window.onload = function(){
+        //1.点击超链接,删除一个员工的信息,先要获取所有的超链接
+        var allA = document.getElementsByTagName("a");
+        //2.为每个超链接绑定一个点击响应事件
+        for (var i = 0; i < allA.length; i++) {
+          allA[i].onclick = function () {
+            //4.点击超链接后,删除超链接所在的哪一行.这里我们点击那个超链接,this就是谁.
+            //先获取要删除的那一栏tr,这里的指的就是a标签父亲的父亲.
+            var tr = this.parentNode.parentNode;
+            //获取要删除员工的名单
+            var name = tr.getElementsByTagName("td")[0].innerHTML;
+            var name = tr.children[0].innerHTML;
+            //6.防止误操作,删除之前弹出一个提示框;
+            //confirm()用于弹出一个带有确认和取消的提示框.
+            //这个方法是有一个返回值的,如果点击确认则返回true,如果点击取消则返回false;
+            //返回值要存入变量;不能直接把函数塞进if的括号内;
+            var flag = confirm("确认删除"+name+"吗?");
+            if (flag) {
+              //5.删除tr,通过删除子元素的方式删除tr
+              tr.parentNode.removeChild(tr);
+            }
+            //3.点击超链接,这个是默认行为.我们可以return false可以取消默认行为
+            return false;
+          }
+        }
+
+
+
+        //1.获得所需要输入的各项参数
+
+
+        addEmpButton.onclick = function () {
+          var employeeTable = document.getElementById("employeeTable");
+          var empName = document.getElementById("empName").value;
+          var email = document.getElementById("email").value;
+          var salary = document.getElementById("salary").value;
+          var addEmpButton = document.getElementById("addEmpButton");
+          var tr = document.createElement("tr");
+          var td0 = document.createElement("td");
+          var td1 = document.createElement("td");
+          var td2 = document.createElement("td");
+          var td3 = document.createElement("td");
+          var a = document.createElement("a");
+          var emp = document.createTextNode(empName);
+          var mail = document.createTextNode(email);
+          var sa = document.createTextNode(salary);
+          var de = document.createTextNode("Delete");
+          a.appendChild(de);
+          td0.appendChild(emp);
+          td1.appendChild(mail);
+          td2.appendChild(sa);
+          td3.appendChild(a);
+          tr.appendChild(td0);
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          employeeTable.appendChild(tr);
+        }
+
+
+
+
+      };
+    </script>
+  </head>
+  <body>
+    <h1>53.添加删除记录</h1>
+    <hr>
+    <div class="tab-box">
+      <table id="employeeTable">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th> </th>
+        <tr>
+          <td>Tom</td>
+          <td>tom@tom.com</td>
+          <td>5000</td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>Jerrt</td>
+          <td>Jerrt@sohu.com</td>
+          <td>8000</td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td>Bob@tom.com</td>
+          <td>10000</td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+      </table>
+      <div class="input-box">
+        <h3>添加新员工</h3>
+        <form class="" action="index.html" method="post">
+          <p>name: <input type="text" name="empName" id="empName"></p>
+          <p>email: <input type="text" name="email" id="email"></p>
+          <p>salary: <input type="text" name="salary" id="salary"></p>
+          <button type="button" name="button" id="addEmpButton" value="abc">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
