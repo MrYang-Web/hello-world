@@ -27,8 +27,15 @@
           //注意:如果我们的CSS样式中含有-号,这种名称在JS中是不合法的.只能使用驼峰法
           //我们通过style属性设置的样式都是内联样式
           //内联样式一般的优先级比较高.所以通常都会立即改变.
-
         }
+
+        //读取元素的内联样式
+        var btn02 = document.getElementById("btn02");
+        btn02.onclick = function (){
+          alert(box1.style.width);
+        }
+        //通过style属性设置和读取的都是内联样式,它无法读取样式表中的样式.
+
       };
     </script>
   </head>
@@ -36,6 +43,7 @@
     <h1>58.操作内联样式</h1>
     <hr>
     <button id="btn01" type="button" name="button">点我</button>
+    <button id="btn02" type="button" name="button">点我</button>
     <div id="box1">
 
     </div>
