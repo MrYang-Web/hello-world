@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>57.a的索引问题</title>
+    <link rel="stylesheet" href="demo.css">
+    <style media="screen">
+      table {
+        border:1px solid black;
+      }
+      .input-box {
+        width:300px;
+        height:250px;
+        border:1px solid black;
+        margin-top:10px;
+        padding-left:25px;
+      }
+    </style>
+    <script>
+      window.onload = function(){
+        //1.点击超链接,删除一个员工的信息,先要获取所有的超链接
+        var allA = document.getElementsByTagName("a");
+        //2.为每个超链接绑定一个点击响应事件
+        for (var i = 0; i < allA.length; i++) {
+
+          //for循环会在野蛮加载完成之后立即执行
+          //而响应函数会在超链接被点击时才执行
+          //当响应函数执行时,for循环早已执行完毕
+                alert("for循环正在执行"+i);
+
+          allA[i].onclick = function () {
+
+              alert("响应函数正在执行"+i);
+
+            return false;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>57.a的索引问题</h1>
+    <hr>
+    <div class="tab-box">
+      <table id="employeeTable">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th> </th>
+        <tr>
+          <td>Tom</td>
+          <td>tom@tom.com</td>
+          <td>5000</td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>Jerrt</td>
+          <td>Jerrt@sohu.com</td>
+          <td>8000</td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td>Bob@tom.com</td>
+          <td>10000</td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+      </table>
+      <div class="input-box">
+        <h3>添加新员工</h3>
+        <form class="" action="index.html" method="post">
+          <p>name: <input type="text" name="empName" id="empName"></p>
+          <p>email: <input type="text" name="email" id="email"></p>
+          <p>salary: <input type="text" name="salary" id="salary"></p>
+          <button type="button" name="button" id="addEmpButton" value="abc">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>58.操作内联样式</title>
+    <link rel="stylesheet" href="demo.css">
+    <style media="screen">
+      #box1 {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+    <script>
+      window.onload = function (){
+        //点击按钮以后修改box1的大小
+        var box1 = document.getElementById("box1");
+        var btn01 = document.getElementById("btn01");
+
+        //为btn01添加响应函数
+        btn01.onclick = function (){
+          //通过JS修改元素的样式;
+          //语法: 元素.style.样式名 = 样式值;
+          box1.style.width = "400px";
+          box1.style.height = "400px";
+          box1.style.backgroundColor = "yellow";
+          //注意:如果我们的CSS样式中含有-号,这种名称在JS中是不合法的.只能使用驼峰法
+          //我们通过style属性设置的样式都是内联样式
+          //内联样式一般的优先级比较高.所以通常都会立即改变.
+
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>58.操作内联样式</h1>
+    <hr>
+    <button id="btn01" type="button" name="button">点我</button>
+    <div id="box1">
+
+    </div>
+  </body>
+</html>
