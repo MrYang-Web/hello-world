@@ -1,23 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title>61.div跟随鼠标移动</title>
-    <link rel="stylesheet" href="demo.css">
+    <!-- <link rel="stylesheet" href="demo.css"> -->
     <style media="screen">
-      #box1{
-        width:100px;
-        height:100px;
+      #box1 {
+        width: 100px;
+        height: 100px;
         background-color: red;
+        /* 要移动它的位置,就要开启定位 */
+        position: relative;
       }
+
+      body {
+        height: 10000px;
+        width: 10000px;
+      }
+
     </style>
     <script>
+      window.onload = function() {
+        //div可以跟随鼠标移动
+        var box1 = document.getElementById("box1");
+        //绑定鼠标移动事件
+        document.onmousemove = function(event) {
+          //解决兼容问题
+          event = event || window.event;
+          //获取鼠标滚动条的距离
+          //var st = document.body.scrollTop;
+          //chorme认为浏览器的滚动条是body的,但是其他的浏览器不这么认为.
+          //火狐等浏览器认为浏览器的滚动条是html的.
+          //var st = document.documentElement.scrollTop;
+
+          var st = document.body.scrollTop || document.documentElement.scrollTop;
+          var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+
+          //clientX与clientY是获取鼠标当前的坐标;这个坐标总是相对于浏览器窗口;
+          //div偏移量,是相对于整个页面,
+          var left = event.clientX;
+          var top = event.clientY;
+
+          //可以相对于整个页面取值:
+          // var left = event.pageX;
+          // var top = event.pageY
+          //这两个属性在IE8中不兼容;
+
+          //设置div的偏移量
+          box1.style.left = left + sl + "px";
+          box1.style.top = top + st + "px";
+        }
+      };
 
     </script>
   </head>
+
   <body>
+    <div id="box1"></div>
     <h1>div跟随鼠标移动</h1>
     <hr>
-    <div id="box1"></div>
   </body>
+
 </html>
