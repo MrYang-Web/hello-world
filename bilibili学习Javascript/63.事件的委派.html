@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>63.事件的委派</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<script type="text/javascript">
+			window.onload = function(){
+				var ul = document.getElementById("ul");
+				//点击链接后添加a标签
+				var btn01 = document.getElementById("btn01");
+				btn01.onclick = function(){
+					//创建一个li
+					var li = document.createElement("li");
+					li.innerHTML = "<a href='javascript:;' class='link'>新建的超链接</a>"
+					//将li添加到超链接中
+					ul.appendChild(li);
+				}
+				
+				
+				
+				//获取所有的a标签
+				var allA= document.getElementsByTagName("a");
+				//为所有的a标签添加单击响应函数
+				//这里我们为每一个超链接绑定了一个单机响应函数,这种操作比较麻烦.
+				//而且这些操作只能为已有的超链接设置事件,而新添加的超链接必须重新绑定.
+//				for (i=0;i<allA.length;i++) {
+//					allA[i].onclick =function(){
+//						alert("我是a的单击响应函数");
+//					}
+//				}
+				//我们希望,只绑定一次事件,即可应用到多个元素上,即使元素是后添加的.
+				//我们可以尝试将其绑定给元素的共同的祖先元素.
+				
+				//为ul绑定一个单击响应函数
+				ul.onclick = function(event){
+					event = event || window.event;
+					
+					//alert(event.target);
+					// target 
+					// - event中的target表示触发事件的对象
+					
+					//如果触发事件对象是我们期望的元素,则执行,否则不执行.
+					if (event.target.className == 'link') {
+						alert("我是ul的单击响应函数");
+					}
+				}
+				//事件的委派
+				// - 指的是将事件同意绑定给元素的共同祖先元素,
+				//   这样后代元素上的事件触发时,
+				//   会一直冒泡到祖先元素.
+				//   从而通过祖先元素的响应函数来处理事件.
+				// - 事件的委派是利用了冒泡,通过委派可以减少事件的绑定次数
+				//   从而提高了程序性能.
+
+			}
+		</script>
+	</head>
+	<body>
+		<h1>63.事件的委派</h1>
+		<hr />
+		<button id="btn01">添加超链接</button>
+		<ul id="ul" style="background-color:yellowgreen">
+			<li>
+				<p>我是P元素</p>
+			</li>
+			<li><a href="javscript:;" class="link">超链接一</a></li>
+			<li><a href="javscript:;" class="link">超链接二</a></li>
+			<li><a href="javscript:;" class="link">超链接三</a></li>
+			<li><a href="javscript:;" class="link">超链接四</a></li>
+		</ul>
+	</body>
+</html>
