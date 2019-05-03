@@ -16,7 +16,17 @@
 				height: 100px;
 				background-color: yellow;
 				position:absolute;
-				margin: 200px auto;
+				left: 550px;
+				top: 450px;
+			}
+			button{
+				position: absolute;
+			}
+			img{
+				width: 25%;
+				position: absolute;
+				left: 750px;
+				top: 350px;
 			}
 		</style>
 		<script type="text/javascript">
@@ -28,12 +38,80 @@
 			window.onload =function(){
 					
 					var box1 = document.getElementById("box1");
-					box1.onmousedown = function(event){
+					var box2 = document.getElementById("box2");
+					var btn01 = document.getElementById("btn01");
+					var btn02 = document.getElementById("btn02");
+					
+//					box1.onmousedown = function(event){
+//						event = event || window.event;
+//						
+//						//设置box1的劫持事件.
+////						if (box1.setCapture) {
+////							box1.setCapture();
+////						}
+//						//简易写法
+//						box1.setCapture && box1.setCapture()
+//						
+//						
+//						//div的偏移量.clientX - 元素.offsetLeft
+//						//div的偏移量.clientY - 元素.offsetTop
+//						var ol = event.clientX - box1.offsetLeft;
+//						var ot = event.clientY - box1.offsetTop;
+//						
+//						
+//							
+//						//为document绑定一个onmousemove事件
+//						document.onmousemove = function(event){
+//							event = event || window.event;
+//
+//								//获取当前鼠标的坐标
+//							var left = event.clientX - ol;
+//							var top = event.clientY - ot;
+//							
+//							//修改box1的位置
+//							box1.style.left = left +"px";
+//							box1.style.top = top + "px";
+//						}
+//					
+//						document.onmouseup = function(){
+//						//当鼠标松开时,被拖拽元素固定在当前位置 
+//						//取消document的onmousemove
+//						document.onmousemove = null;
+//						document.onmouseup = null;
+//						
+//						//释放鼠标劫持
+//						//
+//						box1.releaseCapture && box1.releaseCapture();
+//						}
+//					
+//					//当我们拖拽到一个网页中的内容时,浏览器会默认搜索引擎中的内容.
+//					//此时拖拽功能会有异常,这个地浏览器提供的默认行为.
+//					//如果不希望发生这个行为,则可以通过return false来取消默认行为
+//					//但是这招对IE8不起作用.
+//					return false;
+//					
+//					};
+					
+					
+					
+					//提取专门用来拖拽的函数
+					//参数: 开启拖拽的元素
+					function drag(obj){
+						obj.onmousedown = function(event){
 						event = event || window.event;
+						
+						//设置box1的劫持事件.
+//						if (box1.setCapture) {
+//							box1.setCapture();
+//						}
+						//简易写法
+						obj.setCapture && obj.setCapture()
+						
+						
 						//div的偏移量.clientX - 元素.offsetLeft
 						//div的偏移量.clientY - 元素.offsetTop
-						var ol = event.clientX - box1.offsetLeft;
-						var ot = event.clientY - box1.offsetTop;
+						var ol = event.clientX - obj.offsetLeft;
+						var ot = event.clientY - obj.offsetTop;
 						
 						
 							
@@ -46,8 +124,8 @@
 							var top = event.clientY - ot;
 							
 							//修改box1的位置
-							box1.style.left = left +"px";
-							box1.style.top = top + "px";
+							obj.style.left = left +"px";
+							obj.style.top = top + "px";
 						}
 					
 						document.onmouseup = function(){
@@ -55,11 +133,38 @@
 						//取消document的onmousemove
 						document.onmousemove = null;
 						document.onmouseup = null;
+						
+						//释放鼠标劫持
+						//
+						obj.releaseCapture && obj.releaseCapture();
 						}
 					
+						//当我们拖拽到一个网页中的内容时,浏览器会默认搜索引擎中的内容.
+						//此时拖拽功能会有异常,这个地浏览器提供的默认行为.
+						//如果不希望发生这个行为,则可以通过return false来取消默认行为
+						//但是这招对IE8不起作用.
+						return false;
+					    };
 					};
-	
-				
+					drag(box1);
+					drag(box2);
+					drag(btn01);
+					drag(btn02);
+					drag(img);
+					
+					var btn01 = document.getElementById("btn01");
+					var btn02 = document.getElementById("btn02");
+					
+					btn01.onclick = function(){
+						alert("1");
+					}
+					btn02.onclick = function(){
+						alert("2");
+					}
+					//设置btn01对鼠标按下相关的事件进行捕获
+					//当调用一个元素的setCapture()方法以后,这个元素将会把下一次所有的鼠标按下相关事件捕获到自己身上.
+					//该方法只在IE8中起作用
+					btn01.setCapture && btn01.setCapture();
 			}
 
 			
@@ -77,5 +182,8 @@
 			//  2.当鼠标移动时,被拖拽元素跟随鼠标移动  onmousemove
 			//  3.当鼠标松开时,被拖拽固定在当前位置. onmouseup
 		</pre>
+		<button id="btn01">按钮一</button>
+		<button id="btn02">按钮二</button>
+		<img id="img" src="imgs/5.jpg"/>
 	</body>
 </html>
