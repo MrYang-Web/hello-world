@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>68.键盘事件的练习</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<style type="text/css">
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				document.onkeydown = function(event){
+					event = event || window.event;
+					//通过keyCode可以来获取按键的编码
+					//通过它可以判断哪个按键被按下
+					//console.log(event.keyCode);
+					//判断y键是否被按下
+					//除了keycode,事件对象还提供了几个属性
+					// altKey
+					// ctrlKey
+					// shiftKey
+					//  --这三个用来判断alt ctrl 和shift是否同时被按下
+					if (event.keyCode === 89 && event.altKey) {
+						alert("y键和alt都被按下了");	
+					}
+				}
+				document.onkeyup = function(){
+					event = event || window.event;
+					console.log("键盘被松开");
+				}
+				
+				//为input绑定键盘事件
+				var  input = document.getElementById("input");
+				input.onkeydown = function(event){
+//					alert("按键被按下了");
+					
+					
+					//取消默认行为,在文本框中输入内容,属于onkeydown的默认行为
+					//通过判断和正则表达式,这里就可以限制输入内容.
+					
+					//使文本框中不能输入数字
+					//数字的编码 48 - 57
+					if (event.keyCode >= 48 && event.keyCode <= 57) {
+							return false;
+					}
+
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>68.键盘事件的练习</h1>
+		<hr />
+		<p>键盘事件</p>
+		<p>onekeydown  --按键被按下</p>
+		<p>如果按键一直不松开,它会连续的触发.</p>
+		<p>onekeydown连续触发时,第一次和第二次间隔会稍微长一点,其他的会非常快</p>
+		<p>这种设计是为了防止误操作的发生.</p>
+		<p>onekeyup    --按键被松开</p>
+		<p>键盘事件一般都会绑定给一些可以获取到焦点的对象(如被激活的input)或者是document</p>
+		<p>onekeyup不会连续触发</p>
+		<div id="box1"></div>
+		<input id="input" type="" name="" id="" value="" />
+		
+	</body>
+</html>

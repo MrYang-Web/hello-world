@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>69.键盘控制div的移动</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<style type="text/css">
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function (){
+				var box1 = document.getElementById("box1");
+				document.onkeydown = function(event){
+					event = event || window.event;
+					
+					//先利用event.keyCode打印出上下左右的键盘编码
+					//console.log(event.keyCode);
+					// 上  38
+					// 右  39
+					// 下  40
+					// 左  37
+					//定义一个变量表示速度
+					var speed = 10;
+					//当用户按住ctrl以后,移速加快;
+					if (event.ctrlKey) {
+						var speed = 50;
+					}
+					switch (event.keyCode){
+						case 37:
+							box1.style.left = box1.offsetLeft-speed+"px";
+							return false;
+							break;
+						case 38:
+							box1.style.top = box1.offsetTop -speed+"px";
+							return false;
+							break;	
+						case 39:
+							box1.style.left = box1.offsetLeft +speed+"px";
+							return false;
+							break;
+						case 40:
+							box1.style.top = box1.offsetTop +speed+"px";
+							return false;
+							break;		
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>69.键盘控制div的移动</h1>
+		<hr />
+		<div id="box1">
+			
+		</div>
+	</body>
+</html>

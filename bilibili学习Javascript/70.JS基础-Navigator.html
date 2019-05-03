@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>70.JS基础-Navigator</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<script type="text/javascript">
+			var ua = navigator.userAgent;
+			console.log(navigator.userAgent);
+			if (/Chrome/i.test(ua)) {
+				alert("这是谷歌浏览器");
+			}else if(/firefox/i.test(ua)){
+				alert("这是火狐浏览器");
+			}else if(/msie/i.test(ua)){
+				alert("这是IE浏览器");
+			}else if("ActiveXObject" in window){
+				alert("这是IE高版本浏览器");
+			}
+		</script>
+</head>
+	<body>
+		<h1>70.JS基础-Navigator</h1>
+		<hr />
+		<h3>BOM</h3>
+		<ul>
+			<li>浏览器对象墨香</li>
+			<li>BOM可以使我们通过JS来操作浏览器</li>
+			<li>在BOM中为我们提供了一组对象,用来完成对浏览器的操作</li>
+		</ul>
+		<h3>BOM对象</h3>
+		<ul>
+			<li>Window</li>
+			<li>- 代表的是整个浏览器的窗口,同时window也是网页中的全局对象</li>
+			<br />
+			<li>Navigator</li>
+			<li>- 代表当前浏览器的信息,通过该对象可以识别不同的浏览器</li>
+			<li>- 由于历史原因,navigator对象中的大部分属性已经不能帮助我们识别浏览器了. </li>
+			<li>- 一般我们只会使用useAgent来判断浏览器的信息</li>
+			<li>- 在IE11中已经将微软和ie相关的标识都已经去除了,所以我们基本已经不能通过这个方法来识别了.</li>
+			<br />
+			<li>Location</li>
+			<li>- 代表当前浏览器的地址栏信息,通过Location还可以操作浏览器跳转页面</li>
+			<br />
+			<li>History</li>
+			<li>- 代表浏览器的历史记录,可以通过该对象来操作浏览器的历史记录</li>
+			<li>- 由于隐私的原因,该对象不能获取到具体的历史记录,只能操作浏览器向前或向后翻页</li>
+			<li>- 而且该操作只在档次访问时有效.</li>
+			<br />
+			<li>Screen</li>
+			<li>- 代表用户的屏幕信息,通过该对象可以获取到用户的显示器的信息.</li>
+		</ul>
+		<h3>这些BOM对象在浏览器中都是作为window对象的属性保存的.</h3>
+		<h3>可以通过window对象来使用,也可以直接使用</h3>
+	</body>
+</html>
