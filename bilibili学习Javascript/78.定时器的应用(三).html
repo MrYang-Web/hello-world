@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>78.定时器的应用(三)</title>
+		<link rel="stylesheet" href="demo.css" />
+		<style type="text/css">
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+			#box2 {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				position: absolute;
+				left: 700px;
+			}
+			button {
+				margin:20px 0;	
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+
+				
+				
+				//点击按钮以后,box1向右移动
+				var box1 = document.getElementById("box1");
+				var btn01 = document.getElementById("btn01");
+				var btn02 = document.getElementById("btn02");
+				var btn03 = document.getElementById("btn03");
+				var btn04 = document.getElementById("btn04");
+				var box2 = document.getElementById("box2");
+//				var btn
+				
+				//这是自己写的方法
+//				btn.onclick = function(){
+//					setInterval(function(){
+//					box.style.left = box.offsetLeft+1+"px"; 
+//					},1);
+//				};
+
+
+				//定义一个变量,用来保存定时器的标识;
+				//目前,我们的定时器标识由全局变量保存,
+				//所有正在执行的定时器,都在这个变量中保存,
+				//那么下一个执行的动画,有可能取消前一个动画的效果.
+				//所以需要再执行动画函数对象中再添加一个属性.
+				//var timer;
+				
+				//获取元素任意样式的方法		
+	          	function getStyle(obj, name) {
+		          //兼容IE8
+		            if(window.getComputedStyle){
+		              return  getComputedStyle(obj, null)[name];
+		
+		            }else {
+		              return currentStyle[name];
+		            }
+		        };
+				
+				//尝试创建一个可以执行简单动画的函数
+				//参数: 
+				//1.要执行动画的对象.
+				//2.speed:移动的速度; 如果为正值则向右移动,如果为负值则向左移动
+				//3.target:执行动画的目标位置;
+				//4.attr:要修改动画的样式,比如:top left width height;
+				//5.callback:回调函数,这个函数将在动画执行完毕以后执行.
+				function move (obj , attr , target , speed , callback){
+										
+						//如果在这里不设置取消上一次定时器,点击次数越多,就启动越多的定时器,速度就会越来越快;
+						clearInterval(obj.timer);
+						
+						//获取元素当前的位置
+						var current =  parseInt(getStyle(obj , attr));
+						//再判断速度的正负值
+						//如果当前位置小于目标位置,则向右移动;
+						//如果当前位置大于目标位置,则向左移动;
+						//这样在传参时,就不需要再传负数了,直接输入整数值即可.
+						if (current > target) {
+							speed = - speed;
+						};
+						
+						//向执行动画中添加一个timer属性,用来保存它自己的定时器标识
+						obj.timer =	setInterval(function(){
+						//在旧值基础上减少
+						var oldVlue =  parseInt(getStyle(obj , attr));
+						var newValue = oldVlue + speed;
+						
+						//判断newValue是否大于等于800
+						//当向左移动时,需要判断newValue是否小于target,这样新值低于目标位置时,让新值变为target,DIV将不再移动
+						//当向右移动时,需要判断newValue是否大于target,这样新值大过目标位置时,让新值变为target,DIV也不再移动
+						if ((speed < 0 && newValue < target) || (speed > 0 && newValue > target)) {
+							newValue = target;
+						}
+						//attr是一个变量,要在对象后面接变量,必须使用方括号.
+						obj.style[attr] = newValue+"px";
+						if (newValue == target) {
+						clearInterval(obj.timer);
+						
+						//动画执行完毕,调用回调函数;
+						//避免没传回调函数出错,添加一个判断,有回调函数才执行,没有就不用管.
+						callback && callback(); 
+						}
+						},30);
+
+				}
+				
+
+				
+				
+				
+				
+				//换为更灵活的方式来实现效果
+			
+				btn01.onclick = function(){
+					move(box1 , "left" , 1820 , 10 );
+				};
+				
+				btn02.onclick = function(){
+					move(box1 , "left" , 0 , 10 );
+				};
+				
+				btn03.onclick = function(){
+					move(box2 , "left" , 1820 , 10 );
+				};
+				
+				btn04.onclick = function(){
+					move(box1 , "height" , 600 , 10 , function(){
+						move(box1 , "width" , 600 , 10 , function(){
+							move(box1 , "height" , 100 , 10 , function(){
+								move(box1 , "width" , 100 , 10 , function(){
+								
+								});
+							});
+						});
+					});
+				};
+
+			};
+		</script>
+	</head>
+	<body>
+		<h1>76.定时器的应用(三)</h1>
+		<hr />
+		<button id="btn01">点击按钮以后box1向右移动</button>
+		<button id="btn02">点击按钮以后box1向左移动</button>
+		<button id="btn03">点击按钮以后box2向右移动</button>
+		<button id="btn04">测试按钮</button>
+		
+		
+		<br />
+		<div id="box1">BOX1</div>
+		<div id="box2">BOX2</div>
+	</body>
+</html>

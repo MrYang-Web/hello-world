@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>76.定时器的应用(二)</title>
+		<link rel="stylesheet" href="demo.css" />
+		<style type="text/css">
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+			button {
+				margin-top: 200px;	
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+
+				
+				
+				//点击按钮以后,box1向右移动
+				var box = document.getElementById("box1");
+				var btn01 = document.getElementById("btn01");
+				var btn02 = document.getElementById("btn02");
+				
+				//这是自己写的方法
+//				btn.onclick = function(){
+//					setInterval(function(){
+//					box.style.left = box.offsetLeft+1+"px"; 
+//					},1);
+//				};
+
+
+				//定义一个变量,用来保存定时器的标识;
+				var timer;
+				
+				//获取元素任意样式的方法		
+	          	function getStyle(obj, name) {
+		          //兼容IE8
+		            if(window.getComputedStyle){
+		              return  getComputedStyle(obj, null)[name];
+		
+		            }else {
+		              return currentStyle[name];
+		            }
+		        };
+				
+				//尝试创建一个可以执行简单动画的函数
+				//参数: 
+				//1.要执行动画的对象.
+				//2.speed:移动的速度; 如果为正值则向右移动,如果为负值则向左移动
+				//3.target:执行动画的目标位置;
+				function move (obj , target , speed){
+										
+						//如果在这里不设置取消上一次定时器,点击次数越多,就启动越多的定时器,速度就会越来越快;
+						clearInterval(timer);
+						
+						//获取元素当前的位置
+						var current =  parseInt(getStyle(obj,"left"));
+						//再判断速度的正负值
+						//如果当前位置小于目标位置,则向右移动;
+						//如果当前位置大于目标位置,则向左移动;
+						//这样在传参时,就不需要再传负数了,直接输入整数值即可.
+						if (current > target) {
+							speed = - speed;
+						};
+						
+				
+						timer =	setInterval(function(){
+						//在旧值基础上减少
+						var oldVlue =  parseInt(getStyle(obj,"left"));
+						var newValue = oldVlue + speed;
+						
+						//判断newValue是否大于等于800
+						//当向左移动时,需要判断newValue是否小于target,这样新值低于目标位置时,让新值变为target,DIV将不再移动
+						//当向右移动时,需要判断newValue是否大于target,这样新值大过目标位置时,让新值变为target,DIV也不再移动
+						if ((speed < 0 && newValue < target) || (speed > 0 && newValue > target)) {
+							newValue = target;
+						}
+						obj.style.left = newValue+"px";
+						if (newValue == target) {
+						clearInterval(timer);
+						}
+						},30);
+
+				}
+				
+
+				
+				
+				
+				
+				//换为更灵活的方式来实现效果
+				btn02.onclick = function(){
+					move(box , 0 , 10 );
+				}
+				
+				btn01.onclick = function(){
+					move(box , 1820 , 10 );
+				}
+
+				
+
+		        
+		        
+		        
+			};
+		</script>
+	</head>
+	<body>
+		<h1>76.定时器的应用(二)</h1>
+		<hr />
+		<div id="box1"></div>
+		<br />
+		<button id="btn01">点击按钮以后box向右移动</button>
+		<button id="btn02">点击按钮以后box向左移动</button>
+		
+	</body>
+</html>
