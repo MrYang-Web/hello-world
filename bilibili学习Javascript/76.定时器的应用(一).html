@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>76.定时器的应用(一)</title>
+		<link rel="stylesheet" href="demo.css" />
+		<style type="text/css">
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 0px;
+			}
+			button {
+				margin-top: 200px;	
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				//点击按钮以后,box1向右移动
+				var box = document.getElementById("box1");
+				var btn = document.getElementById("btn01");
+//				btn.onclick = function(){
+//					setInterval(function(){
+//					box.style.left = box.offsetLeft+1+"px"; 
+//					},1);
+//				};
+				
+				//定义一个变量,用来保存定时器的标识;
+				var timer;
+				
+				//换为更灵活的方式来实现效果
+				btn.onclick = function(){
+											
+					//如果在这里不设置取消上一次定时器,点击次数越多,就启动越多的定时器,速度就会越来越快;
+					clearInterval(timer);
+				
+					timer =	setInterval(function(){
+
+						
+						//在旧值基础上增加
+						var oldVlue =  parseInt(getStyle(box,"left"));
+						var newValue = oldVlue + 20;
+						
+						//判断newValue是否大于等于800
+						if (newValue > 800) {
+							newValue = 800;
+						}
+						box.style.left = newValue+"px";
+						if (newValue >= 800) {
+						clearInterval(timer);
+						}
+						},30);
+
+				}
+				
+				//获取元素任意样式的方法		
+	          	function getStyle(obj, name) {
+		          //兼容IE8
+		            if(window.getComputedStyle){
+		              return  getComputedStyle(obj, null)[name];
+		
+		            }else {
+		              return currentStyle[name];
+		            }
+		        };
+		        
+		        
+		        
+			};
+		</script>
+	</head>
+	<body>
+		<h1>76.定时器的应用(一)</h1>
+		<hr />
+		<div id="box1"></div>
+		<br />
+		<button id="btn01">点击按钮以后box向右移动</button>
+	</body>
+</html>

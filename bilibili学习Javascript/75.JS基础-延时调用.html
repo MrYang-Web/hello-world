@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>75.JS基础-延时调用</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn01 = document.getElementById("btn01");
+				var box1 = document.getElementById("box1");
+				btn01.onclick = function(){
+					setTimeout(function(){
+						box1.innerHTML = 2;
+					},1000)
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<h1>75.JS基础-延时调用</h1>
+		<hr />
+		<h3>延时调用方法 setTimeout() </h3>
+		<p>延时调用一个函数不马上执行,而是隔一段时间以后再执行,而且只会执行一次.</p>
+		<p>延时调用和定时调用去的区别,延时调用只执行一次,定时调用执行多次.</p>
+		<p>clearTimeout() 为取消延时调用方法.</p>
+		<hr />
+		<button id="btn01">点击改变数字</button>
+		<p>数字将在一秒后改变为2</p>
+		<h3 id="box1">1</h3>
+		<p>延时调用和定时调用实际上是可以互相代替的,在开发中可以根据自己的需要去选择.</p>
+	</body>
+</html>
