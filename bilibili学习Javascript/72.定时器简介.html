@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>72.定时器简介</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<script type="text/javascript">
+		window.onload = function(){
+			//使指定的内容自动切换
+			var count = document.getElementById("count");
+			
+			//JS的程序执行的速度是非常非常快的.
+			//如果希望一段程序,可以没间隔一段时间执行一次,可以使用定时调用
+//			for (i=0;i<10;i++) {
+//				count.innerHTML = i;
+//				
+//			}
+			var num = 1;
+			// -
+			var timer = setInterval(function(){
+				count.innerHTML = num++;
+				if (num == 10) {
+					clearInterval(timer);				}
+			},1000)
+			console.log(timer);
+			// -定时调用
+			// -可以将一个函数,每个一段时间执行一次
+			// -参数: 回调函数
+			// -时间: 每个多少时间执行回调函数.
+			
+			
+		}
+		
+		</script>
+	</head>
+	<body>
+		<h1>72.定时器简介</h1>
+		<hr />		
+		<h3>setInterval()</h3>
+		<p>- 返回值:这个方法会返回一个number数据的类型</p>
+		<p>- 这个数字用来作为定时器的唯一标识</p>
+		<h1 id="count">1</h1>
+		<h3>clearInterval()</h3>
+		<p>该方法可以用来关闭一个定时器</p>
+		<p>方法中需要一个定时器标识作为参数,这样将关闭标识对应的定时器</p>
+		<p>这个案例将在显示数字9时停止.</p>
+	</body>
+</html>

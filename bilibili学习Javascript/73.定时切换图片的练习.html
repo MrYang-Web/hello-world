@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>73.定时切换图片的练习</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<style type="text/css">
+			img {
+				width: 50%;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				//使图片可以自动切换
+				var btn01 = document.getElementById("btn01");
+				//定义一个变量,用来保存定时器标识
+				var timer;
+				btn01.onclick = function(){
+					//目前,我们每点击一次按钮,就会开启一个定时器;
+					//点击多次就会开启多个定时器,这就导致图片的切换速度过快,
+					//并且我们只能关闭最后一个定时器;
+					
+					//在开启定时器之前,需要将当前元素上上个开启的定时器;
+					clearInterval(timer);
+					
+						var img = document.getElementById("img");
+						var imgSrc = [
+							"imgs/1.jpg",
+							"imgs/2.jpg",
+							"imgs/3.jpg",
+							"imgs/4.jpg",
+							"imgs/5.jpg"
+						];
+						//创建一个变量保存当前图片的索引
+						var index = 0;
+						
+						//开启一个定时器,按时间设置切换图片
+						timer = setInterval(function(){
+							//使索引自增
+							index++;
+							
+							//判断索引是否超过最大索引
+		//					if(index == 4){
+		//						index = 0;
+		//					}
+							//可以简写为下面这种方式
+		//					index = index % imgSrc.length;
+							//还可以简写为下面这种形式
+							index %= imgSrc.length;
+							
+							//修改img的src属性
+							img.src = imgSrc[index];
+						},1000)					
+			};
+				
+				var btn02 = document.getElementById("btn02");
+				btn02.onclick = function(){
+					clearInterval(timer);
+					//clearInterval()可以接受任何参数;
+					//如果参数不是一个有效的标识,则什么也不做;
+				};
+				
+				
+				
+				
+				
+			};
+		</script>
+	</head>
+	<body>
+		<h1>73.定时切换图片的练习</h1>
+		<hr />
+		<img id="img" src="imgs/1.jpg"/>
+		
+		<button id="btn01">开始</button>
+		<button id="btn02">停止</button>
+	</body>
+</html>
