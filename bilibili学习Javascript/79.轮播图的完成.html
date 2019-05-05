@@ -26,7 +26,6 @@
 			}
 			#imgList {
 				position: absolute;
-				left: -1800px;
 			}
 			#imgList li {
 				width: 580px;
@@ -34,21 +33,23 @@
 				margin: 0 10px;
 			}
 			#nav {
-				width: 120px;
 				height: 32px;
 				position: absolute;
-				top: 370px;
-				left: 250px;
-			}
+				bottom: 0;			}
 			#nav a {
 				display: inline-block;
 				width: 12px;
 				height: 12px;
-				background-color: indianred;
+				background-color: red;
 				border-radius: 50%;
 				opacity: 0.5;
 			}
+			#nav a:hover {
+				background-color: gray;
+				opacity: 0.5;
+			}
 		</style>
+		<script type="text/javascript" src="tool.js"></script>
 		<script type="text/javascript">
 			window.onload = function(){
 				//设置imgList的宽度
@@ -58,7 +59,54 @@
 				var imgArr = document.getElementsByTagName("img");
 				
 				imgList.style.width = 600*imgArr.length+"px";
-			}
+				
+				
+				//设置导航按钮居中
+				var nav = document.getElementById("nav");
+				var outer = document.getElementById("outer"); 
+				nav.style.left = (outer.offsetWidth  - nav.offsetWidth) / 2 +"px"; 
+				
+				//设置默认显示图片的索引
+				var index = 0;
+				
+				//获取所有的a标签
+				var allA = document.getElementsByTagName("a");
+				
+				//设置默认选中的效果
+				allA[index].style.backgroundColor = "gray";
+				
+				//点击超链接,切换到指定的图片
+				for (i=0;i<allA.length;i++) {
+					
+					//为每一个超链接添加一个num属性.
+					allA[i].num = i;
+					
+					allA[i].onclick = function(){
+						
+						//获取超链接的索引,并设置为index;
+						index = this.num;
+						
+						//切换图片
+						move(imgList , "left" , -600*index , 20 , function(){
+							
+						});
+						
+						//设置a标签颜色
+						setA();
+					};
+				};
+				 
+				 //创建一个方法用来设置选中的a
+				 function setA(){
+				 	for(i=0;i<allA.length;i++){
+				 		allA[i].style.backgroundColor = "";
+				 	};
+				 	allA[index].style.backgroundColor = "gray";
+				 };
+				
+				
+				
+			};
 		</script>
 	</head>
 	<body>
@@ -76,11 +124,11 @@
         		<li><img src="imgs/5.jpg"/></li>
         	</ul>
         	<div id="nav">
-        			<a href=""></a>
-        			<a href=""></a>
-        			<a href=""></a>
-        			<a href=""></a>
-        			<a href=""></a>
+        			<a href="javascript:;"></a>
+        			<a href="javascript:;"></a>
+        			<a href="javascript:;"></a>
+        			<a href="javascript:;"></a>
+        			<a href="javascript:;"></a>
         	</div>
         </div>
 	</body>
