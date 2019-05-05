@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>79.轮播图的完成</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<style type="text/css">
+			* {
+				margin:  0 0 ;
+				padding: 0 0;
+			}
+			ul{
+				list-style: none;
+			}
+			img {
+				width: 100%;
+			}
+			#outer {
+				width: 590px;
+				height: 400px;
+				margin: 0 auto;
+				background-color: yellowgreen;
+				padding: 5px;
+				position: relative;
+				overflow: hidden;
+			}
+			#imgList {
+				position: absolute;
+				left: -1200px;
+			}
+			#imgList li {
+				width: 580px;
+				float: left;
+				margin: 0 10px;
+			}
+			#nav {
+				width: 120px;
+				height: 32px;
+				position: absolute;
+				top: 390px;
+				left: 240px;
+			}
+			#nav a {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				//设置imgList的宽度
+				var imgList = document.getElementById("imgList");
+				
+				//获取页面中所有图片
+				var imgArr = document.getElementsByTagName("img");
+				
+				imgList.style.width = 600*imgArr.length+"px";
+			}
+		</script>
+	</head>
+	<body>
+		<h1>79.轮播图的完成</h1>
+		<hr />
+        
+        <!--创建一个外部的div,来作为大的容器-->
+        <div id="outer">
+        	<!--创建一个ul用于保存图片-->
+        	<ul id="imgList">
+        		<li><img src="imgs/1.jpg"/></li>
+        		<li><img src="imgs/2.jpg"/></li>
+        		<li><img src="imgs/3.jpg"/></li>
+        		<li><img src="imgs/4.jpg"/></li>
+        		<li><img src="imgs/5.jpg"/></li>
+        	</ul>
+        	<div id="nav">
+        			<a href="">1</a>
+        			<a href="">2</a>
+        			<a href="">3</a>
+        			<a href="">4</a>
+        			<a href="">5</a>
+        	</div>
+        </div>
+	</body>
+</html>
