@@ -69,6 +69,9 @@
 				//设置默认显示图片的索引
 				var index = 0;
 				
+				//设置定时器标识
+				var timer;
+				
 				//获取所有的a标签
 				var allA = document.getElementsByTagName("a");
 				
@@ -83,28 +86,63 @@
 					
 					allA[i].onclick = function(){
 						
+						clearInterval(timer);
+						
 						//获取超链接的索引,并设置为index;
 						index = this.num;
 						
 						//切换图片
-						move(imgList , "left" , -600*index , 20 , function(){
-							
+						move(imgList , "left" , -600*index , 50 , function(){
+							//动画执行完毕,开启自动切换
+							autoChange();
 						});
 						
 						//设置a标签颜色
 						setA();
 					};
 				};
+				
+				//自动切换图片,开启自动切换
+				autoChange();
 				 
 				 //创建一个方法用来设置选中的a
 				 function setA(){
+				 	
+				 	//判断当前索引是否是最后一张图片
+				 	if (index >= imgArr.length -1 ) {
+				 		//则将index设置为0
+				 		index = 0;
+				 		
+				 		//进入这个判断,此时显示的是最后一张图片,而最后一张图片和第一张是一模一样的
+				 		//通过CSS将最后一张切换成第一张
+				 		imgList.style.left = 0;
+				 	}
+				 	
 				 	for(i=0;i<allA.length;i++){
 				 		allA[i].style.backgroundColor = "";
 				 	};
 				 	allA[index].style.backgroundColor = "gray";
 				 };
 				
-				
+				//创建一个函数,永爱开启自动切换图片
+				function autoChange(){
+					//开启一个定时器
+				timer =	setInterval(function(){
+						//使我们索引自增
+						index++;
+						//判断index的值
+//						if(index == 5){
+//							index = 0;
+//						}
+						//简写为
+						index %= imgArr.length;
+						
+						move(imgList,"left",-600*index,50,function(){
+								//导航按钮
+								setA();
+						});
+					},1500);
+				};
 				
 			};
 		</script>
@@ -122,6 +160,7 @@
         		<li><img src="imgs/3.jpg"/></li>
         		<li><img src="imgs/4.jpg"/></li>
         		<li><img src="imgs/5.jpg"/></li>
+        		<li><img src="imgs/1.jpg"/></li>
         	</ul>
         	<div id="nav">
         			<a href="javascript:;"></a>
