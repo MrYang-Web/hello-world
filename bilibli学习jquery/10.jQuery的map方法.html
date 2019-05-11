@@ -32,11 +32,11 @@
 
     var res = $.map(arr,function (value,index) {
       console.log(index,value);
-      return value + index;
+      return value + index;  //支持
     });
     var res2 = $.each(obj,function (value,index) {
       console.log(index,value);
-      return value + index;
+      return value + index;  //不支持
     });
 
     console.log(res);
@@ -78,11 +78,12 @@
 
       var res = $.map(arr,function (value,index) {
         console.log(index,value);
-        return value + index;
+        return value + index;  //支持
       });
+			
       var res2 = $.each(obj,function (value,index) {
         console.log(index,value);
-        return value + index;
+        return value + index;  //不支持
       });
 
       console.log(res);

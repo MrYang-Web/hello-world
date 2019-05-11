@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>11.jQuery中的其他静态方法</title>
+		<link rel="stylesheet" href="demo.css">
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var str = "   hello   ";
+			console.log(str);
+			var res = $.trim(str);
+			console.log(res);
+			
+			//真数组
+			var arr = [1 , 3 , 5 , 7 , 9];
+			
+			//伪数组
+			var arrLike = {0:1, 1:3, 2:5, 3:7, 4:9, length:5};
+			
+			//对象
+			var obj = {name:"hello", age:33};
+			
+			//函数
+			var fn = function(){};
+			
+			//window对象
+			var w = window;
+			
+			var res1 = $.isWindow(arr);
+			var res2 = $.isWindow(arrLike);
+			var res3 = $.isWindow(obj);
+			var res4 = $.isWindow(fn);
+			var res5 = $.isWindow(w);
+			
+			var res6 = $.isArray(arr);
+			var res7 = $.isArray(arrLike);
+			var res8 = $.isArray(obj);
+			var res9 = $.isArray(fn);
+			var res10 = $.isArray(w);
+
+			console.log("arr= " + res1);
+			console.log("arrLike= " + res2);
+			console.log("obj= " + res3);
+			console.log("fn= " + res4);
+			console.log("w= " + res5);
+			
+			console.log("arr= " + res6);
+			console.log("arrLike= " + res7);
+			console.log("obj= " + res8);
+			console.log("fn= " + res9);
+			console.log("w= " + res10);
+			
+			
+		</script>
+	</head>
+	<body>
+		<h1>11.jQuery中的其他静态方法</h1>
+		<hr>
+		<h3>$.trim();</h3>
+		<p>作用:去掉字符串中两端的空格</p>
+		<p>参数:需要去除的字符串</p>
+		<p>返回值:去除之后的字符串</p>
+		<hr >
+		<h3>$.isWindow();</h3>
+		<p>作用:判断传入对象是否是window对象</p>
+		<p>参数:需要判断的对象</p>
+		<p>返回值:true/false</p>
+		<hr >
+		<h3>$.isArray();</h3>
+		<p>作用:判断传入对象是否是真数组</p>
+		<p>参数:需要判断的对象</p>
+		<p>返回值:true/false</p>
+		<hr>
+		<h3>$.isFunction();</h3>
+		<p>作用:判断传入对象是否是一个函数</p>
+		<p>参数:需要判断的对象</p>
+		<p>返回值:true/false</p>
+		<p>这个方法可以验证jQuery本质上是一个函数</p>
+	</body>
+</html>

@@ -11,11 +11,15 @@
         var $box1 = $(".box1");
         var $box2 = $(".box1");
           console.log($box1,$box2);
+					
         var $p = $("<p>我是段落</p>");
           console.log($p);
           $box1.append($p);
+					
+					
         var span = document.getElementsByTagName("span")[0];
           console.log(span);
+					
         var $span = $("span");
           console.log($span);
       });
@@ -26,32 +30,39 @@
     <span>我是span</span>
     <h1>jQuery的冲突问题</h1>
     <p>$(); 就代表了jQuery的核心函数</p>
-    <pre>
-      1.可以接收一个函数
-      $(function(){
-        alert("hello world!")
-      });
+    <h3>1.可以接收一个函数</h3>
+     <pre>
+			$(function(){
+     	  alert("hello world!")
+     	});
+     	
+     </pre>
 
-      2.可以接收字符串
-      2.1接收一个字符串选择器,返回一个jQuery对象,对象中保存了找到的DOM元素.
-      $(function(){
-        var $box1 = $(".box1");
-        var $box2 = $(".box1");
-
-      })
-      2.2接收一个字符串代码片段,返回一个jQuery对象,对象中保存了创建的DOM元素.
-      $(function(){
-      var $p = $("<p>我是段落</p>");
-        console.log($p);
-      })
-      3.接收一个DOM元素,会把一个DOM元素包装成jQuery对象返回给我们.
-      $(function(){
-        var span = document.getElementsByTagName("span")[0];
-          console.log(span);
-        var $span = $("span");
-          console.log($span);
-      });
-
-    </pre>
+      <h3>2.可以接收字符串</h3>
+      <h3>2.1接收一个字符串选择器,返回一个jQuery对象,对象中保存了找到的DOM元素.</h3>
+      <pre>
+      	$(function(){
+      	  var $box1 = $(".box1");
+      	  var $box2 = $(".box1");
+      	
+      	})
+      </pre>
+			<h3>2.2接收一个字符串代码片段,返回一个jQuery对象,对象中保存了创建的DOM元素.</h3>
+      <pre>
+      	$(function(){
+      	var $p = $("<p>我是段落</p>");
+      	  console.log($p);
+      	})
+      </pre>
+      
+      <h3>3.接收一个DOM元素,会把一个DOM元素包装成jQuery对象返回给我们.</h3>
+      <pre>
+      	$(function(){
+      	  var span = document.getElementsByTagName("span")[0];
+      	    console.log(span);
+      	  var $span = $("span");
+      	    console.log($span);
+      	});
+      </pre>
   </body>
 </html>
