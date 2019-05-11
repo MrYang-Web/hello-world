@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>15.属性和属性节点</title>
+<link rel="stylesheet" href="demo.css">
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	window.onload =function(){
+		function Person(){
+			
+		};
+		var p = new Person();
+		p.name = "孙悟空";
+		console.log(p.name);
+		p["name"] = "猪八戒";
+		console.log(p["name"]);
+		
+		
+		var span = document.getElementsByTagName("span")[0];
+		span.setAttribute("name","玉兔精");
+		console.log(span.getAttribute("name"));
+	};
+</script>
+</head>
+<body>
+	<h1>15.属性和属性节点</h1>
+	<hr >
+	<h3>1.什么是属性?</h3>
+	<p>- 对象身上保存的变量就是属性</p>
+	<hr >
+	<h3>1.如何操作属性?</h3>
+	<p>- 对象.属性名 = 属性值;</p>
+	<p>= 对象["属性名"] = 属性值;</p>
+	<hr >
+	<h3>1.什么是属性节点?</h3>
+	<pre>
+	&ltspan name = "蜘蛛精"&gt &lt/span&gt
+	</pre>
+	<span name="蜘蛛精"></span>
+	<p>1.在编写HTML代码时,在HTML标签中添加的属性就是属性节点,上面的name就是属性节点</p>
+	<p>2.在浏览器中找到span标签这个DOM元素之后,展开看到的都是属性</p>
+	<p>在attributes属性中保存的所有内容都是属性节点.</p>
+	<hr>
+	<h3>1.如果操作是属性节点?</h3>
+	<p>-获取属性节点---DOM元素.getAttribute("属性名");</p>
+	<p>-操作属性节点---DOM元素.setAttribute("属性名","属性值")</p>
+	<hr >
+	<h3>1.属性和属性节点有什么区别?</h3>
+	<p>1.任何对象都有属性</p>
+	<p>2.只有DOM对象才有属性节点</p>
+</body>
+</html>

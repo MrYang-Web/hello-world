@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>16.jQuery的attr()方法</title>
+	<link rel="stylesheet" href="demo.css">
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+		    1.attr(name|pro|key,val|fn)
+			2.removeAttr(name)
+			*/
+		   
+		var $span = $("span").attr("class");
+			console.log($span);
+		 
+		var $span = $("span").attr("class","box");
+			console.log($span.attr("class"));
+		  
+		var $span = $("span").attr("abc","abc");
+			console.log($("span").attr("abc"));
+		
+		$("button").click(function(){
+			$span.removeAttr("class");
+		});
+
+		});
+	</script>
+</head>
+<body>
+	<h1>16.jQuery的attr()方法</h1>
+	<hr >
+	<h3>attr(name|pro|key,val|fn)</h3>
+	<p>作用:获取或者设置属性节点的值</p>
+	<p>可以传递一个参数,也可以传递两个参数</p>
+	<hr >
+	<h3>1. 如果传递一个参数,代表获取属性节点的值</h3>
+	<pre>
+	var $span = $("span").attr("class name");
+	console.log($span);
+	打印结果为: span1
+	</pre>
+	<h4>注意点: 无论找到多少个元素,都只会返回第一个元素指定的属性节点的值</h4>
+	<hr >
+	<h3>2. 如果传递两个参数,代表设置属性节点的值</h3>
+	<pre>
+	var $span = $("span").attr("class","box");
+	console.log($span.attr("class"));
+	打印的结果为: box 并且可以从控制台看到span标签的两个class都变为box了;
+	</pre>	
+	<h4>如果是设置:找到多少个元素,就设置多少个元素</h4>
+	<hr >
+	<h3>3. 如果设置的属性节点不存在</h3>
+	<pre>
+	var $span = $("span").attr("abc","abc");
+		console.log($("span").attr("abc"));
+	打印结果为: abc 并且可以从控制台看到span标签新增了两个属性abc,且值为abc;
+	</pre>
+	<h4>如果是设置不存在的属性:只要是设置了属性值,那么系统会自动新增属性节点</h4>
+	<hr >
+	<h1>removeAttr();方法</h1>
+	<p>删除一项属性节点</p>
+	<p>DOM元素.removeAttr("属性名")</p>
+	<p>如果要删除多个属性节点,在参数内空格就可以了</p>
+	<span class="span1" name="孙悟空">span1</span>
+	<br>
+	<span class="span2" name="猪八戒">span2</span>
+	<br>
+	<button type="button">点击删除span的class与name</button>
+	<h4>可以从控制台看到点击后将删除所有span的class</h4>
+</body>
+</html>
