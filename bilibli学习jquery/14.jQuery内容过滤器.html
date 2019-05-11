@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>14.jQuery内容过滤器</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	div {
+		width: 50px;
+		height: 100px;
+		background-color: red;
+		margin:10px 10px;
+		float: left;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		var $div = $("div:empty");
+		console.log($div);
+		
+		var $div1 = $("div:parent");
+		console.log($div1);
+		
+		var $div2 = $("div:contains('我是div')");
+		console.log($div2);
+		
+		var $div3 = $("div:has('span')");
+		console.log($div3);
+	});
+</script>
+</head>
+<body>
+	<h1>14.jQuery内容过滤器</h1>
+	<hr >
+	<h3>内容选择器</h3>
+	<h1>:empty</h1>
+	<p>找到既没有内容,也米有子元素的指定节点</p>
+	<h1>:parent</h1>
+	<p>找到有文本内容和子元素的指定节点</p>
+	<h1>:contanins('string')</h1>
+	<p>这个选择器需要传一个字符串参数</p>
+	<p>找到含有指定字符串的节点</p>
+	<div></div>
+	<div>我是div</div>
+	<div>我是div123</div>
+	<div><span>span</span></div>
+	<div><p>p</p></div>
+</body>
+</html>

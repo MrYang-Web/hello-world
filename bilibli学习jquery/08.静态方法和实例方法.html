@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>jQuery的静态方法和实例方法</title>
-    <script src="jquery.js"></script>
-    <link rel="stylesheet" href="demo.css">
-    <script>
-      //1.定义一个类 AClass
-      function AClass() {
+<head>
+<meta charset="utf-8">
+<title>jQuery的静态方法和实例方法</title>
+<script src="jquery.js"></script>
+<link rel="stylesheet" href="demo.css">
+<script>
+//1.定义一个类 AClass
+function AClass() {
 
-      }
-      //2.给这个类添加一个静态方法
-      //直接添加给类的就是静态方法
-      AClass.staticMethod = function() {
-        alert("staticMethod");
-      }
-      //静态方法通过类名调用
-      AClass.staticMethod();
-
-
-      //3.给这个类添加一个实例方法
-      AClass.prototype.instancMethod = function () {
-        alert("instancMethod");
-      }
-      //实例方法通过类的实例调用
-      //创建一个实例(创建一个对象)
-      var a = new AClass();
-      a.instancMethod();
-    </script>
-  </head>
-  <body>
-    <h1>什么是静态方法和实例方法</h1>
-    <p>1.静态方法通过类名调用</p>
-    <p>2.实例方法通过类的对象调用</p>
-    <pre>
-      //1.定义一个类 AClass
-      function AClass() {
-
-      }
-      //2.给这个类添加一个静态方法
-      //直接添加给类的就是静态方法
-      AClass.staticMethod = function() {
-        alert("staticMethod");
-      }
-      //静态方法通过类名调用
-      AClass.staticMethod();
+}
+//2.给这个类添加一个静态方法
+//直接添加给类的就是静态方法
+AClass.staticMethod = function() {
+	alert("staticMethod");
+}
+//静态方法通过类名调用
+AClass.staticMethod();
 
 
-      //3.给这个类添加一个实例方法
-      AClass.prototype.instancMethod = function () {
-        alert("instancMethod");
-      }
-      //实例方法通过类的实例调用
-      //创建一个实例(创建一个对象)
-      var a = new AClass();
-      a.instancMethod();
-    </pre>
+//3.给这个类添加一个实例方法
+AClass.prototype.instancMethod = function () {
+	alert("instancMethod");
+}
+//实例方法通过类的实例调用
+//创建一个实例(创建一个对象)
+var a = new AClass();
+a.instancMethod();
+</script>
+</head>
+<body>
+<h1>什么是静态方法和实例方法</h1> 
+<p>直接添加到类上面的就是静态方法,直接添加到原型上的就是实例方法!</p>
+<p>1.静态方法通过类名调用</p>
+<p>2.实例方法通过类的对象调用</p>
+<h3>1.定义一个类 AClass</h3>
+<pre>
+function AClass() {
+	
+}
+</pre>
+
+<h3>2.给这个类添加一个静态方法</h3>
+<p>直接添加给类的就是静态方法</p>
+<pre>
+AClass.staticMethod = function() {
+	alert("staticMethod");
+}
+</pre>
+
+<h3>静态方法通过类名调用</h3>
+<pre>
+AClass.staticMethod();
+</pre>
+
+<h3>3.给这个类添加一个实例方法</h3>
+<pre>
+AClass.prototype.instancMethod = function () {
+	alert("instancMethod");
+}
+</pre>
+
+<h3>实例方法通过类的实例调用</h3>
+<p>创建一个实例(创建一个对象)</p>
+<pre>
+var a = new AClass();
+a.instancMethod();	
+</pre>
   </body>
 </html>
