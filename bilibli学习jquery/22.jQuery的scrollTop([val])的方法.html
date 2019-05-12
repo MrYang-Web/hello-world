@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>22.jQuery的scrollTop([val])的方法</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<style type="text/css">
+			.scroll {
+				width: 100px;
+				height: 200px;
+				overflow: auto;
+				border: 1px solid #000000;
+			}
+			body {
+				height: 8000px;
+			}
+			button {
+				margin: 20px 20px;
+			}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				var btn = document.getElementsByTagName("button");
+				
+				//获取div的scroll
+			    btn[0].onclick = function(){
+					alert($("div").scrollTop());	
+				};
+				
+				//设置div的scroll
+				btn[1].onclick = function(){
+					$("div").scrollTop(300);	
+				};
+				
+				//获取html的scroll
+				btn[2].onclick = function(){
+					//要兼容IE,需要加上body
+					alert($("html").scrollTop()+$("body").scrollTop());	
+				};
+				
+				//设置html的scroll
+				btn[3].onclick = function(){
+					//要兼容IE,需要在选择器中加上body
+					$("html, body").scrollTop(600);	
+				};
+				
+			});
+		</script>
+	</head>
+	<body>
+		<h1>22.jQuery的scrollTop([val])的方法</h1>
+		<hr >
+		<h3>scrollTop([val])</h3>
+		<p>获取和操作元素以及浏览器上下滚轮条的方法</p>
+		<p>获取:</p>
+		<pre>
+		alert($("div").scrollTop());
+		</pre>
+		<p>设置:</p>
+		<pre>
+		$("div").scrollTop(300);	
+		</pre>
+		<hr >
+		<h3>浏览器滚轮条的获取和设置</h3>
+		<p>获取:</p>
+		<pre>
+			//要兼容IE,需要加上body
+			alert($("html").scrollTop()+$("body").scrollTop());
+		</pre>
+		<p>设置:</p>
+		<pre>
+			//要兼容IE, 需要在选择器中加上body
+			$("html, body").scrollTop(600);	
+		</pre>
+		<div class="scroll">
+			我是div我是div我是div我是div我是div
+			我是div我是div我是div我是div我是div
+			我是div我是div我是div我是div我是div
+			我是div我是div我是div我是div我是div
+			我是div我是div我是div我是div我是div
+			我是div我是div我是div我是div我是div
+			我是div我是div我是div我是div我是div
+		</div>
+		<button type="button">获取div的scroll</button>
+		<button type="button">设置div的scroll</button>
+		<button type="button">获取html的scroll</button>
+		<button type="button">设置html的scroll</button>
+	</body>
+</html>

@@ -1,16 +1,126 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>21.jQuery的尺寸和位置操作</title>
-		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
+<head>
+	<meta charset="utf-8">
+	<title>21.jQuery的尺寸和位置操作</title>
+	<link rel="stylesheet" type="text/css" href="demo.css"/>
+	<style type="text/css">
+		.father {
+			width: 200px;
+			height: 200px;
+			background: red;
+			border: 50px solid #000;
+			margin-left: 50px;
+			position: relative;
+		}
+		.son {
+			 width: 100px;
+			 height: 100px;
+			 background: blue;
+			 position: absolute;
+			 left: 50px;
+			 top: 50px;
+		}
+		button {
+			margin: 10px 10px;
+		}
+	</style>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var btn = document.getElementsByTagName("button");
+		    //监听获取元素宽度
+			btn[0].onclick = function(){
+				alert($(".father").width()+"px");
+			};
 			
-		</script>
-	</head>
-	<body>
-		<h1>21.jQuery的尺寸和位置操作</h1>
-		<hr >
-		<p></p>
-	</body>
+			//监听设置元素宽度
+			btn[1].onclick = function(){
+				$(".father").width(400);
+			};
+			
+			//监听获取元素距离窗口偏移量
+			btn[2].onclick = function(){
+				alert($(".son").offset().left);
+				alert($(".son").offset().top);
+			};
+			
+			//监听设置元素距离窗口偏移量
+			btn[3].onclick = function(){
+				$(".son").offset({
+					left: 800,
+					top: 800
+				});
+			};
+			
+			//监听设置元素定位元素的偏移量
+			btn[4].onclick = function(){
+				alert($(".son").position().left);
+				alert($(".son").position().top);
+			};
+			
+			//监听设置元素定位元素的偏移量
+			btn[5].onclick = function(){
+				$(".son").css({
+					left: 200,
+					top: 200
+				});
+			};
+		});
+	</script>
+</head>
+<body>
+	<h1>21.jQuery的尺寸和位置操作</h1>
+	<hr >
+	<h3>width();height();</h3>
+	<p>用于获取和设置元素的宽和高</p>
+	<p>获取:</p>
+	<pre>
+		alert($(".father").width()+"px");
+	</pre>
+	<p>设置:</p>
+	<pre>
+		$(".father").width(400);
+	</pre>
+	<hr >
+	<h3>offset([coordinates])</h3>
+	<p>获取和设置元素距离窗口的偏移量</p>
+	<p>获取:</p>
+	<pre>
+		alert($(".son").offset().left);
+		alert($(".son").offset().top);
+	</pre>
+	<p>设置:</p>
+	<pre>
+		$(".son").offset({
+			left: 800,
+			top: 800
+		});
+	</pre>
+	<hr >
+	<h3>position()</h3>
+	<p>获取元素距离定位元素的偏移量</p>
+	<pre>
+		alert($(".son").position().left);
+		alert($(".son").position().top);
+	</pre>
+	<h3>注意点:position()方法只能获取,并不能设置</h3>
+	<h3>如果需要设置距离定位元素的偏移量,请使用.css({left:100,top:100});方法</h3>
+	<pre>
+		$(".son").css({
+			left: 200,
+			top: 200
+		});
+	</pre>
+	<hr >
+	<div class="father">
+		<div class="son"></div>
+	</div>
+	<button type="button">获取宽</button>
+	<button type="button">设置宽</button>
+	<button type="button">获取偏移度</button>
+	<button type="button">设置偏移度</button>
+	<button type="button">获取定位偏移度</button>
+	<button type="button">设置定位偏移度</button>
+</body>
 </html>
