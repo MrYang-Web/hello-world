@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>18.class类的相关操作</title>
-		<link rel="stylesheet" type="text/css" href="demo.css"/>
-		<style type="text/css">
+<head>
+<meta charset="utf-8">
+<title>18.class类的相关操作</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
 
-			.class1 {
-				width: 100px;
-				height: 100px;
-				background-color: red;
-			}
-			.class2 {
-				border: 10px solid yellow;
-			}
-		</style>
-		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(function(){
-			    
-				var btn = document.getElementsByTagName("button");
-				btn[0].onclick = function(){
-					$("div").addClass("class1 class2");
-				};
-				btn[1].onclick = function(){
-					$("div").removeClass("class1 class2");
-				};
-				btn[2].onclick = function(){
-					$("div").toggleClass("class1 class2");
-				};
-				
-			});
-
-		</script>
-	</head>
-	<body>
-		<h1>18.class类的相关操作</h1>
-		<hr >
-		<h3>1.addClass(class|fn)</h3>
-		<p>添加一个class类,如果要添加多个,在class名之间添加空格即可</p>
-		<pre>
+	.class1 {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+	.class2 {
+		border: 10px solid yellow;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		var btn = document.getElementsByTagName("button");
+		btn[0].onclick = function(){
 			$("div").addClass("class1 class2");
-		</pre>
-		<hr >
-		<h3>2.removeClass(class|fn)</h3>
-		<p>删除一个class类,如果要添加多个,在class名之间添加空格即可</p>
-		<pre>
+		};
+		btn[1].onclick = function(){
 			$("div").removeClass("class1 class2");
-		</pre>
-		<hr >
-		<h3>2.toggleClass(class|fn)</h3>
-		<p>切换一个class类,如果要添加多个,在class名之间添加空格即可</p>
-		<pre>
+		};
+		btn[2].onclick = function(){
 			$("div").toggleClass("class1 class2");
-		</pre>
-		<hr >
-		<button type="button">添加类</button>
-		<button type="button">删除类</button>
-		<button type="button">切换类</button>
-		<div></div>
-	</body>
+		};
+		
+	});
+
+</script>
+</head>
+<body>
+<h1>18.class类的相关操作</h1>
+<hr >
+<h3>1.addClass(class|fn)</h3>
+<p>添加一个class类,如果要添加多个,在class名之间添加空格即可</p>
+<pre>
+	$("div").addClass("class1 class2");
+</pre>
+<hr >
+<h3>2.removeClass(class|fn)</h3>
+<p>删除一个class类,如果要添加多个,在class名之间添加空格即可</p>
+<pre>
+	$("div").removeClass("class1 class2");
+</pre>
+<hr >
+<h3>2.toggleClass(class|fn)</h3>
+<p>切换一个class类,如果要添加多个,在class名之间添加空格即可</p>
+<pre>
+	$("div").toggleClass("class1 class2");
+</pre>
+<hr >
+<button type="button">添加类</button>
+<button type="button">删除类</button>
+<button type="button">切换类</button>
+<div></div>
+</body>
 </html>

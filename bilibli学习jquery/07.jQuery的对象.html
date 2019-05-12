@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>jQuery的对象</title>
-    <script src="jquery.js"></script>
-    <link rel="stylesheet" href="demo.css">
-    <script>
-      $(function(){
-        var $div = $("div");
-        console.log($div);
+<head>
+	<meta charset="utf-8">
+	<title>jQuery的对象</title>
+	<script src="jquery.js"></script>
+	<link rel="stylesheet" href="demo.css">
+	<script>
+		$(function(){
+			var $div = $("div");
+			console.log($div);
 
 
-        var arr = [1, 3, 5,]
-        console.log(arr);
-      })
+			var arr = [1, 3, 5,]
+			console.log(arr);
+		})
 
-    </script>
-  </head>
-  <body>
-    <h1>jQuery的对象</h1>
-    <div>div1</div>
-    <div>div2</div>
-    <div>div3</div>
- <p>1.什么是jQuery对象?</p>
- <p>jQuery是伪数组</p>
- <pre>
-   $(function(){
-     var $div = $("div");
-     console.log($div);
+	</script>
+</head>
+<body>
+	<h1>jQuery的对象</h1>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+<p>1.什么是jQuery对象?</p>
+<p>jQuery是伪数组</p>
+<pre>
+ $(function(){
+	 var $div = $("div");
+	 console.log($div);
 
 
-     var arr = [1, 3, 5,]
-     console.log(arr);
-   })
- </pre>
- <p>2.什么是伪数组</p>
- <p>有0到length-1的属性,并且有length属性 </p>
-  </body>
+	 var arr = [1, 3, 5,]
+	 console.log(arr);
+ })
+</pre>
+<p>2.什么是伪数组</p>
+<p>有0到length-1的属性,并且有length属性 </p>
+</body>
 </html>

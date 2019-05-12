@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>19.jQuery文本值相关的方法</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	div {
+		width: 100px;
+		height: 100px;
+		border: 1px solid black;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		var btn = document.getElementsByTagName("button");
+		//1.设置html
+		btn[0].onclick = function(){
+			$("div").html("<p>我是段落<span>我是span</span></p>");
+		};
+		
+		//2.获取html
+		btn[1].onclick = function(){
+			console.log($("div").html());
+		};
+		
+		//3.设置text
+		btn[2].onclick = function(){
+			$("div").text("<p>我是段落<span>我是span</span></p>");
+		};
+		
+		//4.获取text
+		btn[3].onclick = function(){
+			console.log($("div").text());
+		};
+		
+		//5.设置input的value
+		btn[4].onclick = function(){
+			$("input").val("请输入内容");
+		};
+		
+		//6.设置input的value
+		btn[5].onclick = function(){
+			console.log($("input").val());
+		};
+		
+		
+	});
+</script>
+</head>
+<body>
+<h1>19.jQuery文本值相关的方法</h1>
+<hr >
+<h3>html(val|fn)</h3>
+<p>和原生JS中的innerHTML一样</p>
+<pre>
+	$("div").html(" &lt; p &gt; 我是段落 &lt; span &gt; 我是span &lt; /span &gt;  &lt; /p &gt; ");
+</pre>
+<p>获取方式也和innerHTML一样</p>
+<pre>
+	console.log($("div").html());
+</pre>
+<hr >
+<h3>text(val|fn)</h3>
+<p>和原生JS中的innerText一样</p>
+<pre>
+	$("div").text(" &lt; p &gt;我是段落 &lt; span &gt; 我是span &lt; /span &gt; &lt; /p &gt; ");
+</pre>
+<p>获取方式也和innerText一样</p>
+<pre>
+	console.log($("input").val());
+</pre>
+<hr >
+<h3>val(val|fn|arr)</h3>
+<p>和原生的value属性差不多</p>
+<pre>
+	$("input").val("请输入内容");
+</pre>
+<p>获取方式也差不多</p>
+<pre>
+	$("input").val("请输入内容");
+</pre>
+<hr >
+<button>设置html</button>
+<button>获取html</button>
+<button>设置text</button>
+<button>获取text</button>
+<button>设置value</button>
+<button>获取value</button>
+<div></div>
+<input type="text"/>
+</body>
+</html>
