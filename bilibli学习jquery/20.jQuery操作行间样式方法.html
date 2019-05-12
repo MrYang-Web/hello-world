@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>20.jQuery操作行间样式方法</title>
+	<link rel="stylesheet" type="text/css" href="demo.css"/>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			// $("div").css("width","100px");
+			// $("div").css("height","100px");
+			// $("div").css("background","red");
+			
+			// $("div").css("width","100px").css("height","100px").css("background","red");
+			
+			$("div").css({
+				width:"100px",
+				height:"100px",
+				background:"blue"
+			});
+			
+			console.log($("div").css("width"));
+		});
+	</script>
+</head>
+<body>
+	<h1>20.jQuery操作行间样式方法</h1>
+	<hr >
+	<p>语法:   jQuery对象.css("样式名","样式值");</p>
+	<p>语法二: jQuery对象.css("样式名","样式值").css("样式名","样式值").css("样式名","样式值")</p>
+	<p>语法三:</p>
+	<pre>
+	jQuery对象.css({
+		样式名:"样式值",
+		样式名:"样式值",
+		样式名:"样式值"
+	});
+	</pre>
+	<p>获取样式值:</p>
+	<pre>
+		console.log($("div").css("width"));
+	</pre>
+	<div></div>
+</body>
+</html>
