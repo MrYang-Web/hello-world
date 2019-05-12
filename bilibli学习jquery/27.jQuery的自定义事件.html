@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>27.jQuery的自定义事件</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.father {
+		width: 200px;
+		height: 200px;
+		background: red;
+	}
+	.son {
+		width: 100px;
+		height: 100px;
+		background: blue;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		// $(".son").click(function(){
+		// 	alert("son");
+		// 	return false;
+		// })
+		$(".son").on("myClick",function(){
+			alert("son");
+		});
+		$(".son").trigger("myClick");
+	});
+</script>
+</head>
+<body>
+<h1>27.jQuery的自定义事件</h1>
+<hr >
+<p>不能通过eventName(fn)的方式添加自定义事件</p>
+<p>只能通过on(eventName,fn)的方式来添加自定义事件</p>
+<p>事件只能通过trigger()来触发</p>
+<pre>
+	$(".son").on("myClick",function(){
+		alert("son");
+	});
+	$(".son").trigger("myClick");
+</pre>
+<div class="father">
+	<div class="son"></div>
+</div>
+<a href="http://www.baidu.com">注册</a>
+<form action="http://www.taobao.com">
+	<input type="text"/>
+	<input type="submit"/>
+</form>
+</body>
+</html>
+

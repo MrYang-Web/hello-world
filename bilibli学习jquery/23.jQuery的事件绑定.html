@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>23.jQuery的事件绑定</title>
-		<link rel="stylesheet" type="text/css" href="demo.css"/>
-		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(function(){
-				$("button").click(function(){
-					alert("这是通过.click(fn)添加的弹窗");
-				});
-				
-				$("button").on("click",function(){
-					alert("这是通过on('eventName',fn)添加的弹窗");
-				});
-				
-				$("button").mouseenter(function(){
-					alert("hello mouseenter");
-				});
-				
-				$("button").mouseleave(function(){
-					alert("hello mouseleave");
-				});
-				
-			});
-		</script>
-	</head>
-	<body>
-		<h1>23.jQuery的事件绑定</h1>
-		<hr >
-		<h3>eventName(fn);</h3>
-		<p>这种方式编码效率高/但是jQuery只实现了一部分.</p>
-		<pre>
+<head>
+	<meta charset="utf-8">
+	<title>23.jQuery的事件绑定</title>
+	<link rel="stylesheet" type="text/css" href="demo.css"/>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
 			$("button").click(function(){
-				....
+				alert("这是通过.click(fn)添加的弹窗");
 			});
-		</pre>
-		<hr >
-		<h3>on("eventName",fn)</h3>
-		<p>这种方式编码效率略低,但是可以实现所有原生JS的事件.</p>
-		<pre>
+			
 			$("button").on("click",function(){
-				...
+				alert("这是通过on('eventName',fn)添加的弹窗");
 			});
-		</pre>
-		<hr >
-		<h3>注意点:可以添加多个事件,并且不会覆盖.</h3>
-		<button type="button">测试按钮</button>
-	</body>
+			
+			$("button").mouseenter(function(){
+				alert("hello mouseenter");
+			});
+			
+			$("button").mouseleave(function(){
+				alert("hello mouseleave");
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<h1>23.jQuery的事件绑定</h1>
+	<hr >
+	<h3>eventName(fn);</h3>
+	<p>这种方式编码效率高/但是jQuery只实现了一部分.</p>
+	<pre>
+		$("button").click(function(){
+			....
+		});
+	</pre>
+	<hr >
+	<h3>on("eventName",fn)</h3>
+	<p>这种方式编码效率略低,但是可以实现所有原生JS的事件.</p>
+	<pre>
+		$("button").on("click",function(){
+			...
+		});
+	</pre>
+	<hr >
+	<h3>注意点:可以添加多个事件,并且不会覆盖.</h3>
+	<button type="button">测试按钮</button>
+</body>
 </html>

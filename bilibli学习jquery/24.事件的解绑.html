@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>24.事件的解绑</title>
+	<link rel="stylesheet" type="text/css" href="demo.css"/>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			function test1 (){
+				alert("test1");
+		    };
+		   
+			function test2 (){
+		    	alert("test2");
+		    };
+			
+			
+		    $("button").click(test1);
+		    $("button").click(test2);
+			
+			$("button").off("click" , test1);
+		});
+	
+	</script>
+</head>
+<body>
+	<h1>24.事件的解绑</h1>
+	<hr>
+	<p>off()</p>
+	<p>谁要解除事件谁调用off即可</p>
+	<pre>
+		//移除所有事件
+		$("button").off();
+		
+		//移除所有click事件
+		$("button").off("click");
+		
+		//移除click事件的test1函数
+		$("button").off("click" , test1);
+	</pre>
+	<h3>如果不传参,会移除所有事件.</h3>
+	<h3>如果传一个或多个参数,就移除一个或多个事件</h3>
+	<button type="button">我是按钮</button>
+</body>
+</html>

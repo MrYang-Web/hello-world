@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>25.jQuery的冒泡和默认行为</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.father {
+		width: 200px;
+		height: 200px;
+		background: red;
+	}
+	.son {
+		width: 100px;
+		height: 100px;
+		background: blue;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".son").click(function(){
+			alert("son");
+			return false;
+		})
+		$(".father").click(function(){
+			alert("father");
+		})
+		
+		$("a").click(function(){
+			alert("弹出注册框");
+			return false;
+		})
+	});
+</script>
+</head>
+<body>
+<h1>25.jQuery的冒泡和默认行为</h1>
+<hr >
+<h3>1.什么是事件冒泡?</h3>
+<p>事件从下级往上级传递就叫做事件的冒泡</p>
+<hr >
+<h3>2.如何阻止事件冒泡?</h3>
+<p>1.只需要在子级事件中return false就可以阻止事件冒泡</p>
+<pre>
+	$(".son").click(function(){
+		alert("son");
+		return false;
+	})	
+</pre>
+<p>2.第二种方法.只要事件触发了回调函数,都会给回调函数中传入一个参数event</p>
+<p>这个event对象保存了事件对象的状态.只有当函数执行时,才有会.</p>
+<pre>
+	$(".son").click(function(event){
+		alert("son");
+		event.stopPropagation();
+	})	
+</pre>
+<hr >
+<h3>3.什么是默认行为?</h3>
+<p>在html中很多标签默认存在一些行为,很多时候,我们不想要这种默认行为比如a标签的跳转</p>
+<h3>4.如何阻止默认行为</h3>
+<p>只需要选中元素,然后再回调函数中设置return false就可以阻止默认事件</p>
+<p>案例中的a标签,阻止了默认跳转至百度页面</p>
+<pre>
+	$("a").click(function(){
+		alert("弹出注册框");
+		return false;
+	})
+</pre>
+<p>同样的,阻止默认行为也有两种方法</p>
+<pre>
+	$("a").click(function(event){
+		alert("弹出注册框");
+		event.prevntDefault();
+	})
+</pre>
+<hr >
+<div class="father">
+	<div class="son"></div>
+</div>
+<a href="http://www.baidu.com">注册</a>
+<form action="http://www.taobao.com">
+	<input type="text"/>
+	<input type="submit"/>
+</form>
+</body>
+</html>

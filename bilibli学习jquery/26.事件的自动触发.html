@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>26.事件的自动触发</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.father {
+		width: 200px;
+		height: 200px;
+		background: red;
+	}
+	.son {
+		width: 100px;
+		height: 100px;
+		background: blue;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".son").click(function(){
+			alert("son");
+		})
+		$(".father").click(function(){
+			alert("father");
+		})
+		
+		$("a").click(function(){
+			alert("弹出注册框");
+			return false;
+		})
+		
+		// $(".father").trigger("click");
+		// $(".father").triggerHandler("click");
+		
+		// $(".son").trigger("click");
+		// $(".son").triggerHandler("click")
+		// 
+		$("input[type='submit']").click(function(){
+			alert("submit");
+		})
+		// $("input[type='submit']").trigger("click");
+		$("input[type='submit']").triggerHandler("click");
+	});
+</script>
+</head>
+<body>
+<h1>26.事件的自动触发</h1>
+<hr >
+<p>trigger(); triggerHandler();</p>
+<pre>
+	$(".father").trigger("click");
+	
+	$(".son").triggerHandler("click");
+</pre>
+<p>如果利用trigger自动触发事件,会触发事件冒泡,会触发事件的默认行为</p>
+<p>如果利用triggerHandler自动触发事件,不会触发事件冒泡,也不会触发事件的默认行为</p>
+<div class="father">
+	<div class="son"></div>
+</div>
+<a href="http://www.baidu.com">注册</a>
+<form action="http://www.taobao.com">
+	<input type="text"/>
+	<input type="submit"/>
+</form>
+</body>
+</html>
