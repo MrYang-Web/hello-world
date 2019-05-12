@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>17.jQuery的prop方法</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+			    var $demo = $("span").eq(0).prop("demo","琵琶精");
+				var $demo1 = $("span").eq(1).prop("demo","白骨精");
+				//这里获取到多个元素取第N个的方法和原生JS并不一样,需要注意.
+				console.log($demo);
+				console.log($demo1);
+		
+				// $demo.removeProp("demo");
+				// $demo1.removeProp("demo");
+				
+				console.log($("input").prop("checked")); //true / false;
+				console.log($("input").attr("checked")); //checked /undefind;
+				
+			});
+		</script>
+	</head>
+	<body>
+		<h1>17.jQuery的prop方法</h1>
+		<hr >
+		<h3>1. prop(); 方法</h3>
+		<p>特点和attr();方法一致</p>
+		<p>但是它不光可以添加属性,还可以添加属性节点</p>
+		<hr >
+		<h3>2. removeProp();</h3>
+		<p>特点和removeAttr();方法一致</p>
+		<p>它只可以删除属性,并且不能绑定事件</p>
+		<hr >
+		<h3>官方推荐:在操作属性节点时,具有true和false两个属性的节点</h3>
+		<h3>如:checked,selected或者disabled 使用prop()其他使用attr()</h3>
+		<span class="span1" name="孙悟空">span1</span>
+		<br>
+		<span class="span2" name="猪八戒">span2</span>
+		<br>
+
+		<input type="checkbox" checked />
+	</body>
+</html>
