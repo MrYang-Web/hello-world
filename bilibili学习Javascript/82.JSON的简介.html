@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>82.JSON的简介</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<script type="text/javascript">
+			
+			var JsonStr = '{"name":"孙悟空","age":18,"gander":"男"}';
+			var JsonArr ='[1,2,3,"hello",true]';
+			
+			var obj = JSON.parse(JsonStr);
+			var arr = JSON.parse(JsonArr);
+			console.log(obj);
+			console.log(arr);
+			
+			var Jsobj = {name:"猪八戒",age:26,gander:"男"};
+			
+			var JsonStr2 = JSON.stringify(Jsobj);
+			console.log(JsonStr2);
+			console.log(typeof JsonStr2);
+		</script>
+	</head>
+	<body>
+		<h1>82.JSON的简介</h1>
+		<hr>
+		<h3>JSON</h3>
+		<p>JS中的对象,只有JS自己认识,其他语言无法识别</p>
+		<p>JSON就是一个特殊格式的字符串,这个字符串可以被任意的语言认识.</p>
+		<p>并且可以转换为任意中的对象,JSON在开发中主要负责数据的交互和传递</p>
+		<p>Javascript Object Notation</p>
+		<p>JS对象表示法</p>
+		<p>JSON和JS的对象格式一样,只不过JSON字符串对象中的属性名,<strike>必须加双引号</strike></p>
+		<h3>JSON的分类</h3>
+		<p>1.对象</p>
+		<p>2.数组</p>
+		<p>JSON中允许的值</p>
+		<p>1.字符串 2.数值 3.布尔值 4.null 5.数组 6.对象(普通数组,不包括函数)</p>
+		<pre>
+			var obj = '{"name":"孙悟空","age":18,"gander":"男"}';
+			
+			var arr ='{1,2,3,"hello",true}';
+		</pre>
+		<p>将JSON对象转换为JS对象</p>
+		<p>在JS中为我们提供了一个JSON工具类</p>
+		<p>这个对象可以帮我们将一个JSON转换为JS对象,也可以将一个JS对象转换为JSON</p>
+		<h3> JSON ---> JS </h3>
+		<p>JSON.parse(); 这个方法可以将JSON字符串转换为JS对象</p>
+		<p>它需要一个JSON字符串作为参数,会将该字符串转换为JS对象返回.</p>
+		<h3>JS ---> JSON</h3>
+		<p>JSON.stringify();这个方法可以将JS对象转换为JSON字符串</p>
+		<p>它需要一个js对象作为参数,会返回一个JSON字符串</p>
+	</body>
+</html>
