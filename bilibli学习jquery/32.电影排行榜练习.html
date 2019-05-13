@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="demo.css"/>
 <style type="text/css">
 	#list {
-		width: 200px;
+		width: 260px;
 		height: 400px;
 		border: 1px solid #000000;
 	}
@@ -21,8 +21,6 @@
 		padding: 0;
 	}
 	ul>li {
-		width: 100%;
-		height: 30px;
 		line-height: 20px;
 		border-bottom: 1px dashed #000000;
 	}	
@@ -42,16 +40,37 @@
 		background: red;
 		color: #FFFFFF;
 	}
-	
-	.contact {
-		width: 200px;
+	.content {
+		width: 260px;
 		height: 100px;
+		overflow: hidden;
+		margin-bottom: 10px;
+		display: none;
 	}
-		
+	.content>img {
+		width: 80px;
+		height: 80px;
+		float: left;
+		margin: 10px 8px;
+	}
+	.content>p {
+		font-size: 12px;
+		margin: 0 0;
+		padding: 0 0;
+		margin-top: 10px;
+	}
+	.activ .content{
+		display: block;
+	}
 </style>
 <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-
+	$(function(){
+	    $("li").mouseenter(function (){
+			$("li").removeClass("activ");
+			$(this).addClass("activ");
+		});
+	});
 </script>
 </head>
 <body>
@@ -61,17 +80,42 @@
 		<h3>电影排行榜</h3>
 		<hr >
 		<ul>
-			<li><span>1</span>电影名称
-<!-- 			<div class="contact">
-				<img src="../../MrYang.github.io/imgs/12.jpg" >
-				<p>《风语者》是华裔导演吴宇森于2000年执导拍摄的一部动作战争电影，由美国演员尼古拉斯·凯奇等担纲主演。影片讲述了海军军官乔奉命保护纳瓦霍族的密码员亚当，不过在必要情况下（如果亚当被日本人活捉），为了保护密码情报不被泄漏，那么乔可以开枪打死亚当，在两人的不断碰撞中发展，由龃龉争斗到生死与共。</p>
-			</div> -->
+			<li class="activ"><span>1</span>电影名称
+				<div class="content">
+					<img src="../../MrYang.github.me/imgs/12.jpg" >
+					<p>《风语者》是华裔导演吴宇森于2000年执导拍摄的一部动作战争电影，由美国演员尼古拉斯·凯奇等担纲主演。</p>
+				</div>
 			</li>
-			<li><span>2</span>电影名称</li>
-			<li><span>3</span>电影名称</li>
-			<li><span>4</span>电影名称</li>
-			<li><span>5</span>电影名称</li>
-			<li><span>6</span>电影名称</li>
+			<li><span>2</span>电影名称
+				<div class="content">
+					<img src="../../MrYang.github.me/imgs/12.jpg" >
+					<p>《风语者》是华裔导演吴宇森于2000年执导拍摄的一部动作战争电影，由美国演员尼古拉斯·凯奇等担纲主演。</p>
+				</div>
+			</li>
+			<li><span>3</span>电影名称
+				<div class="content">
+					<img src="../../MrYang.github.me/imgs/12.jpg" >
+					<p>《风语者》是华裔导演吴宇森于2000年执导拍摄的一部动作战争电影，由美国演员尼古拉斯·凯奇等担纲主演。</p>
+				</div>
+			</li>
+			<li><span>4</span>电影名称
+				<div class="content">
+				<img src="../../MrYang.github.me/imgs/12.jpg" >
+				<p>《风语者》是华裔导演吴宇森于2000年执导拍摄的一部动作战争电影，由美国演员尼古拉斯·凯奇等担纲主演。</p>
+				</div>
+			</li>
+			<li><span>5</span>电影名称
+				<div class="content">
+				<img src="../../MrYang.github.me/imgs/12.jpg" >
+				<p>《风语者》是华裔导演吴宇森于2000年执导拍摄的一部动作战争电影，由美国演员尼古拉斯·凯奇等担纲主演。</p>
+				</div>
+			</li>
+			<li><span>6</span>电影名称
+				<div class="content">
+				<img src="../../MrYang.github.me/imgs/12.jpg" >
+				<p>《风语者》是华裔导演吴宇森于2000年执导拍摄的一部动作战争电影，由美国演员尼古拉斯·凯奇等担纲主演。</p>
+				</div>
+			</li>
 		</ul>	
 	</div>
 </body>
