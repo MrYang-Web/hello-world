@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>35.显示隐藏动画</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	button {
+		margin:20px 20px 20px 0;
+	}
+	#box {
+		width: 165px;
+		height: 100px;
+		border: 1px solid #000000;
+		background-color: orange;
+		color: #FFFFFF;
+/* 		display: none; */
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$("button").eq(0).click(function (){
+			$("div").show(500,function (){
+				alert("显示动画执行完毕")
+			});
+		});
+		
+		$("button").eq(1).click(function (){
+			$("div").hide(500,function (){
+				alert("隐藏动画执行完毕");
+			});
+		});
+		
+		$("button").eq(2).click(function (){
+			$("div").toggle(500,function (){
+				alert("切换动画执行完毕");
+			});
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<h1>35.显示隐藏动画</h1>
+	<hr >
+	<h3>show() 显示动画</h3>
+	<h3>hide() 隐藏动画</h3>
+	<h3>toggle() 切换动画</h3>
+	<p>参数:</p>
+	<p>1.传入一个以毫秒为单位的时间参数</p>
+	<p>2.回调函数,可以是任何函数!!!</p>
+	<hr >
+	<button type="button">显示</button>
+	<button type="button">隐藏</button>
+	<button type="button">切换</button>
+	<div id="box">
+		这就是无敌的jQuery!!!
+	</div>
+</body>
+</html>

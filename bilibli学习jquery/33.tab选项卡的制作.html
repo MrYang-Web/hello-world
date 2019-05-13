@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>33.tab选项卡的制作</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.box {
+		width: 60%;
+		height: 370px;
+		border: 2px solid black;
+	}
+	.nav>li{
+		width: 20%;
+		height: 50px;
+		line-height: 50px;
+		font-size: 16px;
+		background-color: orange;
+		float: left;
+		text-align: center;
+		color: #F2F2F2;
+	}
+	.nav .backColor {
+		background-color: #F2F2F2;
+		color: orange;
+	}
+	.content>li>img{
+		width: 100%;
+	}
+	.content>li{
+		display: none;
+	}
+	.content .active{
+		display: block;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".nav li").mouseenter(function (){	
+			$(".nav>li").removeClass("backColor");
+			$(this).addClass("backColor");
+		
+			//这里必须获取索引,才能让导航和下面的图片联动
+			var index =	$(this).index();
+			
+			//根据导航的索引去找到包含图片的li
+			var $li = $(".content>li").eq(index);
+			
+			//给li添加样式,让图片显示
+			$(".content>li").removeClass("active");
+			$li.addClass("active");
+			
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>33.tab选项卡的制作</h1>
+	<hr >
+	<h3>index() 获得索引</h3>
+	<h3>eq() 传入一个指定索引参数并返回一个jQuery对象</h3>
+	<h3>这节课的重点其实是这两个方法</h3>
+	<div class="box">
+		<ul class="nav">
+			<li class="backColor">松鼠</li>
+			<li>饼干牛奶</li>
+			<li>小孩</li>
+			<li>老人</li>
+			<li>晴天娃娃</li>
+		</ul>
+		<ul class="content">
+			<li class="active"><img src="imgs/1.jpg" ></li>
+			<li><img src="imgs/2.jpg" ></li>
+			<li><img src="imgs/3.jpg" ></li>
+			<li><img src="imgs/4.jpg" ></li>
+			<li><img src="imgs/5.jpg" ></li>
+		</ul>
+	</div>
+</body>
+</html>

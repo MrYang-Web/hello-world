@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>34.tab选项卡的补充知识</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.box {
+		width: 60%;
+		height: 370px;
+		border: 2px solid black;
+	}
+	.nav>li{
+		width: 20%;
+		height: 50px;
+		line-height: 50px;
+		font-size: 16px;
+		background-color: orange;
+		float: left;
+		text-align: center;
+		color: #F2F2F2;
+	}
+	.nav .backColor {
+		background-color: #F2F2F2;
+		color: orange;
+	}
+	.content>li>img{
+		width: 100%;
+	}
+	.content>li{
+		display: none;
+	}
+	.content .active{
+		display: block;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		// $(".nav li").mouseenter(function (){	
+		// 	$(".nav>li").removeClass("backColor");
+		// 	$(this).addClass("backColor");
+		// 
+		// 	//这里必须获取索引,才能让导航和下面的图片联动
+		// 	var index =	$(this).index();
+		// 	
+		// 	//根据导航的索引去找到包含图片的li
+		// 	var $li = $(".content>li").eq(index);
+		// 	
+		// 	//给li添加样式,让图片显示
+		// 	$(".content>li").removeClass("active");
+		// 	$li.addClass("active");
+		// });
+		
+		//1.监听鼠标移入事件
+		$(".nav li").mouseenter(function (){
+			//2.改变导航的背景颜色
+			$(this).addClass("backColor");
+			//3.移除其他同级别子元素的背景颜色.
+			$(this).siblings().removeClass("backColor");
+			
+			//查询这条语句返回的数据类型
+			console.log($(this).siblings());
+			
+			//4.获取导航的索引
+			var index =	$(this).index();
+			//5.根据导航的索引,找到指定的li元素
+			var $li = $(".content>li").eq(index);
+			
+			//6.让指定的li元素显示
+			$li.addClass("active");
+			//7.让其他的li元素隐藏
+			$li.siblings().removeClass("active");
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<h1>34.tab选项卡的补充知识</h1>
+	<hr >
+	<h3>siblings()</h3>
+	<p>指定当前元素的同级别其他元素</p>
+	<p>语法: jQuery对象.siblings(); </p>
+	<pre>
+		console.log($(this).siblings());
+	</pre>
+	<p>打印这条语句,可以在控制台看到这条语句会返回一个jQuery数组</p>
+	<hr >
+	<div class="box">
+		<ul class="nav">
+			<li class="backColor">松鼠</li>
+			<li>饼干牛奶</li>
+			<li>小孩</li>
+			<li>老人</li>
+			<li>晴天娃娃</li>
+		</ul>
+		<ul class="content">
+			<li class="active"><img src="imgs/1.jpg" ></li>
+			<li><img src="imgs/2.jpg" ></li>
+			<li><img src="imgs/3.jpg" ></li>
+			<li><img src="imgs/4.jpg" ></li>
+			<li><img src="imgs/5.jpg" ></li>
+		</ul>
+	</div>
+</body>
+</html>

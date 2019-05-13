@@ -11,3 +11,9 @@ pre {
   color: #F57527;
   font-weight: 600;
 }
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
