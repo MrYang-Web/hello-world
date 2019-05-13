@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>36.对联广告动画</title>
+		<link rel="stylesheet" type="text/css" href="demo.css"/>
+		<style type="text/css">
+			img{
+				width: 10%;
+				position: fixed;
+				display: none;
+				top: 200px;
+			}
+			body {
+				height: 2000px;
+			}
+			.left{
+				float: left;
+				left: 0;
+			}
+			.right{
+				float: right;
+				right: 0;
+			}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(window).scroll(function (){
+					var offset = $("html,body").scrollTop();
+					if (offset >= 300) {
+						$("img").show(500);
+					} else{
+						$("img").hide(500);
+					}
+				});
+
+			});
+		</script>
+	</head>
+	<body>
+		<h1>36.对联广告动画</h1>
+		<hr >
+		<p>这节课不光是练习还有一个新的知识点</p>
+		<h3>scroll()事件</h3>
+		<p>注意:这个事件与scrollTop()方法的区别</p>
+		<p>1.scrollTop()是方法,用来获取滚动条的上下偏移量</p>
+		<p>2.scroll()是事件,用来绑定监听事件.</p>
+		<img src="imgs/text.png" class="left">
+		<img src="imgs/text.png" class="right">
+	</body>
+</html>

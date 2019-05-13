@@ -12,7 +12,7 @@
 	"function": {
 		"prefix": "fun",
 		"body": [
-			"function $1($2){$0};"
+			"function $1($2){$0}"
 		],
 		"triggerAssist": true,
 		"description": "普通函数代码块"
