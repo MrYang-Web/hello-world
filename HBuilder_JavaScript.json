@@ -1,4 +1,14 @@
-	//普通函数速写
+//--console.log()打印
+	"consol.log()": {
+		"prefix": "con",
+		"body": [
+			"console.log($1);"
+		],
+		"triggerAssist": true,
+		"description": "console.log()打印"
+	},	
+	
+//--普通函数速写
 	"function": {
 		"prefix": "fun",
 		"body": [
@@ -8,7 +18,7 @@
 		"description": "普通函数代码块"
 	},
 	
-	//原生JS入口函数
+//--原生JS入口函数
 	"window.onload": {
 		"prefix": "win",
 		"body": [
@@ -19,7 +29,7 @@
 	},
 	
 	
-	//原生JS的for循环
+//--原生JS的for循环
 	"for..": {
 		"prefix": "for",
 		"body": [
@@ -29,7 +39,7 @@
 		"description": "for循环"
 	},
 	
-	//jQuery的入口函数
+//--jQuery的入口函数
 	"$(function(){});": {
 		"prefix": "jq",
 		"body": [
@@ -41,7 +51,7 @@
 		"description": "jQuery的入口函数"
 	},
 	
-	//jQuery选择器
+//--jQuery选择器
 	"$('')": {
 		"prefix": "$",
 		"body": [
@@ -51,7 +61,7 @@
 		"description": "jQuery选择器"
 	},
 	
-	//jQuery的自动触发事件
+//--jQuery的自动触发事件
 	"trigger()": {
 		"prefix": "tri",
 		"body": [
@@ -59,4 +69,24 @@
 		],
 		"triggerAssist": true,
 		"description": "jQuery的自动触发事件"
-	}	
+	},
+		
+//--jQuery的attr()方法
+	"attr()": {
+	"prefix": "at",
+	"body": [
+		"attr(\"$1\")$0"
+	],
+	"triggerAssist": true,
+	"description": "jQuery的attr()方法"
+	},
+	
+//--jQuery的removeAttr()方法
+	"removeAttr()": {
+	"prefix": "rema",
+	"body": [
+		"removeAttr(\"$1\");$0"
+	],
+	"triggerAssist": true,
+	"description": "jQuery的attr()方法"
+	}
