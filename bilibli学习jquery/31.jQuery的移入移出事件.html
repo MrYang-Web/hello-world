@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>31.jQuery的移入移出事件</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.father {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+	}
+	.son {
+		width: 100px;
+		height: 100px;
+		background-color: blue;
+	}
+	.father1 {
+		width: 200px;
+		height: 200px;
+		background-color: yellow;
+		margin: 50px 0;
+	}
+	.son1 {
+		width: 100px;
+		height: 100px;
+		background-color: pink;
+	}
+
+	.father2 {
+		width: 200px;
+		height: 200px;
+		background-color: green;
+		margin-bottom: 50px;
+	}
+	.son2 {
+		width: 100px;
+		height: 100px;
+		background-color: gold;
+	}
+	
+	.father3 {
+		width: 200px;
+		height: 200px;
+		background-color: deeppink;
+	}
+	.son3 {
+		width: 100px;
+		height: 100px;
+		background-color: goldenrod;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    $(".father").mouseover(function (){
+			alert("father 被移入");
+		});
+		$(".father").mouseout(function (){
+			alert("father 被移出");
+		});
+		
+		
+		$(".father1").mouseenter(function (){
+			alert("father 1 被移入");
+		});
+		$(".father1").mouseleave(function (){
+			alert("father 1 被移出");
+		});
+		
+		$(".father2").hover(function (){
+			alert("father 2 被移入");
+		},	function (){
+			alert("father 2 被移出");
+		});
+		
+		$(".father3").hover(function (){
+			alert("father 3 被移入或移出");
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>31.jQuery的移入移出事件</h1>
+	<hr >
+	<p>mouseover()移入事件</p>
+	<p>mouseout()移出事件</p>
+	<h3>子元素移入移出也会触发父元素的事件</h3>
+	<p>一般情况下我们不需要这种效果</p>
+	<p>mouseenter()与mouseleave() 这两种移入移出事件就不会存在这种情况</p>
+	<hr >
+	<h3>hover()</h3>
+	<p>如果需要一个函数监听移入和移出两个事件那么就要使用hover()</p>
+	<p>它接收两个参数:</p>
+	<h3>如果只传一个参数,它也可以监听移入和移出两个事件</h3>
+	<p>hover(fn,fn)</p>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+	<div class="father1">
+		<div class="son1"></div>
+	</div>
+	<div class="father2">
+		<div class="son2"></div>
+	</div>
+	<div class="father3">
+		<div class="son3"></div>
+	</div>
+</body>
+</html>

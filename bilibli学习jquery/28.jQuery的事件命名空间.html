@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>28.jQuery的事件命名空间</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.father {
+		width: 200px;
+		height: 200px;
+		background: red;
+	}
+	.son {
+		width: 100px;
+		height: 100px;
+		background: blue;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	  $(".son").on("click.swk" , function (){
+		  alert("click1");
+	  });
+	  
+	  $(".son").on("click.zbj" , function (){
+		  alert("click2");
+	  });
+	  
+	  $(".son").trigger("click.swk");
+	});
+</script>
+</head>
+<body>
+	<h1>28.jQuery的事件命名空间</h1>
+	<hr >
+	<p>在多人协作开发中,因为命名的可能造成同一个命名</p>
+	<p>那么通过on(eventName.nameSpace,fn)的方式,就可以给事件标注名字,并且不影响事件的触发</p>
+	<pre>
+		$(".son").on("click.swk" , function (){
+				  alert("click1");
+		});
+		
+		$(".son").on("click.zbj" , function (){
+				  alert("click2");
+		});
+		
+		
+	</pre>
+	<p>通过上述事例代码,可以明显看出第一个点击事件是孙悟空添加,第二个是猪八戒添加</p>
+	<h3>并且还起到了区分事件的作用,利用trigger()可以测试这种区分</h3>
+	<pre>
+	  $(".son").trigger("click.swk");	
+	</pre>
+	<h3>上述代码仅仅只自动触发名为孙悟空的事件</h3>
+	<p>要想要事件的命名空间有效,必须满足两个条件</p>
+	<p>1.事件是通过on绑定的</p>
+	<p>2.事件必须通过trigger()触发</p>
+	<hr >
+	<div class="father">
+		<div class="son"></div>
+	</div>
+	<a href="http://www.baidu.com">注册</a>
+	<form action="http://www.taobao.com">
+		<input type="text"/>
+		<input type="submit"/>
+	</form>
+</body>
+</html>

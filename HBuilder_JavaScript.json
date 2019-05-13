@@ -1,0 +1,62 @@
+	//普通函数速写
+	"function": {
+		"prefix": "fun",
+		"body": [
+			"function $1($2){$0};"
+		],
+		"triggerAssist": true,
+		"description": "普通函数代码块"
+	},
+	
+	//原生JS入口函数
+	"window.onload": {
+		"prefix": "win",
+		"body": [
+			"window.onload = function (){$0};"
+		],
+		"triggerAssist": true,
+		"description": "入口函数代码块"
+	},
+	
+	
+	//原生JS的for循环
+	"for..": {
+		"prefix": "for",
+		"body": [
+			"for (i=0; i<$1.length; i++){$1$0[i]};"
+		],
+		"triggerAssist": true,
+		"description": "for循环"
+	},
+	
+	//jQuery的入口函数
+	"$(function(){});": {
+		"prefix": "jq",
+		"body": [
+			"$(function(){", 
+				"    $1",
+			"});"
+		],
+		"triggerAssist": true,
+		"description": "jQuery的入口函数"
+	},
+	
+	//jQuery选择器
+	"$('')": {
+		"prefix": "$",
+		"body": [
+			"$(\"$1\")$0" 
+		],
+		"triggerAssist": true,
+		"description": "jQuery选择器"
+	},
+	
+	//jQuery的自动触发事件
+	"trigger()": {
+		"prefix": "tri",
+		"body": [
+			"trigger(\"$1\")$0" 
+		],
+		"triggerAssist": true,
+		"description": "jQuery的自动触发事件"
+	}	
