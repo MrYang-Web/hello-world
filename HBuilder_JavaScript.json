@@ -89,4 +89,14 @@
 	],
 	"triggerAssist": true,
 	"description": "jQuery的attr()方法"
+	},
+	
+//--jQuery的click()事件
+	"click()": {
+	"prefix": "cli",
+	"body": [
+		"click($1)$0"
+	],
+	"triggerAssist": true,
+	"description": "jQuery的click()事件"
 	}

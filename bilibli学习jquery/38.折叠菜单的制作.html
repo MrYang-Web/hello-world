@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>38.折叠菜单的制作</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	body {
+		height: 2000px;
+	}
+	.navBar {
+		width: 200px;
+		border: 1px solid #000000;
+		border-bottom:none;
+		border-radius: 10px;
+		height: auto;
+		overflow: hidden;
+	}
+	.navBar>li{
+		width: 100%;
+		line-height: 32px;
+		border-bottom: 1px solid #000000;
+		position: relative;
+		text-indent: 1em;
+	}
+	.navBar>li:last-child {
+		border-radius: 10px;
+	}
+	span {
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		border-top: 1px solid #000000;
+		border-right: 1px solid #000000;
+		transform: rotate(45deg);
+		float: right;
+		top: 12px;
+		right: 24px;
+		position: absolute;
+		transition: 600ms;
+	}
+	.active>span{
+		transform: rotate(135deg);
+		transition: 600ms;
+	}
+	.sub {
+		display: none;
+	}
+	.sub>li {
+		background-color: lightpink;
+		border-top: 1px solid #FFFFFF;
+		color: #FFFFFF;
+	}
+	.sub>li:hover {
+		background-color: #FFFFFF;
+		color: lightpink;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".navBar>li").click(function (){
+			//1.找到需要打开的二级菜单
+			var $sub = $(this).children(".sub");
+			//2.让二级菜单打开.
+			$sub.slideToggle(600);
+			//3.找到其他需要关闭的二级菜单.
+			var $otherSub = $(this).siblings().children(".sub")
+			//4.让其他二级菜单关闭.
+			$otherSub.slideUp(600);
+			//5.让箭头转向
+			$(this).addClass("active");
+			//6.移出其他子元素的箭头样式
+			var $otherActive = $(this).siblings();
+			$otherActive.removeClass("active");
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>38.折叠菜单的制作</h1>
+	<hr >
+	<h3>注意:制作这类二级菜单的时候,父级li不能固定高度,否则子元素撑不开父级高度就会叠在一起</h3>
+	<p>通过this找到子元素的方法为children();</p>
+	<ul class="navBar">
+		<li>一级菜单 <span></span>
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单 <span></span>
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单 <span></span>
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单 <span></span>
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单 <span></span>
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单 <span></span>
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单 <span></span>
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单 <span></span>
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

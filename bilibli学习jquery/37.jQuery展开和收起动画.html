@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>37.jQuery展开和收起动画</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	#box{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		margin-top: 10px;
+		display: none;
+		border: 1px solid #000000;
+		color: #FFFFFF;
+		}
+	button {
+		margin-right: 10px;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    $("button").eq(0).click(function (){
+			$("#box").slideDown(600, function (){
+				alert("展开已经完毕");
+			});
+		});
+		
+		$("button").eq(1).click(function (){
+			$("#box").slideUp(600,function (){
+				alert("收起已经完毕");
+			});
+		});
+		
+		$("button").eq(2).click(function (){
+			$("#box").slideToggle(600,function (){
+				alert("切换已经完毕");
+			});
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<h1>37.jQuery展开和收起动画</h1>
+	<hr >
+	<p>slideDown([s],[e],[fn])</p>
+	<p>slideUp([s,[e],[fn]])</p>
+	<p>slideToggle([s],[e],[fn])</p>
+	<button type="button">展开</button>
+	<button type="button">收起</button>
+	<button type="button">切换展开收起</button>
+	<hr >
+	<div id="box">这就是无敌的jQuery!</div>
+</body>
+</html>

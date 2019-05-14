@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>39.下拉菜单的制作</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.navBar {
+		width: 50%;
+		height: 32px;
+		background-color: lightpink;
+		border-radius: 5px;
+		margin: 20px 0;
+	}
+	.navBar>li {
+		width: 25%;
+		height: 32px;
+		line-height: 32px;
+		text-align: center;
+		float: left;
+		color: #FFFFFF;
+	}
+	.sub{
+		width: 100%;
+		height: auto;
+		background-color: skyblue;
+		border-radius: 5px;
+		display: none;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    //1.给指定的li元素绑定监听事件
+		$(".navBar>li").mouseenter(function (){
+			//2.找到指定元素的子元素二级菜单
+			var $sub = $(this).children(".sub");
+			//3.给二级菜单添加动画效果
+			$sub.slideToggle(600);
+		})
+	});
+</script>
+</head>
+<body>
+	<h1>39.下拉动画菜单的制作</h1>
+	<hr >
+	<ul class="navBar">
+		<li>一级菜单
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>		
+		</li>
+		<li>一级菜单
+			<ul class="sub">
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>		
+		</li>
+	</ul>
+</body>
+</html>
