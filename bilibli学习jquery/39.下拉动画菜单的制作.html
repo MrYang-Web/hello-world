@@ -31,18 +31,39 @@
 <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	$(function(){
-	    //1.给指定的li元素绑定监听事件
+	    //1.给指定的li元素绑定监听鼠标移入事件
 		$(".navBar>li").mouseenter(function (){
 			//2.找到指定元素的子元素二级菜单
 			var $sub = $(this).children(".sub");
-			//3.给二级菜单添加动画效果
-			$sub.slideToggle(600);
+			//3.先停止之前的动画
+			$sub.stop();
+			//4.给二级菜单添加动画效果
+			$sub.slideDown(600);
 		})
+		
+		//5.给指定的li元素绑定监听鼠标移出事件
+		$(".navBar>li").mouseleave(function (){
+			//2.找到指定元素的子元素二级菜单
+			var $sub = $(this).children(".sub");
+			//3.先停止之前的动画
+			$sub.stop();
+			//4.给二级菜单添加动画效果
+			$sub.slideUp(600);
+		})
+		
 	});
 </script>
 </head>
 <body>
 	<h1>39.下拉动画菜单的制作</h1>
+	<hr >
+	<h3>注意:</h3>
+	<p>因为动画队列的问题,如果执行下一次动画之前不终止之前的动画.</p>
+	<p>那么就必须等到之前的动画执行完毕,再执行下一次动画.</p>
+	<p>如果队列堆叠过多,会让体验变得非常之差</p>
+	<h3>解决办法是在执行动画之前,先执行stop()方法</h3>
+	<p>这里也只能使用mouseenter();以及mouseleave();</p>
+	<p>使用mouseToggle()会出现离开头部,下级菜单就回收的问题.</p>
 	<hr >
 	<ul class="navBar">
 		<li>一级菜单
