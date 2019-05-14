@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>41.jQuery的淡入淡出动画</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	#box {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		margin-top: 20px;
+		display: none;
+	}
+	button {
+		margin-right: 20px;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    $("button").eq(0).click(function (){
+			$("div").fadeIn(600,function (){
+				alert("淡入完毕");
+			})
+		});
+		
+		$("button").eq(1).click(function (){
+			$("div").fadeOut(600,function (){
+				alert("淡出完毕");
+			})
+		});
+		
+		$("button").eq(2).click(function (){
+			$("div").fadeToggle(600,function (){
+				alert("切换完毕");
+			})
+		});
+		
+		$("button").eq(3).click(function (){
+			$("div").fadeTo(600,0.2,function (){
+				alert("淡入到完毕");
+			})
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>41.jQuery的淡入淡出动画</h1>
+	<hr >
+	<p>这里有个小bug,如果先使用淡入到以后,所有按钮都只能淡入到0.2了</p>
+	<button type="button">淡入</button>
+	<button type="button">淡出</button>
+	<button type="button">切换</button>
+	<button type="button">淡入到</button>
+	<div id="box">
+		
+	</div>
+</body>
+</html>

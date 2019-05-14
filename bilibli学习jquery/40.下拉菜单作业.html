@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>40.下拉菜单作业</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	ul>li {
+		display: inline-block;
+		width: 32%;
+		height: 32px;
+		line-height: 32px;
+		text-align: center;
+	}
+	.box {
+		width: 300px;
+		border: 1px solid #000000;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    $("button").click(function (){
+			$(".box>.list").slideToggle(600);
+
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>40.下拉菜单作业</h1>
+	<hr >
+	<p>这个作业用浮动制作菜单,会出现一点小bug,所以案例中使用的是display:inline-block</p>
+	<div class="box">
+		<ul>
+			<li>佳能</li>
+			<li>索尼</li>
+			<li>三星</li>
+		</ul>
+		<ul class="list">
+			<li>尼康</li>
+			<li>松下</li>
+			<li>卡西欧</li>
+			<li>富士</li>
+			<li>科达</li>
+			<li>宾得</li>
+			<li>理光</li>
+			<li>奥林巴斯</li>
+			<li>明基</li>
+		</ul>
+		<p>显示其他品牌</p>
+		<button type="button">隐藏所有内容</button>
+	</div>
+</body>
+</html>
