@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>42.jQuery弹窗练习</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	#box {
+		width: 300px;
+		border: 1px solid #000000;
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		display: none;
+	}
+	img {
+		width: 100%;
+	}
+	#box>span {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		background-color: red;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    $("span").click(function (){
+			$("#box").remove();
+		});
+		
+		// $("#box").slideDown(1000,function (){
+		// 	$("#box").fadeOut(600,function (){
+		// 		$("#box").fadeIn(600,);
+		// 	});
+		// });
+		$("#box").stop().slideDown(600).fadeOut(600).fadeIn(600);
+	});
+</script>
+</head>
+<body>
+	<h1>42.jQuery弹窗练习</h1>
+	<hr >
+	<p>在使用jQuery选择器的时候一定要注意区分</p>
+	<h3>类|id|标签</h3>
+	<p>这几种东西的选择方法!!!</p>
+	<p>写错的话,控制台不会报错,jQuery又不执行.</p>
+	<div id="box">
+		<img src="imgs/5.jpg" >
+		<span></span>
+	</div>
+</body>
+</html>
