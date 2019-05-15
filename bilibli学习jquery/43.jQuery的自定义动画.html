@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>43.jQuery的自定义动画</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.box1 {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		margin: 20px 0;
+	}
+	.box2 {
+		width: 100px;
+		height: 100px;
+		background-color: blue;		
+	}
+
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    $("button").eq(0).click(function (){
+			$(".box1").animate({
+				width: 400,
+				height: 200
+			}, "slow");
+		});
+		
+	    $("button").eq(1).click(function (){
+			$(".box1").animate({
+				marginLeft:"+=100px"
+			}, "slow");
+		});		
+		
+		$("button").eq(2).click(function (){
+			$(".box1").animate({
+				marginLeft:500
+			}, 5000);
+			
+			$(".box2").animate({
+				marginLeft:500
+			}, 5000,"linear");
+		});
+		
+		$("button").eq(3).click(function (){
+			$(".box1").animate({
+				  height: 'toggle', 
+				  opacity: 'toggle'
+			}, 1000,function (){
+				alert("自定义动画执行完毕");
+			});
+		});
+
+	});
+</script>
+</head>
+<body>
+	<h1>43.jQuery的自定义动画</h1>
+	<hr >
+	<h3>animate()</h3>
+	<p>自定义动画,可以传入三个参数:</p>
+	<p>1.第一个参数为: 对象, 包含需要自定义的各项属性</p>
+	<p>2.第二个参数为: 时间, 输入一个单位为毫秒的参数.三种预定速度之一的字符串("slow","normal", or "fast")</p>
+	<p>3.第三个参数为: 动画模式, 当动画执行时以何种模式运动.默认jQuery提供"linear" 和 "swing".</p>
+	<p>4.第四个参数为: 回调函数, 当动画执行完毕时,执行的函数</p>
+	<h3>注意:在输入各项属性的参数时,可以指定关键字如:hide | show | toggle</h3>
+	<button type="button">操作属性</button>
+	<button type="button">累加属性</button>
+	<button type="button">对比运动模式</button>
+	<button type="button">关键字</button>
+	<div class="box1"></div>
+	<div class="box2"></div>
+</body>
+</html>
