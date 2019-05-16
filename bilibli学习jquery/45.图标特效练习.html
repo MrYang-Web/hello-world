@@ -4,14 +4,70 @@
 <meta charset="utf-8">
 <title>45.图标特效练习</title>
 <link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	ul {
+		width: 400px;
+		height: 300px;
+		border: 1px solid #000000;
+	}
+	ul>li {
+		width: 25%;
+		height: 100px;
+		float: left;
+		line-height: 15px;
+		text-align: center;
+		margin-top: 42px;
+		overflow: hidden;
+	}
+	ul>li>span {
+		display: inline-block;
+		width: 25px;
+		height: 36px;
+		background-color: red;
+		background: url(imgs/icon.png) no-repeat 0 0;
+		position: relative;
+	}
+</style>
 <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-	
+	$(function(){
+	    $("li").each(function (index, ele){
+			//1.1 生成新的图片位置
+			var $url = "url(\"imgs/icon.png\") no-repeat 0 " +(index * -42)+"px";
+			//1.2 设置新的图片位置
+			$(this).children("span").css("background", $url);
+		});
+		
+		//2.监听鼠标移入事件
+		$("li").mouseenter(function (){
+			$(this).children("span").animate({
+				//让图标移动到顶部
+				top: -40
+			}, 300 , function (){
+				//让图标移动到底部
+				$(this).css("top", 40);
+				$(this).animate({
+					top: 0
+				},400)
+			})
+		})
+	});
 </script>
 </head>
 <body>
 	<h1>45.图标特效练习</h1>
 	<hr >
-	<p></p>
+	<h3>要开启动画,就需要给元素添加定位属性!!</h3>
+	<h3>大兄弟!不要给标签加错定位属性了!!!!!!!!!!</h3>
+	<ul>
+		<li><span></span><p>百度</p></li>
+		<li><span></span><p>百度</p></li>
+		<li><span></span><p>百度</p></li>
+		<li><span></span><p>百度</p></li>
+		<li><span></span><p>百度</p></li>
+		<li><span></span><p>百度</p></li>
+		<li><span></span><p>百度</p></li>
+		<li><span></span><p>百度</p></li>
+	</ul>
 </body>
 </html>
