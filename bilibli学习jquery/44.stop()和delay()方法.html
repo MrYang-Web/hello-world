@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>44.stop()和delay()方法</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	.one {
+		width: 10px;
+		height: 10px;
+		background-color: red;
+	}
+	.two {
+		width: 400px;
+		height:10px;
+		background-color: blue;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    $("button").eq(0).click(function (){
+			$(".one").animate({
+				width:400,
+				height:200
+			},1000);
+		});
+		
+	    $("button").eq(1).click(function (){
+			$(".one").animate({
+				width:400
+			},1000);
+			$(".one").animate({
+				height:200
+			},1000);			
+		});
+		
+	    $("button").eq(2).click(function (){
+			$(".one").animate({
+				width:400
+			},1000);
+			$(".one").delay(1000).animate({
+				height:200
+			},1000);			
+		});
+		
+	    $("button").eq(3).click(function (){
+			$(".one").stop();
+		});
+		
+		$("button").eq(4).click(function (){
+			$(".one").stop(true);
+		});	
+							
+		$("button").eq(5).click(function (){
+			$(".one").stop(false, true);
+		});			
+	});
+</script>
+</head>
+<body>
+	<h1>44.stop()和delay()方法</h1>
+	<hr >
+
+	<p>注意:在使用animate()方法时,传入的第一个参数{}可以放入多个属性,多个属性的动画也会同时执行</p>
+	<p>如果需要一个个动画执行,只需要再次使用animate()方法,并将后执行的动画放入进去即可</p>
+	<h3>delay()</h3>
+	<p>用于告诉系统延长多少时间开始动画</p>
+	<h3>stop()</h3>
+	<p>1.如果不传参数,则立即停止当前动画,继续执行后续动画</p>
+	<p>参数1:表示是否停止所有队列动画</p>
+	<p>参数2:表示是否立即完成当前动画</p>
+	<button type="button">开始执行所有动画</button>
+	<button type="button">开始轮流执行动画</button>
+	<button type="button">让变高延迟1秒执行</button>
+	<button type="button">停止当前动画,继续后续动画</button>
+	<button type="button">立即停止所有动画</button>
+	<button type="button">立即完成当前动画,继续后续动画</button>
+	<div class="one"></div>
+	<div class="two"></div>
+</body>
+</html>
