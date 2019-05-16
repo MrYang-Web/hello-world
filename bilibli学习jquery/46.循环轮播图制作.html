@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>46.循环轮播图制作</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<style type="text/css">
+	#box {
+		width: 400px;
+		border: 1px solid black;
+		overflow: hidden;
+		height: 134px;
+		background: #000000;
+	}
+	ul {
+		width: 1400px;
+	}
+	ul>li {
+		width: 200px;
+		float: left;
+	}
+	img {
+		width: 100%;
+	}
+	
+	#test {
+		width: 400px;
+		background: #000000;
+	}
+	#test img {
+		width: 100%;
+	}
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		//0.定义一个变量保存偏移量
+		var offset = 0;
+	    //1.让图片滚动起来
+		var timer;
+		 function autoPlay(){
+			timer = setInterval(function (){
+			 	offset += -2;
+			 	if (offset <= -1000) {
+			 		offset = 0;
+			 	}
+			 	$("ul").css("marginLeft",offset);
+			 },20);
+		 }
+		//这里添加函数执行,是为了加载页面让动画执行
+		autoPlay();
+		
+		//2.监听鼠标的移入移出事件
+		$("li").hover(function (){
+			//移入停止滚动
+			clearInterval(timer);
+			$(this).siblings("li").stop().fadeTo(200, 0.5);
+		}, function (){
+			//移出继续滚动
+			autoPlay();
+			$(this).siblings("li").stop().fadeTo(200,1);
+		})
+		
+		
+		
+		$("#test").hover(function (){
+			$("#test>img").fadeTo(100, 0.5);
+		},function (){
+			$("#test>img").fadeTo(100, 1);
+		})
+	});
+</script>
+</head>
+<body>
+	<h1>46.循环轮播图制作</h1>
+	<hr >
+	<p>这个案例中,很巧妙的将div的背景设为黑色</p>
+	<p>那么动画只需要将img的不透明度降低</p>
+	<p>即可达到为图片添加一层蒙版的效果</p>
+	<h3>反向思维,值得学习!!!</h3>
+	<h3>记得在移入的时候添加stop()停止方法</h3>
+	<h3>如果不添加的话,鼠标在div内切换图片时,会出现闪光</h3>
+	<div id="box">
+		<ul class="list">
+			<li><img src="imgs/1.jpg" ></li>
+			<li><img src="imgs/2.jpg" ></li>
+			<li><img src="imgs/3.jpg" ></li>
+			<li><img src="imgs/4.jpg" ></li>
+			<li><img src="imgs/5.jpg" ></li>
+			<li><img src="imgs/1.jpg" ></li>
+			<li><img src="imgs/2.jpg" ></li>
+		</ul>
+	</div>
+	<div id="test">
+		<img src="imgs/5.jpg" >
+	</div>
+</body>
+</html>
