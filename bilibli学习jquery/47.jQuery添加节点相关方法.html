@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>47.jQuery添加节点相关方法</title>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    $("button").eq(0).click(function (){
+			//1.创建新增的li
+			var $li = $("<li>新增的li</li>");
+			$("ul").append($li);
+		})
+		
+		$("button").eq(1).click(function (){
+			//1.创建新增的li
+			var $li = $("<li>新增的li</li>");
+			$("ul").prepend($li);
+		})
+		
+		$("button").eq(2).click(function (){
+			//1.创建新增的li
+			var $li = $("<li>新增的li</li>");
+			$("ul").after($li);
+		})
+				
+		$("button").eq(3).click(function (){
+			//1.创建新增的li
+			var $li = $("<li>新增的li</li>");
+			$("ul").before($li);
+		})			
+				
+	});
+</script>
+</head>
+<body>
+	<h1>47.jQuery添加节点相关方法</h1>
+	<hr >
+	<h3>append(content|fn);方法将新增内容加入元素内部末端</h3>
+	<h3>prepend(content|fn);方法将新增内容加入元素内部前端</h3>
+	<button type="button">append添加节点</button>
+	<button type="button">prepend添加节点</button>
+	<hr >
+	<h3>after(content|fn);方法将新增的内容添加到元素外部之后</h3>
+	<h3>before(content|fn);方法将新增的内容添加到元素外部之前</h3>
+	<button type="button">after方法进入控制台查看</button>
+	<button type="button">before方法进入控制台查看</button>
+	<ul>
+		<li>我是第1个li</li>
+		<li>我是第2个li</li>
+		<li>我是第3个li</li>
+	</ul>	
+</body>
+</html>
