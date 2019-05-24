@@ -9,7 +9,7 @@
 		width: 100%;
 		height: 180px;
 	}
-	.text {
+	.comment {
 		width: 80%;
 		height: 150px;
 		background-color: pink;
@@ -20,7 +20,7 @@
 		border: 1px solid black;
 		margin: 0 auto;
 	}
-	button {
+	.send {
 		width: 90px;
 		height: 46px;
 		float: right;
@@ -33,20 +33,29 @@
 	}
 	.messageList {
 		width: 80%;
-		height: 160px;
+		height: auto;
 		background-color: #C0C0C0;
+		overflow: auto;
 	}
 	.info {
+		width: auto;
 		padding: 10px 0;
-		line-height: 26px;
+		line-height: 32px;
+	}
+	.infoText {
+		padding: 0px 10px;
+	}
+	.infoOperation {
+		width: auto;
+		height: 26px;
 	}
 	.infoTime {
-		margin: 10px 10px;
+		margin: 0px 10px;
 		float: left;
 		color: #EEEEEE;
 	}
 	.infoHandle {
-		margin: 10px 10px;
+		margin: 0px 10px;
 		float: right;
 	}
 	a {
@@ -58,6 +67,7 @@
 		width: 80%;
 		height: 26px;
 		background-color: #0086B3;
+		padding: 10px 0px;
 	}
 	.page>a{
 		width: 10px;
@@ -66,22 +76,105 @@
 		line-height: 26px;
 		padding: 0 10px;
 		margin: 0 5px;
-		border-radius: 5px;
+		border-radius: 100%;
 	}
 </style>
 <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	$(function(){
-		//0.监听内容的实时输入
-		$(".text").change(function (){
-			
-		})
-		//1.监听发布按钮的点击
-	    $("button").click(function (){
-			//2.
+		//0.监听内容的实时输入,要事实监听只能使用事件委托,change只能用于失去焦点时
+		//这里这么绕,就是为了实现一个功能,实时判断输入框里面是否有内容!!!
+		$("body").delegate(".comment","propertychange input",function (){
+			//判断是否输入了内容
+			if ($(this).val().length > 0) {
+				//让按钮可用
+				$(".send").prop("disabled", false);
+			}else {
+				//让按钮不可用
+				$(".send").prop("disabled", true);
+			}
+
 		});
 		
 		
+		// $(".comment").change(function (){
+		// 	console.log($(this).val());
+		// })
+		//1.监听发布按钮的点击
+	    $(".send").click(function (){
+			//1.2拿到用户输入的内容
+			var $text = $(".comment").val();
+			//1.3根据内容创建节点
+			var $weibo = createEle($text);
+			//1.4插入微博
+			$(".messageList").prepend($weibo);
+		});
+		
+		//2.监听顶点击
+		$("body").delegate(".top", "click", function (){
+			//2.1通过对象筛选方法,查询到子元素内的内容
+			var $value = $(this).children("span").text();
+			//2.2通过原生JS方法parseInt()来将查询到的字符串转换为数字,然后使其点击自增;
+			$(this).children("span").text(parseInt($value)+1);
+		})
+		
+		//3.监听踩点击
+		$("body").delegate(".down", "click", function (){
+			//2.1通过对象筛选方法,查询到子元素内的内容
+			var $value = $(this).children("span").text();
+			//2.2通过原生JS方法parseInt()来将查询到的字符串转换为数字,然后使其点击自增加;
+			$(this).children("span").text(parseInt($value)+1);	
+		})
+		
+		//4.监听删除点击
+		$("body").delegate(".del", "click", function (){
+			$(this).parents(".info").remove();
+		})
+		
+		
+		//创建节点方法:
+		function createEle(text){
+			var $weibo = $("<div class=\"info\">" + 
+"			<p class=\"infoText\">"+ text +"</p> " +
+"			<p class=\"infoOperation\"> " +
+"				<span class=\"infoTime\">"+formartDate()+"</span> " +
+"				<span class=\"infoHandle\"> " +
+"					<a href=\"javascript:;\" class=\"top\">顶: <span>0</span</a> " +
+"					<a href=\"javascript:;\" class=\"down\">踩: <span>0</span></a> " +
+"					<a href=\"javascript:;\" class=\"del\">删除</a> " +
+"				</span> " +
+"			</p> " +
+"			<hr > " +
+"		</div>");
+		return $weibo;
+		}
+		
+		//创建时间方法:
+		//这里需要注意月份是从0开始计数,所以需要加1
+		function formartDate(){
+			var date = new Date();
+			console.log(date.getFullYear());
+			console.log(date.getMonth()+1);
+			console.log(date.getDate());
+			console.log(date.getHours());
+			console.log(date.getMinutes());
+			console.log(date.getSeconds());
+			
+			//按照微博的时间格式进行拼接 2019-5-20 21:30:23
+			var arr = [date.getFullYear()+"-",
+				date.getMonth()+1+"-",
+				date.getDate()+" ",
+				date.getHours()+ ":",
+				date.getMinutes()+":",
+				date.getSeconds()
+			];
+			
+			//以为获取到的时间是数字,那么都获取到了以后,要转换为字符串
+			console.log(arr.join(""));
+			return arr.join("");
+		}
+
+
 		
 		
 	});
@@ -90,52 +183,27 @@
 <body>
 	<h1>48.微博功能的增删</h1>
 	<hr >
+	<h3>通过制作微博的增删功能,可以对jQuery的各类对象方法加深影响</h3>
+	<h3>重要的是,学习后续的ajax也会要用到这个功能,所以一定要多多练习理解</h3>
 	<div class="contact">
-		<textarea class="text"></textarea>
-		<button type="button" disabled="disabled">发布</button>
+		<textarea class="comment"></textarea>
+		<input class="send" type="button" value="发布" disabled />
 	</div>
 	<div class="messageList">
 		<div class="info">
-			<p class="infoText">[腾讯微视频获重磅更新: 打开QQ音乐曲库] 昨天晚上腾讯对旗下短视频应用微视进行了大版本更新,安卓版直接升级到了4.0版本.此次更新推出了视频跟拍|歌词字幕|一键美型等三大功能~~~</p>
+			<p class="infoText">[腾讯微视频获重磅更新: 打开QQ音乐曲库] 昨天晚上腾讯对旗下短视频应用微视进行了大版本更新,安卓版直接升级到了4.0版本.此次更新推出了 视频跟拍 | 歌词字幕 | 一键美型 等三大功能~~~</p>
 			<p class="infoOperation">
 				<span class="infoTime">2019-5-20 21:30:23</span>
 				<span class="infoHandle">
-					<a href="javascript:;">顶: 0</a>
-					<a href="javascript:;">踩: 0</a>
-					<a href="javascript:;">删除</a>
+					<a href="javascript:;" class="top">顶: <span>0</span></a>
+					<a href="javascript:;" class="down">踩: <span>0</span></a>
+					<a href="javascript:;" class="del">删除</a>
 				</span>
 			</p>
+			<hr >
 		</div>
+
 	</div>
-	<hr >
-	<div class="messageList">
-		<div class="info">
-			<p class="infoText">[腾讯微视频获重磅更新: 打开QQ音乐曲库] 昨天晚上腾讯对旗下短视频应用微视进行了大版本更新,安卓版直接升级到了4.0版本.此次更新推出了视频跟拍|歌词字幕|一键美型等三大功能~~~</p>
-			<p class="infoOperation">
-				<span class="infoTime">2019-5-20 21:30:23</span>
-				<span class="infoHandle">
-					<a href="javascript:;">顶: 0</a>
-					<a href="javascript:;">踩: 0</a>
-					<a href="javascript:;">删除</a>
-				</span>
-			</p>
-		</div>
-	</div>
-	<hr >
-	<div class="messageList">
-		<div class="info">
-			<p class="infoText">[腾讯微视频获重磅更新: 打开QQ音乐曲库] 昨天晚上腾讯对旗下短视频应用微视进行了大版本更新,安卓版直接升级到了4.0版本.此次更新推出了视频跟拍|歌词字幕|一键美型等三大功能~~~</p>
-			<p class="infoOperation">
-				<span class="infoTime">2019-5-20 21:30:23</span>
-				<span class="infoHandle">
-					<a href="javascript:;">顶: 0</a>
-					<a href="javascript:;">踩: 0</a>
-					<a href="javascript:;">删除</a>
-				</span>
-			</p>
-		</div>
-	</div>
-	<hr >
 	<div class="page">
 		<a href="javascript:;">1</a>
 		<a href="javascript:;">2</a>
