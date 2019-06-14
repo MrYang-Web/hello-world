@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>49.狂拍灰太狼游戏</title>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.container {
+		width: 320px;
+		height: 480px;
+		background: url(gameImg/game_bg.jpg) no-repeat 0 0;
+		background-size: auto;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+	.container>h1{
+		color: #FFFFFF;
+		margin-left: 60px;
+	}
+	.container>.progress {
+		width: 180px;
+		height: 16px;
+		background: url(gameImg/progress.png) no-repeat 0 0;
+		position: absolute;
+		top: 66px;
+		left: 63px;
+	}
+	.container>.start {
+		width: 150px;
+		line-height: 35px;
+		text-align: center;
+		color: #FFFFFF;
+		background: linear-gradient(#e55c3d,#c50000);
+		border-radius:20px;
+		border: none;
+		outline: none;
+		top: 320px;
+		left: 50%;
+		margin-left: -75px;
+		position: absolute;
+	}
+	.container>.rules {
+		width: 100%;
+		height: 20px;
+		background: #CCCCCC;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		text-align: center;
+		color: #f40;
+	}
+	.container>.rule {
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-top: 100px;
+		box-sizing: border-box;
+		text-align: center;
+		line-height: 50px;
+		color: #FFFFFF;
+		display: none;
+	}
+	.container>.rule>a {
+		color: #f40;
+	}
+	.container>.mask {
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-top: 200px;
+		box-sizing: border-box;
+		text-align: center;
+		line-height: 50px;
+		display: none;
+	}
+	.mask>h1 {
+		color: #FF4400;
+		text-shadow: 3px 3px 0px #FFFFFF;
+		font-size: 40px;
+	}
+	.mask>button {
+		width: 150px;
+		line-height: 35px;
+		text-align: center;
+		color: #FFFFFF;
+		background: linear-gradient(#74accf,#007ddc);
+		border-radius:20px;
+		border: none;
+		outline: none;
+		top: 320px;
+		left: 50%;
+		margin-left: -75px;
+		position: absolute;
+	} 
+</style>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		//1.先制作三个显示隐藏的界面
+		//1.1制作游戏规则显示隐藏界面效果
+		//1.1.1监听游戏规则的点击
+		$(".rules").click(function (){
+			$(".rule").fadeIn(200);
+		});
+		//1.1.2监听游戏规则关闭按钮的点击
+		$(".close").click(function (){
+			$(".rule").fadeOut(200);
+		});
+	   
+		//1.2制作开始游戏按钮显示隐藏效果
+		$(".start").click(function (){
+			$(this).fadeOut(200);
+		//1.3重新开始界面的显示,需要进度条走完才显示
+		//调用专门处理进度条动画方法	
+			progressHandler();
+		
+		//调用专门处理灰太狼动画方法
+			wolfAnimation();
+		});
+		//1.4监听重新开始按钮点击
+		$(".reStart").click(function (){
+			$(".mask").fadeOut(200);
+			progressHandler();
+			
+		});
+
+		//定义一个专门处理进度条的方法progressHandler();
+		function progressHandler(){
+			//接1.4,点击重新开始后需要重新设置进度条宽度
+			$(".progress").css({
+				width: 180
+			});
+			//开启定时器处理进度条
+			var timer = setInterval(function (){
+				//拿到进度条当前的宽度
+				var progressWidth = $(".progress").width();
+				//减少当前的宽度
+				progressWidth -= 1;
+				//重新给进度条负值宽度;
+				$(".progress").css({
+					width:progressWidth
+				});
+				//判断精度条是否走完
+				if (progressWidth <= 0) {
+					//关闭定时器
+					clearInterval(timer);
+					//显示重新开始界面
+					$(".mask").fadeIn(200);
+				};
+			},10);
+		};
+		
+		
+		
+		
+		
+	});
+</script>
+</head>
+<body>
+	<div class="container">
+		<h1>0</h1>
+		<div class="progress"></div>
+		<button class="start">开始游戏</button>
+		<div class="rules">游戏规则</div>
+		<div class="rule">
+			<p>游戏规则</p>
+			<p>1.游戏时间:60S</p>
+			<p>2.拼手速,殴打灰太狼+10分</p>
+			<p>3.殴打小灰灰-10分</p>
+			<a href="#" class="close">[关闭]</a>
+		</div>
+		<div class="mask">
+			<h1>GAME OVER</h1>
+			<button class="reStart">重新开始</button>
+		</div>
+	</div>
+</body>
+</html>
