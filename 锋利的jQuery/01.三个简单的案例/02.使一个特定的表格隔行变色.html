@@ -7,20 +7,27 @@
     <script src="../jquery.js"></script>
     <script>
       window.onload = function () {
-        var tab = document.getElementById("tb");
-        var tbody = tab.getElementsByTagName("tbody")[0];
-        var trs = tbody.getElementsByTagName("tr");
-        for (var i = 0; i < trs.length; i++) {
-          if (i%2 == 0) {
-            trs[i].style.backgroundColor = "#888";
-          }
-        }
+        // var tab = document.getElementById("tb");
+        // var tbody = tab.getElementsByTagName("tbody")[0];
+        // var trs = tbody.getElementsByTagName("tr");
+        // for (var i = 0; i < trs.length; i++) {
+        //   if (i%2 == 0) {
+        //     trs[i].style.backgroundColor = "#888";
+        //   }
+        // }
+
+			//过滤选择器
+      $(document).ready(function() {
+				$("tbody>tr:even").css({
+					background: "#bbffaa"
+					});
+				$("tbody>tr:odd").css({
+					background: "#f40"
+					});					
+      });					
+				
       }
 
-
-      $(document).ready(function() {
-
-      });
     </script>
   </head>
   <body>

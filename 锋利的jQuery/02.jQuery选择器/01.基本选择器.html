@@ -5,6 +5,8 @@
     <title>01.基本选择器</title>
     <link rel="stylesheet" href="../demo.css">
     <link rel="stylesheet" href="01.css">
+		<style type="text/css">
+		</style>
     <script src="../jquery.js" charset="utf-8"></script>
     <script>
 
@@ -26,9 +28,9 @@
           //     .css("background", "#bbffaa");
           //--------------------改变所有元素的背景颜色
 
-          $("span,#two")
-                .css("background", "#bbffaa")
-          //--------------------改变span标签和ID为two的背景颜色
+          // $("span,#two")
+          //       .css("background", "#bbffaa")
+          // //--------------------改变span标签和ID为two的背景颜色
         });
 
     </script>
@@ -36,6 +38,7 @@
   <body>
     <h1>01.基本选择器</h1>
     <hr>
+		<div id="warp">
     <div class="one" id="one">
       id为one,class为one的div
       <div class="mini">class为mini</div>
@@ -64,8 +67,27 @@
     <div>
       包含input的type为 hidden的div <input type="hide" size="8"/>
     </div>
-    <span id="mover">正在执行动画的span元素.</span>
-
+    <span id="mover">正在执行动画的span元素.</span>					
+		</div>
+		<br>
+		<hr >
+<h1>层次选择器示例</h1>
+<pre>
+	// $("#one").css("background", "#bbffaa");
+	//--------------------改变ID为one的背景颜色
+	
+	// $(".mini").css("background", "#bbffaa");
+	//--------------------改变class为mini的背景颜色
+	
+	// $("div").css("background", "#bbffaa");
+	//--------------------改变所有div的背景颜色
+	
+	// $("*").css("background", "#bbffaa");
+	//--------------------改变所有元素的背景颜色
+	
+	// $("span,#two").css("background", "#bbffaa")
+	// //--------------------改变span标签和ID为two的背景颜色
+</pre>
 
   </body>
 </html>
