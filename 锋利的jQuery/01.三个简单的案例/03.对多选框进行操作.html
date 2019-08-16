@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>对多选框进行操作</title>
-    <link rel="stylesheet" href="../demo.css">
-    <script src="../jquery.js"></script>
-    <script>
+<head>
+<meta charset="utf-8">
+<title>对多选框进行操作</title>
+<link rel="stylesheet" href="../demo.css">
+<script src="../jquery.js"></script>
+<script>
+	window.onload = function (){
+		var btn = document.getElementById("btn");
+		var checkbox = document.getElementsByTagName("input");
+
+		function check(){
+			var j = 0;
+			for (i=0; i<checkbox.length; i++){
+				if (checkbox[i].checked) {
+					j = j + 1;
+				};
+			};
+			return j;
+		};
+		
+		btn.onclick = function (){
+			alert(check());
+		};
+	};
 
 
-
-    </script>
-  </head>
-  <body>
-    <h1>对多选框进行操作</h1>
-  </body>
+</script>
+</head>
+<body>
+	<h1>对多选框进行操作</h1>
+	<p>对多选框进行操作,输出选中多选框的个数</p>
+	<hr >
+	<input type="checkbox" name="check"  value="1" checked="checked"/>
+	<input type="checkbox" name="check"  value="2" />
+	<input type="checkbox" name="check"  value="3" />
+	<input type="button" id="btn" value="你选中的个数" />
+</body>
 </html>
