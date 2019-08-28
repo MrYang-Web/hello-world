@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+	let currentTemp = 19.5;
+	
+	//ES 5版本,要在字符串中插入变量,必须使用字符串拼接
+	const message = "The current temperature is " + currentTemp +"\u00b0C";
+	
+	//ES 6版本新特性,但是谷歌浏览器不支持~怨念,很好用的东西.
+	// const message = 'The current temperature is ${currentTemp}\u00b0C';
+	
+	//这里是字符串换行的使用方法,每行字符串后接\n即可
+	//第二行的\t表示的是文本缩进.
+	const multiline = 'Current temperature:\n' + 
+					'\t' + currentTemp + '\u00b0C\n' + 
+					"Don't worry...the heat is on!";
+	console.log(message);
+	console.log(multiline);
+	
+	const red = Symbol();
+	const ORANGE = Symbol("The color of a sunset!");
+	
+	console.log(red);
+	console.log(ORANGE);
+</script>
+</head>
+<body>
+</body>
+</html>

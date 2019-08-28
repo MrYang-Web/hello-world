@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+	//1.创建对象的方法--创建一个空对象再添加属性
+	const obj = {};
+	obj.user = "shoppingCart";
+	obj.size = null;
+	obj.color = "yellow";
+	
+	//2.创建一个对象并直接在其中添加属性
+	const sum1 = {
+		name: "Sam1",
+		age: 4,
+	};
+	
+	//3.还可以在同一行添加属性
+	const sum2 = {name: "Sam2", age: 6};
+	console.log(sum1,sum2);
+	
+	//4.属性值也可以是对象
+	const sum3 = {
+		name:"Sam3",
+		classfication: {
+			kingdom:'anamalia',
+			phylum:'chordata',
+			class: 'mamalia',
+			order: 'carnivoria',
+			family:'felidae',
+			subfaimily:'felinae',
+			genus:'felis',
+			species:'catus',
+		},
+		age:9,
+	}
+	sum3.speak = function (){ return "meow!";};
+	
+	console.log(sum3);
+	//使用delete 关键字可以删除对象中的属性
+	//比如 delete sum3.classfication 
+	//     delete sum3.speak
+</script>
+</head>
+<body>
+</body>
+</html>

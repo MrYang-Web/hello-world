@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script type="text/javascript">
+	//返回[m,n]之间的随机整数(包含边界)
+	function rand(m,n){
+		var num = parseInt(Math.random()*(n-m+1) + m);
+		return num;
+	}
+	
+	//随机返回代表皇冠和锚游戏中留个面其中之一的字符串
+	function randFace(){
+		let bat =  ["crown","anchor","heart","spade","club","diamond"]
+		let hand = bat[rand(0,5)];	
+		return hand;
+	}
+	
+	
+	let funds = 50;  //定义初始赌资
+	let round = 0;	//定义局数
+	//杰克有50元钱
+	//只要赢钱超过100元,他就不赌了
+	//破产了也不赌了
+	//所以只要他有1到100元,就会一直赌
+	for (;funds>0&&funds<100;) {
+		//打印轮数\
+		round++;
+		console.log('游戏轮数: --- ' + round );
+		console.log("游戏开始!");
+		console.log("初始赌资 :" + funds +"元");
+		
+		//下注:
+		//1.杰克每次下注,都会从裤袋里的总赌资里面随机拿出一笔钱
+		let totaleBets = rand(1,funds);
+		console.log("拿出赌资 :" + totaleBets +"元");
+		
+		//2.定义一个对象用来当做赌注盘
+		let bets = {crown: 0,anchor: 0,heart: 0, spade: 0, club: 0, diamond: 0};
+		
+		//3.杰克有个特殊癖好,当他手里一手从裤袋里抓取7元钱时,他会将所有的钱都压在红心上.
+		if (totaleBets === 7) {
+			totaleBets = funds;
+			bets.heart = totaleBets;
+		} else{
+			//4.其他时候他会从右手里面随机拿去赌资进行下注
+			let remaning = totaleBets;
+			for (;remaning>0;) {
+				let bet = rand(1,remaning);
+				
+				//5.下注也是随机下注到各个赌盘里面
+				let face = randFace();
+				bets[face] = bets[face] + bet;
+				remaning = remaning - bet;
+				console.log("下注的是: " + face + ",该赌盘总金额为: " + bets[face]+", 手上还有赌注:"+remaning+"元");
+			}
+		}
+		funds = funds - totaleBets;
+		console.log("总共下注 :"+totaleBets+"元, 剩下赌资: "+ funds+ "元");
+		//5.掷骰子
+		const hand = [];
+		for(let roll = 0; roll<3; roll++){
+			let face = randFace();
+			hand.push(face);
+			console.log("掷出 :" + face);
+		};
+		
+		
+		//6.收集赢到的钱,如果赢了的话
+		let win = 0;
+		for (let die = 0; die<hand.length; die++) {
+			let face = hand[die];
+			if (bets[face] > 0) {
+				win = win + bets[face]*2;
+			}
+		}
+		funds = funds + win;
+		console.log("\t赢得: " + win + "元");
+		console.log("第"+round+"局结束!!!");
+	}
+	console.log("\t游戏结束赌注: "+ funds +"元");
+	
+	
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

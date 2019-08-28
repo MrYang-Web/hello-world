@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script type="text/javascript">
+	const numStr = "33.3";
+	const num = Number(numStr);
+	console.log(numStr);
+	console.log(num);
+	//一个为字符串,一个为数字
+	
+	const a = "162abc";
+	const b = parseInt(a);
+	console.log(b);
+	//parsetInt会自动去除字符串,并将数字转换为数值.但是该方法,不支持小数点
+	
+	const c = "1023.231abc";
+	const d = parseFloat(c);
+	console.log(d);
+	//parseFloat也会自动去除字符串文本,并将数字转换为数值,还会保留小数点.
+	
+	
+	const n = 33.5;
+	const f = n.toString();
+	console.log(n);	//数字
+	console.log(f);	//字符串
+	//注意数值转字符串的toString()的使用方法和上两个不一样.
+	
+	const arr = [1,true,"hello"];
+	const str = arr.toString();
+	console.log(arr);
+	console.log(str);
+	//toString方法还可以将数组转换为字符串,每个数组元素用逗号隔开
+</script>
+</head>
+<body>
+
+</body>
+</html>
