@@ -33,12 +33,12 @@
 			$("#box").remove();
 		});
 		
-		// $("#box").slideDown(1000,function (){
-		// 	$("#box").fadeOut(600,function (){
-		// 		$("#box").fadeIn(600,);
-		// 	});
-		// });
-		$("#box").stop().slideDown(600).fadeOut(600).fadeIn(600);
+		$("#box").slideDown(1000,function (){
+			$("#box").fadeOut(600,function (){
+				$("#box").fadeIn(600);
+			});
+		});
+		// $("#box").slideDown(600).fadeOut(300).fadeIn(300);
 	});
 </script>
 </head>
