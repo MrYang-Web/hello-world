@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>02多分支语句</title>
+	<script type="text/javascript">
+	window.onload = function (){
+		var num = document.getElementById("number");
+		var btn = document.getElementById("btn");
+		var output = document.getElementById("output");
+		
+		btn.onclick = function (){
+			var a = num.value;
+			if (a%2 == 0) {
+				console.log("这个数是偶数");
+				output.innerHTML = "<strong>"+a+"</strong> "+"是偶数";
+			} else{
+				console.log("这个数是奇数");
+				output.innerHTML ="<strong>"+a+"</strong> "+"是奇数";
+			}
+		}
+	}	
+	</script>
+</head>
+<body>
+	<h1>判断一个数是奇数还是偶数</h1>
+	<input type="" name="" id="number" value="" />
+	<button type="button" id="btn">奇偶判断</button>
+	<div id="output">
+		
+	</div>
+</body>
+</html>

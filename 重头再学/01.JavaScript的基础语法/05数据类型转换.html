@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>05数据类型转换</title>
+	<script type="text/javascript">
+		//Number ---> String
+		var num = 100;
+		String(num); // "100"
+	
+		//String ---> Number
+		var age = "18";
+		Number(age); // 18;
+		
+		//主动转换,主动敲代码进行数据类型转换
+		
+		//被动转换,如果数据无法进行运算,那么JavaScript内部就会进行自动转换进行操作.
+		var num1 = "100";
+		var res2 = num1 - "5";   //返回结果95;
+		console.log(res2);
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>03三元运算符</title>
+	<script type="text/javascript">
+	
+	
+	window.onload = function (){
+		var num = document.getElementById("number");
+		var btn = document.getElementById("btn");
+		var output = document.getElementById("output");
+		
+		btn.onclick = function (){
+			var a = num.value;
+			// if (a%2 == 0) {
+			// 	console.log("这个数是偶数");
+			// 	output.innerHTML = "<strong>"+a+"</strong> "+"是偶数";
+			// } else{
+			// 	console.log("这个数是奇数");
+			// 	output.innerHTML ="<strong>"+a+"</strong> "+"是奇数";
+			// }
+			
+			// 三元运算符就是简单双分支语句的简写
+			// 格式： 条件 ? 条件成立执行代码：条件不成立代码
+			//利用三元运算可以将上述代码简写为:
+			a%2 == 0 ? console.log("这个数是偶数"):console.log("这个数是奇数");
+		}
+	}	
+	
+	
+	//另一个简单的三元运算案例:
+	var a = 20;
+	var b = 50;
+	var sum = a>b ? a-b : a+b;
+	console.log(sum);  //结果为70
+	</script>
+
+	
+</head>
+<body>
+	<h1>判断一个数是奇数还是偶数</h1>
+	<h1>三元运算简写</h1>
+	<input type="" name="" id="number" value="" />
+	<button type="button" id="btn">奇偶判断</button>
+	<div id="output">
+		
+	</div>
+</body>
+</html>

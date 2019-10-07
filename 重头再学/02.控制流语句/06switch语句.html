@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>06switch语句</title>
+	<script type="text/javascript">
+		/* switch语句格式:
+			switch(值){
+				case a条件: //相当于if(a === 值)
+					...执行代码
+					break;
+				case b条件:
+					...执行代码
+					break;
+				case c条件:
+					...执行代码
+					break;
+				......
+			} */
+		window.onload = function (){
+			var btn = document.getElementById("btn");
+			var out = document.getElementById("out");
+			btn.onclick =function (){
+				var month = document.getElementById("month").value;
+				
+				//这里有十二个月用逻辑运算符 或  ||  书写方式会简单很多.
+				// if (month == 1 || month == 3 || month ==5 || month ==7 || month == 8 || month == 10 || month == 12) {
+				// 	out.innerHTML = month +"月份有31天！";
+				// }else if(month == 2){
+				// 	out.innerHTML = month +"月份有28天！";
+				// }else if(month == 4 || month == 6 || month == 9 || month == 11){
+				// 	out.innerHTML = month +"月份有30天！";
+				// }else {
+				// 	out.innerHTML = "沙雕，请输入正确的月份！！！"
+				// }
+				
+				//这里使用switch语句书写上面的代码,会比较整洁;
+				//但是由于switch条件需要严格相等,所以需要先进行数据转换.
+				var _month = Number(month);
+				switch(_month){
+					case 1: 
+					case 3: 
+					case 5: 
+					case 7: 
+					case 8: 
+					case 10:
+					case 12:
+						out.innerHTML = month +"月份有31天！";
+						break;
+					case 2:
+						out.innerHTML = month +"月份有28天！";
+						break;
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						out.innerHTML = month +"月份有30天！";
+						break;
+
+					
+					//当所有case 都不满足的情况下需要使用default;
+					default:
+						out.innerHTML = "沙雕，请输入正确的月份！！！"
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>switch语句</h1>
+	<h1>输入月份显示当月的天数</h1>
+	<input type="" name="" id="month" value="" />
+	<button type="button" id="btn"> 天数</button>
+	<div id="out">
+		
+	</div>
+</body>
+</html>

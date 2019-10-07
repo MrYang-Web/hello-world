@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>07猜数字游戏</title>
+	<script type="text/javascript">
+		//1.生成1-100的随机数
+		//Math.random()  //生成一个0到1但不包括1的数字
+		var ranNumber = parseInt(Math.random()*100)+1;
+		
+		window.onload = function (){
+
+			console.log(ranNumber);
+			//2.获取页面元素
+			var num = document.getElementById("num");
+			var btn = document.getElementById("btn");
+			
+			btn.onclick = function (){
+				
+				//3.获取值为字符串转换为数值,利用被动转换
+				var _num = num.value*1;
+				//var _num = Number(num.value);这里是常规转换.	
+							
+				if (_num == ranNumber) {
+					alert("少侠，恭喜你猜中了！")
+				} else if (_num > ranNumber) {
+					alert("少侠你猜大了！！")
+				} else{
+					alert("少侠，你猜小了！！")
+				}
+				
+			}
+			
+		}
+
+		
+	</script>
+</head>
+<body>
+	<h1>猜数字游戏</h1>
+	<p>现在已生成一个1-100的随机数值，猜中有奖</p>
+	<input type="" name="" id="num" value="" />
+	<button type="button" id="btn">确定</button>
+</body>
+</html>
