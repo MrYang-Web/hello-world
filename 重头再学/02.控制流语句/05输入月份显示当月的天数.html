@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>05输入月份显示当月的天数</title>
+	<script type="text/javascript">
+		window.onload = function (){
+			var btn = document.getElementById("btn");
+			var out = document.getElementById("out");
+			btn.onclick =function (){
+				var month = document.getElementById("month").value;
+				
+				//这里有十二个月用逻辑运算符 或  ||  书写方式会简单很多.
+				if (month == 1 || month == 3 || month ==5 || month ==7 || month == 8 || month == 10 || month == 12) {
+					out.innerHTML = month +"月份有31天！";
+				}else if(month == 2){
+					out.innerHTML = month +"月份有28天！";
+				}else if(month == 4 || month == 6 || month == 9 || month == 11){
+					out.innerHTML = month +"月份有30天！";
+				}else {
+					out.innerHTML = "沙雕，请输入正确的月份！！！"
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>输入月份显示当月的天数</h1>
+	<input type="" name="" id="month" value="" />
+	<button type="button" id="btn"> 天数</button>
+	<div id="out">
+		
+	</div>
+</body>
+</html>

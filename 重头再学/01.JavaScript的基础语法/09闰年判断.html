@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>09闰年判断</title>
+</head>
+<body>
+	<h1>判断输入是否为闰年</h1>
+	<input type="" name="" id="year" value="" />
+	<button type="button" onclick="checkYear()">闰年判断</button>
+	<div id="outPut">
+		
+	</div>
+	<script type="text/javascript">
+		var year = document.getElementById("year");
+		var output = document.getElementById("output");
+		
+		function checkYear(){
+			var _year = year.value;
+			
+			//闰年条件:四年一闰,百年不闰,四百年再闰
+			//能被4整除,但不能被100整除,或者能被400整除才叫闰年·
+			if ((_year%4 == 0 && _year%100 != 0) || _year%400 == 0) {
+				outPut.innerHTML = _year + "是闰年";
+			}else {
+				outPut.innerHTML = _year + "是平年";
+			}
+			
+		}
+	</script>
+</body>
+</html>

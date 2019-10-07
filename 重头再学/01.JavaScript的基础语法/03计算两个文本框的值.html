@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		window.onload = function (){
+			
+			//1.先获取到页面中所需要的元素
+			var btn = document.getElementById("btn");
+			var num1 = document.getElementById("num1");
+			var num2 = document.getElementById("num2");
+			var text = document.getElementById("text");
+			//2为获取到的按钮绑定点击事件
+			btn.onclick = function (){
+				
+				//3在点击后获取输入框中的value属性值
+				//4通过number方法吧value值转换为数值
+				var n1 =Number(num1.value);
+				var n2 =Number(num2.value);
+				
+				text.innerHTML = n1+n2;
+				console.log(n1+n2);
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>计算两个文本框的值</h1>
+	<input type="" name="" id="num1"/>
+	<input type="" name="" id="num2"/>
+	<button id="btn" type="button">求和</button>
+	<div id="text">
+		
+	</div>
+</body>
+</html>

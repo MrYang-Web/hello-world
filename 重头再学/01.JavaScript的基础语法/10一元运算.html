@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>10一元运算</title>
+	<script type="text/javascript">
+		var num = 10;
+		
+		num >5; //关系运算,得到true;
+		
+		num>5 && num>10; //逻辑运算,得到false;
+		
+		//一元运算
+		
+		num++;  //一元运算,得到num;
+		
+		var x = 5;
+		var res1 = x++; //一元运算,得到5 (x的值为6);
+		console.log(res1,x);
+		
+		// 一元运算 加1
+		// 1.前置  num++   得到num
+		// 2.后置  ++num   得到num+1		
+		var k = 0;
+		var res = k++ + ++k +k +k++;   //6
+		//        0   +   2 +2 +2
+	</script>
+</head>
+<body>
+	<h1>一元运算</h1>
+</body>
+</html>
