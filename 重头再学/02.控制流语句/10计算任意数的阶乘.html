@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>10计算任意数的阶乘</title>
+	<script type="text/javascript">
+		window.onload = function (){
+			/* 
+			计算任意数的阶乘n
+			 5! = 1*2*3*4*5
+			 */
+			var number = document.getElementById("number");
+			var btn = document.getElementById("btn");
+			var out = document.getElementById("out");
+			var total= 1;
+			btn.onclick = function (){
+				var num = number.value;
+				for(i=2;i<=num;i++){
+					total *= i;
+					//这里等于语句  total = total*i;
+				}
+				console.log(total);
+				out.innerHTML = num+"的阶乘为:"+total;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>计算任意数的阶乘n</h1>
+	<input type="" name="" id="number" value="" />
+	<button type="button" id="btn">阶乘计算</button>
+	<div id="out">
+		
+	</div>
+</body>
+</html>
