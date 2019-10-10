@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>08小王薪资计算案例</title>
+	<script type="text/javascript">
+		/* 
+		 小王入职薪水10K，每年涨幅5%，10年后工资多少？
+		 这10年小王赚了多少钱？
+		 */
+		
+		//计算10年后工资多少
+		var salary = 10000;
+		
+		//声明变量,用于保存薪资总额
+		var total = salary*12;
+		
+		
+		for (i=2; i<=10; i++){
+			//salary = salary + salary*0.05;
+			//salary = salary*1.05;
+			salary *= 1.05;
+			console.log("第"+i+"年薪水为："+salary);
+			
+			total = total + salary*12;
+		};
+		//数字.toFixed(n) 保留小数点后n位;有四舍五入的功能;
+		document.write("十年后，老王薪资为"+salary.toFixed(2)+"元");
+		document.write("十年后，老王总共赚了"+total.toFixed(2)+"元");
+		
+		
+	
+		
+	</script>
+</head>
+<body>
+	<h1>08小王薪资计算案例</h1>
+</body>
+</html>
