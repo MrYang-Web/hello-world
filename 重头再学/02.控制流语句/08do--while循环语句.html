@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>08do--while循环语句</title>
+	<script type="text/javascript">
+		
+		/* 
+		do...while循环语句
+		格式:
+		
+		//变量初始化,避免死循环
+		do {
+			// 不管条件是否成立
+			// 先执行一次代码再进行条件判断
+			// 如果条件依然成立则再次执行代码
+			// 以此类推.
+			// 所以这里一般会伴随着条件的更新
+		}while (条件)
+		
+		while循环则是先判断条件再进行执行代码
+		
+		*/
+		
+		//举例:
+		var num = 0;
+		do {
+			alert("hello word "+num+"条件不成立,代码还是执行了一次");
+			console.log("hello world "+num+"条件不成立,代码还是执行了一次");
+			num++;
+		}while (num<0);
+		//这里先执行代码再进行判断,所以即便条件不成立,代码还是执行了一次.
+		
+		while(num<0) {
+			alert("没有执行");
+			console.log(num+"没有执行代码");
+			num++;
+		}
+		//此处,先进行条件判断,所以代码没有执行.
+	</script>
+</head>
+<body>
+	<h1>do...while循环语句</h1>
+</body>
+</html>
