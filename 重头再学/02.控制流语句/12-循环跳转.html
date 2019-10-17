@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>12-循环跳转</title>
+	<script type="text/javascript">
+		/* 
+		循环跳转 
+		1.break;退出当前整个循环
+			后面的代码不会执行，后面的循环也不会再执行
+		2.continue;跳过本次循环，继续下一次循环
+			后面的代码不会执行，跳过本次循环，后面的循环继续执行
+		 */
+		for (var num=0; num<5; num++) {
+
+			
+			//如果需要中断或跳过本次循环,则加入if语句
+			if (num ==2) {
+				//1.中断所有循环
+				//break;
+				
+				//2.跳过本次循环
+				continue;
+			}
+			
+			console.log(num);
+		}
+		console.log("end:"+num);
+	</script>
+</head>
+<body>
+	<h1>循环跳转</h1>
+</body>
+</html>

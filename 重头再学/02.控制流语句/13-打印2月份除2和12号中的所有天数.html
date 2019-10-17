@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>13-打印2月份除2和12号中的所有天数</title>
+	<script type="text/javascript">
+		/* 
+		 打印2月份除2和12号中的天数
+			28天（循环天数）
+		 */
+		for (var day = 1;day<=28;day++) {
+			if (day == 2 || day ==12) {
+				continue;
+			}
+			console.log("二月份除去2号和12的天数有："+day+"号");
+			document.write("二月份除去2号和12的天数有："+day+"号"+"</br>")
+		}
+	</script>
+</head>
+<body>
+	<h1>打印2月份除2和12号中的所有天数</h1>
+</body>
+</html>

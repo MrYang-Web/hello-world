@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>17-岳父的套路</title>
+	<script type="text/javascript">
+		/* 
+		岳父的套路：
+		小王准备要结婚了，面对彩礼的问题，小王很头痛：如今的彩礼都要
+		以10万计，什么“万紫千红一片绿”、20万，30万甚至更高，小王的岳父
+		对小王说，我不要20万、30万彩礼，我只要你再2月份的第一天给我1分钱，
+		第二天给我2分，第三天给4分。。。以此类推（当天的钱都是前一天的2倍）
+		小王满心欢喜的答应了，如果你是小王，你会答应么？
+		 */
+		var total = 1;
+		var money = total;
+		for (var num=1;num<=28;num++) {
+			total = total*2;
+			money = money + total;
+		}
+		console.log(total/100);
+	</script>
+</head>
+<body>
+	<h1>岳父的套路</h1>
+</body>
+</html>

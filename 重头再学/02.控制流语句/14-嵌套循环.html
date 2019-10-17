@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>14-嵌套循环</title>
+	<script type="text/javascript">
+		/* 
+		嵌套循环 
+		循环标识：给循环代码添加标识
+			1.break:默认跳出当前循环
+		 */
+		
+		
+		//简单嵌套
+		wai:for (var x=0;x<5;x++) {
+			nei:for (var y=0;y<5;y++) {
+				if (x==2) {
+					break wai;
+				}
+				console.log(x,y);
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>嵌套循环</h1>
+</body>
+</html>

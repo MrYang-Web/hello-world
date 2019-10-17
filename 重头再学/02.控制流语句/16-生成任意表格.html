@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>16-生成任意表格</title>
+	<script type="text/javascript">
+		
+		/* 
+		 生成任意表格：
+		 1.拼接tabel,tbody,tr,td
+		 2.一次性写入到页面#out
+		 */
+		window.onload = function (){
+			
+
+			var btn = document.getElementById("btn");
+			var out = document.getElementById("out");
+			
+			btn.onclick = function (){
+				var row = document.getElementById("row").value;
+				var col = document.getElementById("col").value;
+				
+				//声明一个变量,用于存放表格的html结构
+				var content = "<table><tbody>";
+				
+				
+				//外层循环控制行tr:
+				for (var r = 1;r<=row;r++) {
+					//拼接tr
+					content += '<tr>';
+					
+					
+					//内层循环控制列td
+					for (var c=1;c<=col;c++) {
+						if (r==1) {
+							content += '<td colspan="'+col+'"align="center"'+'>淘宝商品列表</td>';
+							break;
+						}
+						content += '<td>单元格'+r+'行 '+c+'列 '+'</td>';
+					}
+					
+					//闭合tr
+					content += '</tr>';
+				}
+				
+				//在循环完成后,闭合tbody,table;
+				content += "</tbody></table>";
+				
+				//把所有内容放入内如输入区
+				out.innerHTML = content;
+			}
+			
+			
+		};
+	</script>
+	<style type="text/css">
+		table {
+			border: 1px solid #ddd;
+			border-collapse: collapse;
+		}
+		td {
+			padding: 5px 10px;
+			border: 1px solid #ddd;
+		}
+	</style>
+</head>
+<body>
+	<h1>16-生成任意表格</h1>
+	<label for="row">行：</label><input type="text" name="" id="row" value="" />
+	<label for="col">列：</label><input type="text" name="" id="col" value="" />
+	<button type="button" id="btn">生成表格</button>
+	<div id="out">
+		
+	</div>
+</body>
+</html>

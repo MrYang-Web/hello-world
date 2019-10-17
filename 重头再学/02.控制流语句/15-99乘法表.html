@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>15-99乘法表</title>
+	<style type="text/css">
+		span {
+			margin: 5px;
+			background: #F5F2F0;
+			padding: 5px;
+			display: inline-block;
+			text-align: center;
+		}
+		span:hover {
+			background: gold;
+			color: #FFFFFF;
+		}
+	</style>
+	<script type="text/javascript">
+		/* 
+		 九九乘法表
+		 如果使用innerHTML 必须拼接完成，一次性写入所有代码
+		 因为后写的innerHTML会覆盖前面的内容
+		 */
+		window.onload = function (){
+			
+			//定义个一变量,用于存放99乘法表所有html内容
+			var content = " ";
+			
+			var out= document.getElementById("out");
+			//外层循环:控制行
+			for (var row=1;row<=9;row++) {
+				
+				//内层循环
+				for (var col=1;col<=row;col++) {
+					//document.write("<span>"+col+"&times"+row+"</span>");
+					content += "<span>"+col+"&times"+row+"="+col*row+"</span>";
+				}
+				
+				//输出换行标识
+				//document.write("<br/>");
+				content += "<br/>";
+			}
+			console.log(content);
+			
+			out.innerHTML = content;
+		};
+
+	</script>
+</head>
+<body>
+	<h1>99乘法表</h1>
+	<div id="out">
+		
+	</div>
+</body>
+</html>
