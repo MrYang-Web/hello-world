@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>02-常用的事件</title>
+	<style type="text/css">
+		#box{
+			border: 2px solid #f60;
+			background: #ffc;
+			width: 100px;
+			text-align: center;
+			padding: 20px;
+		}
+		input {
+			margin-top: 100px;
+			margin-left: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function (){
+			/* 
+			1.onclick:点击事件
+			2.ondblclick:双击事件
+			3.onmouseover:鼠标移入事件
+			4.onmouseout:鼠标移开事件
+			5.onchange:内容改变事件（一般用于表单元素）
+					表单内容改变并失去焦点时触发???
+			6.oninput:输入内容时触发
+			 */
+			
+			var box = document.getElementById("box");
+			function  myClick(){
+				alert("单击事件")
+			}
+			box.onclick = myClick;
+			
+			box.ondblclick = function (){
+				alert("双击事件");
+			}
+			
+			box.onmouseover =function (){
+				alert("鼠标移入事件");
+			}
+			
+			var input = document.getElementById("input");
+			var price = document.getElementById("price");
+			var total = document.getElementById("total");
+			// input.onchange = function (){
+			// 	total.innerHTML = (input.value*price.innerHTML).toFixed(2);//toFixed(2)效果是让数字保持小数点后两位数.
+			// }
+			input.oninput = function (){
+				total.innerHTML = (input.value*price.innerHTML).toFixed(2);//toFixed(2)效果是让数字保持小数点后两位数.
+				console.log(total.innerHTML);
+			}
+			//这里如果将onchange改成oninput,就算不失去焦点也能触发事件
+		}
+	</script>
+</head>
+<body>
+	<h1>02-常用的事件</h1>
+	<div id="box">
+		顶我
+	</div>
+	商品数量:<input type="number" name="" id="input" value="1" />
+	<div>商品单价：<span id="price">5999.00</span></div>
+	<div id="total">
+		
+	</div>
+	
+</body>
+</html>

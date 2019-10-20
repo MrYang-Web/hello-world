@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>01-函数的定义和执行</title>
+	<script type="text/javascript">
+		/* 
+		函数声明式 
+			格式：function 函数名();
+		
+		函数赋值式
+			格式：var 函数名 = funciton(){};
+		
+		匿名函数
+			格式：function(){};
+			
+			
+		函数执行：
+			1.在元素上通过添加事件属性进行调用（不推荐）不符合结构+样式+行为相分离的理论。
+			<button onclick="sun()">点我会执行函数</button>
+			
+			2.手动执行函数：sum();
+			
+			3.事件驱动按钮:
+			先获取元素-->在给元素绑定事件-->再执行函数
+		 */
+		
+		function sum(){
+			alert("我是函数声明式");
+		}
+		
+		var fun = function (){
+			alert("我是函数赋值式");
+		}
+		
+		window.onload =function (){
+			var h2 = document.getElementById("h2");
+			
+			h2.onclick = function (){
+				alert("我是事件驱动的匿名函数");	
+			}
+
+		}
+		
+	</script>
+</head>
+<body>
+	<h1>01-函数的定义和执行</h1>
+	<button onclick="sum()">点我会执行函数</button>
+	<h2 id="h2">点我执行事件驱动函数</h2>
+</body>
+</html>

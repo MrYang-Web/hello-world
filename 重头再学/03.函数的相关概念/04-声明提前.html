@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>04-声明提前</title>
+	<script type="text/javascript">
+		/* 
+			04声明提前
+			声明提前是把声明部分的代码拿到最前面。
+			
+			函数定义：
+				声明式
+				赋值式
+				匿名函数
+		 */
+		showName();
+		//为什么这个函数在前面可以执行,就是因为没使用关键词,所以声明被提前.
+		function showName () {
+			console.log("大傻子");
+		}
+		//这里声明的是整个函数
+		
+		showTime();
+		//使用赋值式的函数,就不能提前调用.这叫做函数的赋值式
+		var showTime = function() {
+			console.log("2019-10-19 21:01");
+		}
+		//这里的声明只是声明一个变量
+	</script>
+</head>
+<body>
+</body>
+</html>

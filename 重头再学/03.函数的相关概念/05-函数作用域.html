@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>05-函数作用域</title>
+	<script type="text/javascript">
+		/* 
+			05作用域
+				全局作用域
+				局部作用域
+		*/
+	   
+	   //全局作用域
+	   var num =10;
+	   
+	   function sum () {
+			//局部作用域
+			var x =5;
+			console.log(num+x); //15;
+	   }
+	   sum();
+	   
+	   // console.log(num+8); //18;
+	   // console.log(num+x); //x is not defined
+	   
+	   
+	   /*
+	   作用域嵌套就是函数嵌套
+	   变量访问规则：
+			先找当前作用域
+			再找上级做用域
+			最终到全局作用域（终点）
+			如果在终点还是无法找到，则会出现x is not defined
+	   */
+	  
+		//面试题:
+		// var age =18;
+		// function show () {
+		// 	console.log(age);
+		// }
+		// show(); //18
+		
+		var age = 18;
+		function show () {
+			//所以这里其实相当于把var age;写在这里
+			console.log(age);
+			var age = 20;
+		}
+		show(); //undefined
+		//声明提前是提前到当前作用域顶部
+	</script>
+</head>
+<body>
+	<h1>函数作用域</h1>
+</body>
+</html>

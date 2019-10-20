@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>09-封装验证码函数</title>
+	<style type="text/css">
+		#showCode {display: inline-block;background: gold;border: 1px solid #f60;padding: 2px 4px;margin-left:4px; pointer;}
+	</style>
+</head>
+<body>
+	<h1>09-封装验证码函数.html</h1>
+	<form action="../../../MrYang.github.io/index.html" class="form">
+		<div>
+			<label for="username">用户名：</label>
+			<input type="text" name="username" id="username" value=""/>
+		</div>
+		<div>
+			<label for="password">密码：</label>
+			<input type="text" name="password" id="password" value=""/>
+		</div>
+		<div>
+			<label for="code">验证码：</label>
+			<input type="text" name="code" id="code" value="" /><span id="showCode">9789</span>
+		</div>
+		<button id="btnLogin">登录</button>
+	</form>
+	
+	<script type="text/javascript">
+		/* 
+		 编写生成4位数的验证码的函数，并显示在页面，点击重新生成验证码
+				编写生成四位数的验证码函数
+				显示在页面
+				点击重新生成验证码
+		*/
+	   
+	   //获取页面元素
+	   var code = document.getElementById("code");
+	   var showCode= document.getElementById("showCode");
+	   var btnLogin = document.getElementById("btnLogin");
+	   
+	   createCode ();
+	  //  //显示4位随机验证码.这样的写法虽然会得到4位数,但是2位3位也会获得.
+	  //  //var randomNumber = parseInt(Math.random()*10000);
+	  //  //使用字符串拼接
+	  //  var myCode = '';
+	  //  for (var i=0;i<4;i++) {
+			// myCode += parseInt(Math.random()*10);
+	  //  }
+	  //  showCode.innerHTML = myCode;
+	   
+
+	   //点击更换验证码
+	   showCode.onclick = function (){
+			createCode();
+	   }
+	   
+	   //登录验证有效性
+	   btnLogin.onclick = function  () {
+			var _code = code.value;
+			
+			//获取随机验证码
+			var myCode = showCode.innerHTML;
+			
+			if (_code != myCode) {
+				alert("验证码错误！！！");
+				return false;
+			}
+
+	   }
+	   
+	   //封装生成验证码函数
+	   function createCode () {
+	   			//显示4位随机验证码.这样的写法虽然会得到4位数,但是2位3位也会获得.
+	   			//var randomNumber = parseInt(Math.random()*10000);
+	   			//使用字符串拼接
+	   			var myCode = '';
+	   			for (var i=0;i<4;i++) {
+	   						myCode += parseInt(Math.random()*10);
+	   			}
+	   			showCode.innerHTML = myCode;
+	   }
+	</script>
+</body>
+</html>
