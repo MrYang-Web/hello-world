@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>10-函数的参数</title>
+	<script type="text/javascript">
+		/* 
+		函数中的参数
+			形参：函数定义时的参数
+					形参其实就是局部变量
+			实参：函数执行时的参数
+			
+			形参和实参的数量可以不同。
+		 */
+		
+		//函数定义
+		//function 关键字
+		//randomInt 函数名
+		//num 形参
+		function randomInt (num) {
+			var a = parseInt(Math.random()*num + 1);
+			return a;
+		}
+		
+		randomInt(100); //100就是实参
+		
+		
+		function sum (a,b) {
+			//var a = 20; var b = 30;
+			//var a= 20; var b = 30;
+			//var a = 10; var b = undefind;
+		}
+		sum(20,30);
+		sum(20,30,40);
+		sum(10);
+	</script>
+</head>
+<body>
+	<h1>10-函数的参数</h1>
+</body>
+</html>
