@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>14-函数递归</title>
+	<script type="text/javascript">
+		/* 
+			函数递归
+				自己调用自己
+				造成死循环
+					递归避免死循环,一定要使用return
+			
+			递归函数执行过程:
+				sum(5)
+					sum(4)
+						sum(3)
+							sum(2)
+								sum(1)
+									sum(0) 结束函数
+										console.log(0)
+									console.log(1)
+								console.log(2)
+							console.log(3)
+					console.log(4)
+				
+		 */
+		
+		function sum (n) {
+			if (n==0) {
+				return;
+			}
+			n--;
+			sum(n);
+			console.log(n);
+		}
+		sum(5);
+	</script>
+</head>
+<body>
+	<h1>14-函数递归</h1>
+</body>
+</html>
