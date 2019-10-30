@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>16-回调函数</title>
+	<script type="text/javascript">
+		//参数可以是任意数据类型
+		
+		function sum (a) {
+			
+		}
+		
+		sum(10);	//number
+		sum('tt');	//string
+		sum(true);	//boolean
+		
+		/* 
+			回调函数
+				回调函数的执行过程
+		 */
+		//把函数作为参数传入另一个函数,那么这个函数就叫回调函数
+		var fn = function () {
+			console.log('这是fn函数的回调打印');
+		}
+		var show = function (callback) {
+			//如果传入fn,就相当于在这里 var callback = fn;
+			
+			console.log('这是show的打印');
+			
+			//执行回调函数
+			callback(3);
+		}
+		// fn: function
+		// 作为实参传入show
+		show(fn);
+		
+		//还可以传入匿名函数
+		show(function (n) {
+			console.log('匿名函数'+n);
+		})
+	</script>
+</head>
+<body>
+	<h1>回调函数</h1>
+</body>
+</html>

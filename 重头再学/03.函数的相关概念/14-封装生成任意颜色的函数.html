@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>14-封装生成任意颜色的函数</title>
+	<script type="text/javascript">
+		/* 
+		封装生成任意颜色的函数
+		
+		Math.random() 0-1（不包括1）的数
+		*/
+		
+		function randomColor () {
+			var r = parseInt(Math.random()*256);
+			var g = parseInt(Math.random()*256);
+			var b = parseInt(Math.random()*256);
+			console.log(r,g,b);
+			return 'rgb('+r+','+g+','+b+')';
+		}
+	</script>
+</head>
+<body id="mybody">
+	<h1>封装任意随机颜色的函数</h1>
+	<button type="button" id="btn">点我改变背景颜色</button>
+</body>
+	<script type="text/javascript">
+		var body = document.getElementById("mybody");
+		btn.onclick = function  () {
+			body.style.backgroundColor = randomColor();
+		}
+	</script>
+</html>

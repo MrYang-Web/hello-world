@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>13-计算奇偶分数和</title>
+	<script type="text/javascript">
+		/* 
+			编写一个函数，输入n为偶数时，调用函数求1/2+1/4+...+1/n，当输入为奇数时，调用函数求1+1/3+...1/n
+		 */
+		
+		//计算奇偶分数和
+		function jiou (num) {
+			//用于求和
+			var res = 0;
+			// if (num%2==0) {
+			// 	for (var i=2;i<=num;i+=2) {
+			// 		res += 1/i;
+			// 	}
+			// }else{
+			// 	for (var i=1;i<=num;i+=2) {
+			// 		res =+ 1/i;
+			// 	}
+			// }
+			//优化写法
+			for (var i=(num%2==0 ? 2 : 1);i<=num;i+=2) {
+				res += 1/i;
+			}
+			
+			//返回结果
+			return res;
+		}
+		
+	</script>
+</head>
+<body>
+	<h1>13-计算奇偶分数和</h1>
+</body>
+</html>

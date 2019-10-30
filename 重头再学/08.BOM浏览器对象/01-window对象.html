@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>01-window对象</title>
+	<script type="text/javascript">
+		/* 
+		 window对象是浏览器的核心
+		 window是一个对象：{}
+			默认包含非常多的属性
+		 
+		 
+		 全局作用域（window）
+			 定义在全局环境下的变量都会成为window对象的属性
+			 把变量定义在函数体里，可以有效减少全局环境下的变量冲突，避免污染全局环境
+			 window对象可以在代码中省略，如window.alert()可以写成alert();
+			 在函数内部不用var声明的变量会成为全局变量，即window对象的属性
+			 通过var在全局作用域下声明的变量用delete无法删除
+		
+		
+		//全局变量
+		*/
+		//var username = '杨老四';
+		//可以在控制台通过window.username ='杨老四';打印出属性.
+		
+		
+		//**就算是把变量定义在函数内,也会为window对象增加过多的属性
+		//	那么如果想要尽可能的减少全局变量的污染,就需要使用匿名函数的执行
+		
+		(function () {
+			var username = '杨老四';
+			
+			console.log(username);
+		})();
+	</script>
+</head>
+<body>
+	<h1>01-window对象</h1>
+</body>
+</html>
