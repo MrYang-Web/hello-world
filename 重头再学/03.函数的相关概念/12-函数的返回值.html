@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>12-函数的返回值</title>
+	<script src="../common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/* 
+		函数的返回值
+			默认:undefind
+			
+			return
+				中止执行函数,return后面的代码不会执行
+				返回值
+		 */
+		
+		
+		//要让函数的功能更强大,一定要使用
+				//参数(函数外-->函数内传递)
+				//返回值(函数内-->函数外传递)
+				
+		var num =10;
+		num-5;//返回5
+		num++     //先运算，再num自加1,返回10
+		++num     //num先自加1，再运算,返回11
+		
+		function total () {
+			username='tiantian';
+			age='18';
+			gender='不详';
+			
+			console.log(username);
+			return;//终止函数;
+			console.log(age);
+			console.log(gender);
+		}
+		total();
+		
+		
+		function sum (a,b) {
+			return a+b;
+		}
+		var res = sum(10,24); //这里虽然函数执行返回了一个值,但是如果没保存到变量里面,他依然无法打印.因为只是执行了函数.
+		console.log(res);
+		
+		console.log(sum(10,10)); //如果要打印,必须这样输入.
+	</script>
+	<style type="text/css">
+		h1 {
+			color: #58bc58;
+		}
+	</style>
+</head>
+<body>
+	<h1>12-函数的返回值</h1>
+	<h1>登录成功</h1>
+	<div id="box">
+		
+	</div>
+	<script type="text/javascript">
+		document.getElementById('box').innerHTML= createCode(4);
+	</script>
+</body>
+</html>
