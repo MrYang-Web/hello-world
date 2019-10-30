@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>03-吸顶菜单</title>
+	<script type="text/javascript">
+		/* 
+			03.吸顶菜单
+				window滚动相关事件
+					onscroll
+					
+			给元素添加类名方法:
+				元素.className = '';
+		 */
+		window.onload = function () {
+			var top = document.getElementById("top");
+			var bottom = document.getElementById("bottom");
+			window.onscroll = function (){
+				console.log(window.scrollY);
+				if (window.scrollY >= 300) {
+					top.className = "active";
+					
+					//这里为了避免开启定位后,内容往上贴合需要给下面的元素给一个边距.
+					bottom.style.marginTop = 70 +"px";
+				}else {
+					top.className = '';
+					
+					//同样的,当移出样式时候,需要把这个贴合图层的边距去掉.
+					bottom.style.marginTop = 0 +"px";
+				}
+			}
+		}
+	</script>
+	<style type="text/css">
+		#top {
+			width: 100%;
+			height: 52px;
+			background: url(../imgs/top.png);
+		}
+		.active {
+			position: fixed;
+			top:0;
+			box-shadow: 0 10px 5px rgba(0,0,0,0.3);
+		}
+		#bottom {
+			color: red;
+			width: 100%;
+			height: 200px;
+			background: paleturquoise;
+			font-size: 60px;
+		}
+	</style>
+</head>
+<body>
+	<h1>吸顶菜单</h1>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<div id="top"></div>
+	<div id="bottom">注意这一行内容</div>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+	<p>假装这是内容</p>
+</body>
+</html>
