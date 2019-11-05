@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>04-系统弹窗</title>
+	<script type="text/javascript">
+		/* 
+<<<<<<< HEAD
+			系统弹窗
+				alert(); 弹出对话框
+				confirm(msg); 弹出警告框，返回布尔值
+					点确定返回true 点取消返回false
+				
+				window事件：
+					onscroll 	滚动事件
+					onload 		页面所有内容加载完毕后执行事件
+					prompt		输入消息并返回输入的消息，不输入则返回null;
+		 */
+		window.onload = function () {
+			
+			//这里还是有点问题的,因为后续如果生成节点,这选取了错误的按钮数组.
+			//因为只做删除节点练习,这里不做深究
+			var btnDle = document.getElementsByTagName('button');
+			var list = document.getElementById('list');
+			var tr = document.getElementsByTagName('tr');
+			// for (i=0;i<btnDle.length;i++) {
+					
+			// 		//获取当前按钮事件索引的简单办法, 为所有的按钮添加一个index属性与对应.
+			// 		//这样,当下面按钮触发的时候,就可以调用this关键字获取的触发事件按钮的索引.
+			// 		btnDle[i].index = i;
+			// 		btnDle[i].onclick = function () {
+			// 			var tr = document.getElementsByTagName('tr');
+			// 			var trIndex = this.index;
+			// 			console.log(trIndex);
+			// 			if (confirm('是否删除这一行？')) {
+						
+			// 				//删除节点,原生JS有点麻烦,需要先选定父级元素,再用removeChild();方法删除子元素.
+			// 				list.removeChild(tr[trIndex]);
+			// 			}
+			// 		}
+			// }
+			
+			
+			//ES6 使用let关键字,直接当索引用,真香!!!!!!
+			for (let i=0;i<btnDle.length;i++) {
+				btnDle[i].onclick = function  () {
+					if (confirm('是否删除这一行？')) {					
+						//删除节点,原生JS有点麻烦,需要先选定父级元素,再用removeChild();方法删除子元素.
+						list.removeChild(tr[i]);
+					}
+				}
+			}
+			
+		}
+	</script>
+	<style>
+		table {
+			border: 1px solid #333;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td {
+			border: 1px solid #333;
+		}
+=======
+			04-系统弹窗
+				alert();		//弹出对话框
+				confirm(msg);	//弹出警告窗,返回布尔值
+		 */
+		window.onload = function (){
+			var btn = document.getElementsByTagName('button');
+			for (i=0;i<=btn.length;i++) {
+				btn[i].onclick = function (){
+					confirm("是否确定删除?");
+				}
+			}
+		}
+	</script>
+	<style type="text/css">
+		table {width: 100%;border: 1px solid #ddd;border-collapse: collapse;}
+		td {border: 1px solid #ddd;padding: 3px 5px;}
+>>>>>>> 2d0eec2a64d15769faa9ca57d425a936a1e8c1c6
+	</style>
+</head>
+<body>
+	<h1>04-系统弹窗</h1>
+<<<<<<< HEAD
+	<table>
+		<tbody id="list">
+			<tr>
+				<td>1</td>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+=======
+	<!-- table>tbody>tr*5>td{$}+td{单元格$$}*3+td>button{删除} 这是下面表格的速写 -->
+	<table>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+>>>>>>> 2d0eec2a64d15769faa9ca57d425a936a1e8c1c6
+				<td><button>删除</button></td>
+			</tr>
+			<tr>
+				<td>2</td>
+<<<<<<< HEAD
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+=======
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+>>>>>>> 2d0eec2a64d15769faa9ca57d425a936a1e8c1c6
+				<td><button>删除</button></td>
+			</tr>
+			<tr>
+				<td>3</td>
+<<<<<<< HEAD
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+=======
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+>>>>>>> 2d0eec2a64d15769faa9ca57d425a936a1e8c1c6
+				<td><button>删除</button></td>
+			</tr>
+			<tr>
+				<td>4</td>
+<<<<<<< HEAD
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+=======
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+>>>>>>> 2d0eec2a64d15769faa9ca57d425a936a1e8c1c6
+				<td><button>删除</button></td>
+			</tr>
+			<tr>
+				<td>5</td>
+<<<<<<< HEAD
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+				<td><button>删除</button></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+				<td><button>删除</button></td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+				<td><button>删除</button></td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>单元格1</td>
+				<td>单元格2</td>
+				<td>单元格3</td>
+				<td>单元格4</td>
+				<td>单元格5</td>
+=======
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+>>>>>>> 2d0eec2a64d15769faa9ca57d425a936a1e8c1c6
+				<td><button>删除</button></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
