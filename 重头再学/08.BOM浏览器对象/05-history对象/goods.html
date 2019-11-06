@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>详情</title>
+	<script type="text/javascript">
+		window.onload =function () {
+			var btn = document.getElementsByTagName('button');
+			btn[0].onclick =function () {
+				history.back();
+			}
+			btn[1].onclick =function () {
+				history.forward();
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>商品详情</h1>
+	<button type="button">后退</button>
+	<button type="button">前进</button>
+	<ul>
+		<li><a href="index.html">首页</a></li>
+		<li><a href="list.html">列表</a></li>
+		<li><a href="goods.html">详情</a></li>
+		<li><a href="shopingcar.html">购物车</a></li>
+	</ul>
+</body>
+</html>

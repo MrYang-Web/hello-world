@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>06-location的使用</title>
+	<script type="text/javascript">
+		/* 
+			06-location的使用
+				url组成部分
+					* 协议 protocol: "https:"
+					* 域名/主机 host: "www.baidu.com"
+					* 路径 pathname: "/"
+					* 参数 search: ""
+					* 锚点 hash: ""
+					
+			第三阶段学习单页面应用hash用的特别多
+			移动端都是单页面应用，和传统的页面跳转不一样。
+			靠的都是hash
+			
+				常用属性：
+					* hash :设置或返回从井号开始的URL（锚点）==》哈希值
+					* * 操作方法 location.hash = "yanglaosi";
+					* href:完整链接（包含url组成部分中所有信息）
+					* * 操作方法 location.href = 'http://qq.com';
+					* search 设置或返回从问好（?)开始的URL（查询部分）
+					* *	操作方法 location.search = "name=xxx";
+		*/
+	</script>
+</head>
+<body>
+	<h1>06-location的使用</h1>
+	<pre>
+	url组成部分
+			* 协议 protocol: "https:"
+			* 域名/主机 host: "www.baidu.com"
+			* 路径 pathname: "/"
+			* 参数 search: ""
+			* 锚点 hash: ""
+			
+	第三阶段学习单页面应用hash用的特别多
+	移动端都是单页面应用，和传统的页面跳转不一样。
+	靠的都是hash	
+	
+	常用属性：
+		* hash
+			* 操作方法 location.hash = "yanglaosi";
+		* href:完整链接（包含url组成部分中所有信息）
+			* 操作方法 location.href = "http://qq.com";
+		可以直接操作页面跳转，这种跳转回刷新页面。
+	</pre>
+</body>
+</html>
