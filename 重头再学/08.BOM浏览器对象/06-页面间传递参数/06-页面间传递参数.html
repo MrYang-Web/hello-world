@@ -3,8 +3,53 @@
 <head>
 	<meta charset="utf-8">
 	<title>06-页面间传递参数</title>
+	<script type="text/javascript">
+		var goods = {
+			id:'001',
+			name:'iphone7 plus',
+			nikename:'肾7',
+			imgurl:'imgs/ip7.jpg',
+			price:5899.00,
+			sale:5666.66,
+			color:'土豪金'
+		}
+		
+		
+		//1.跳转
+		// 从这个页面跳转到商品详情页
+		
+		//2.传参
+		// 附带商品信息(url只能是字符串)
+		// 这里就需要将对象转为字符串
+		//3.object-->String 
+		// 格式只能是	name=value&name=value&name=value
+		//				'id=001&name=ipone7 plus&nikename=肾7'
+		window.onload = function () {
+			var btn = document.getElementById('btn');
+			
+			//3.遍历goods对象
+			//把商品信息转换成特定的字符串
+			//遍历之前需要先创建一个变量,接受转换完成后的字符串
+			var params = '';
+			for (var key in goods) {
+					params += key + '='+ goods[key]+'&';
+			}
+			
+			//这里遍历完成以后,会在最后多出一个&符号,所以需要去除这个符号
+			//并且这里记住必须重新赋值,才能让下面的覆盖上面的变量
+			params = params.slice(0,-1);
+			console.log(params);
+			
+			btn.onclick =function () {
+				location.href = 'list.html?'+params;
+			}
+		}
+	</script>
 </head>
 <body>
 	<h1>06-页面间传递参数</h1>
+	<h1>商品列表</h1>
+	<button type="button" id="btn">假装这是详情页链接</button>
+	<p>从这个列表页面跳转到商品详情页，并附带参数</p>
 </body>
 </html>

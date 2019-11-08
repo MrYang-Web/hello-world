@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>商品详情页面</title>
+	<style type="text/css">
+		#content {
+			background-color: #F3F3F3;
+			color: goldenrod;
+			padding: 10px 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>商品详情页面</h1>
+	<p>这个页面就需要获取URL传过来的参数才能正常显示</p>
+	<div id="content">
+		
+	</div>
+	<script type="text/javascript">
+		/* 
+			获取URL参数信息
+				* location.search 来获取
+				
+				//url编码解码
+				* encodeURI(); //转码
+				* decodeURI(); //解码
+		 */
+		var params = location.search; //?name=value&name=value
+		
+		//因为多出了一个?号,所有又需要用的字符串截取
+		//同样的,也需要再次赋值,才能覆盖原本的变量
+		params = params.substring(1);
+		console.log(params);
+		
+		// String-->object
+			
+		//1.先把字符串变为arr
+		params = params.split('&');
+		console.log(params);
+		
+		//2.再用遍历数组的方法去拆分数组
+		//也需要先穿件一个空的对象用于保存拆分好的数组
+		//用于存放name,value
+		var obj = {};
+		params.forEach(function (item) {
+			//拆分name/value
+			var arr = item.split('=');
+			obj[arr[0]] =decodeURI(arr[1]);
+		}) 
+		//因为浏览器对中文的不支持,所以需要进行编码转译
+		console.log('最终格式：',obj);
+		var content = document.getElementById('content');
+		content.innerHTML = '<p>'+obj.name+'</p>'+'<p>原价：<del>'+obj.price+'</del></p>' +'<p>现价：'+obj.sale+ '</p>'+'<p>颜色：'+obj.color+ '</p>';
+	</script>
+</body>
+</html>
