@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>07-倒计时效果</title>
+	<script type="text/javascript">
+		/* 
+			倒计时效果
+				1）指定结束时间
+				2）不断拿当前时间跟结束时间相比较，计算差值
+				3）把差值计算成（剩余时间）
+				4）拼写时间格式，写入页面
+				5）倒计时结束
+					* 替换购买按钮
+					* 停止计时器
+					* 隐藏倒计时
+		 */
+
+	</script>
+	<style type="text/css">
+		*{
+			margin: 20px 0;
+		}
+	</style>
+</head>
+<body>
+	<h1>07-倒计时效果</h1>
+	<div id="endTime"></div>
+	<div id="countDown"></div>
+</body>
+<script type="text/javascript">
+		
+		
+		//定义一个结束时间用变量end保存
+		var end = new Date('2019-11-9 15:35:00');
+		
+		//将结束时间写入页面
+		var endTime = document.getElementById('endTime');
+		endTime.innerHTML = end.toLocaleString()+'开始抢购';
+	
+		//获取HTML页面倒计时输入框元素
+		var countDown = document.getElementById('countDown');
+		
+		//让显示时间函数先执行一次,这样就可以避免页面刚刷新出来的时候不显示问题.
+		showtime();
+		//开启一个定时器用来抓取每一秒的当前时间
+		var timer = setInterval(showtime,1000);
+		
+		function showtime () {
+			
+			//获取当前时间
+			var now = new Date();
+			
+			//用倒计时规定的事件减去当前时间,即可获得相差的秒数
+			var differ =Math.floor((end.getTime()-now.getTime())/1000);
+			
+			//当差值为小于等于0 的时候,替换页面内容为按钮为疯狂购买
+			if (differ<=0) {
+				countDown.innerHTML ='<button><h1>'+'疯狂购买'+'</h1></button>';
+			}else{
+				//用相差的秒数除余60，余下的就是秒位上的数值
+				var sec = differ%60;
+				
+				//用相差的秒数除上60秒,在除余60，余下的即可获得分钟上的数值
+				var min = Math.floor(differ/60)%60;
+				
+				//用相差的秒数除以60秒再除以60分钟,剩下的就是剩余小时
+				var hour = Math.floor(differ/3600);
+				
+				//三元运算符为时间添0操作
+				sec = sec<10 ? '0'+sec : sec;
+				min = min<10 ? '0'+min : min;
+				hour = hour<10 ? '0'+hour : hour;
+				console.log('距离抢购时间：'+hour+':'+min+':'+sec);
+				
+				//将剩余时间写入倒计时内容区
+				countDown.innerHTML = '距离抢购时间：'+'<h1>'+hour+':'+min+':'+sec+'</h1>';
+			}
+		};
+</script>
+</html>
