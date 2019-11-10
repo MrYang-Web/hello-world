@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>02-获取元素节点的方式</title>
+	<script type="text/javascript">
+		/* 
+			元素节点：element
+			属性节点：attribute
+			文本节点：text
+			这三个节点使用nodeType查询会分别返回：1  2  3
+		
+			document.getElementById('id');
+				* 这种方式获取元素节点最快
+			
+			document.getElementsByTagName('element');
+				* 这种通过标签名的方式获取，返回的是一个数组，[element,element,element...]
+				* 要使用其中的元素或者检查nodeType的时候，需要先使用数组方法取得第几个
+				* 举例：
+				* 	document.getElementsByTagName('p')[0].nodeType; //返回 1
+			
+			document.getElementsByClassName('classname');
+				* 同上，这个方法也是返回一个数组，这是通过classname获取元素。
+			
+			document.getElementsByName('name');
+				*通过name属性获取元素，一般用于表单
+		
+			！！！还可以通过先获取一个元素，再从此获取的到元素向下获取他的子节点
+			element.getElementsByClassName('classname')
+		*/
+	window.onload =function () {
+		var box1 = document.getElementById('box1');
+		var text = box1.getElementsByTagName('p');
+		console.log(text);
+		for (i=0;i<text.length;i++) {
+			text[i].style.color = 'red';
+		}
+	}
+
+	</script>
+</head>
+<body>
+	<h1>02-获取元素节点的方式</h1>
+	<div id="box1">
+		<p>需要获取的元素1</p>
+		<p>需要获取的元素2</p>
+		<p>需要获取的元素3</p>
+	</div>
+	<div id="box2">
+		<p>不需要获取的元素</p>
+	</div>
+</body>
+</html>

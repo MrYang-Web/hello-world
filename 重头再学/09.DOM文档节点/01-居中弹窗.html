@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>01-居中弹窗</title>
+	<style type="text/css">
+		#warp{
+			width: 400px;
+			height: 200px;
+			border: 1px solid #000000;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			center();
+			//window.onresize 事件,当窗口大小发生改变时触发
+			//事件调用命名好的函数时,也需要匿名函数,在匿名函数中写函数执行就行.
+			window.onresize = function () {
+				center();
+			}
+			
+			function center() {
+				var warp = document.getElementById('warp');
+				var top = window.innerHeight-warp.offsetHeight;
+				var left =window.innerWidth-warp.offsetWidth;
+				warp.style.top = top/2+'px';
+				warp.style.left = left/2+'px';				
+			};
+		};
+	</script>
+</head>
+<body>
+	<div id="warp">
+		<h1>01-居中弹窗</h1>
+	</div>
+</body>
+</html>
