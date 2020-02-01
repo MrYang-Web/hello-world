@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		/* 
+			节点关系：任意两个节点之间的直接或者间接的关系
+			
+			获取父级节点:
+				* 通过子元素获取父级节点
+				* ele.parentNode		获取ele元素节点的父级元素
+
+
+			获取兄弟节点：
+				* 通过一个节点获取其同级别的兄弟节点
+				* ele.nextsibling		获取ele元素的下一个兄弟节点
+				* ele.previousSibling	获取ele元素的上一个兄弟节点
+
+			获取子级节点：
+				* 通过一个节点获取其子嗣节点
+				* ele.childNode			获取ele元素节点所有子级元素（类数组）
+				* ele.firstChild		获取ele元素的第一个子元素节点
+				* ele.lastChild			获取ele元素的最后一个子元素节点
+		 */
+		window.onload = function () {
+			let	goods = document.getElementById("goods");
+			//1.通过goods元素获取他的父级
+			let res = goods.parentNode;
+			console.log(res);
+			
+			//2.通过goods元素获取他的兄弟节点
+			let res2 = goods.nextSibling;
+			console.log("这里获取下个一个兄弟节点");
+			console.log("会获取一个text文本");
+			console.log("是因为标签之间的回车空格");
+			console.log("也算一个节点");
+			console.log(res2);
+			
+			
+			//3.通过page获取他的子元素节点
+			let page = document.getElementById("page");
+			let res3 = page.childNodes;
+			console.log("未删除文本节点:",res3);
+		
+
+			let res4 = Element.get(res3);
+			console.log("已经剔除了文本节点:",res4);
+		}
+		
+		//封装一个对象方法用于删除文本节点
+		let Element = {
+			//定义一个方法,此方法需要传入未删除文本节点的nodes伪数组
+			get:function (nodes) {
+				//声明一个空数组用于存放结果
+				var res = [];
+				for(var i=0;i<nodes.length;i++){
+					if(nodes[i].nodeType === 1) {
+						res.push(nodes[i]);
+					}
+				}
+				return res;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>06.节点关系</h1>
+	<div id="goods">
+		<img src="../imgs/top.png" >
+	</div>
+	<div id="page">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+	</div>
+</body>
+</html>
