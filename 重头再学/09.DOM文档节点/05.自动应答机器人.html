@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="UTF-8">
+	<title>自动应答机器人</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		.msg-list{position:relative;width:600px;margin:0 auto;}
+		.msg-list ul{padding:10px;min-height:200px;max-height:400px;overflow-y:auto;border:1px solid #ddd;}
+		.msg-list li{float:left;clear:both;margin:10px 0;padding:5px;line-height:2;border-radius:5px;background-color:#efefef;}
+		.msg-list li.active{float:right;background-color:#58bc58;color:#fff;}
+		.msg-list textarea{display:block;min-height:50px;margin:10px 0;width:100%;box-sizing: border-box;}
+		.status{display:none;position: absolute;left:0;bottom:0;right:0;padding:5px 10px;text-align:center;color:#999;}
+	</style>
+	<script>
+		window.onload = function() {
+			
+			/* 
+				自动应答机器人
+					* 发送消息
+						* 获取输入信息
+						* 生成li
+						* 写入li
+					* 自动回复
+						* 根据输入的信息回复
+						* 预设回复内容
+						
+				* PS:节点也是一个对象
+			 */
+			
+			//01.获取元素
+			let autoAnswer = document.getElementById("autoAnswer");
+			let ul = autoAnswer.getElementsByTagName('ul')[0];
+			let msg = autoAnswer.getElementsByTagName('textarea')[0];
+			let btn = autoAnswer.getElementsByTagName('button')[0];
+			let status= autoAnswer.getElementsByTagName('div')[0];
+			
+			
+			//02.发送消息,首先为按钮绑定事件
+			btn.onclick = function () {
+				//生成li节点元素
+				let li = document.createElement('li');
+				_msg = msg.value;
+				//为li写入输入的信息
+				li.innerHTML = _msg;
+				//为li添加样式
+				li.classList.add("active");
+				//把li添加到ul节点内
+				ul.appendChild(li);
+				//显示应答状态栏
+				status.style.display = "block";
+				//清空输入栏并获得焦点
+				msg.value = '';
+				msg.focus();
+				
+				//预设回复能容
+				//这里利用了字符串切割成数组的split()方法
+				var q = '你好, 约么, 呵呵, 有钱吗'.split(', ');
+				var a = '你好我也好, 叔叔在哪约, 呵你妹, 滚'.split(', ');
+				
+				//03.应答模式
+				
+					//生成一个用于回答的li节点元素
+					let aLi = document.createElement('li');
+					
+					//这里用这种方式也可以实现效果
+					// var liMsg = '';
+					// //用switch做一个判断
+					// switch (msg.value){
+					// 	case "你好啊":
+					// 		liMsg = "你也好啊!"
+					// 		break;
+					// 	case "约么":
+					// 		liMsg = "叔叔,我们不约"
+					// 		break;
+					// 	case "聊一聊":
+					// 		liMsg = "叔叔我们聊什么"
+					// 		break;	
+					// 	default:
+					// 		liMsg = "你说什么?风太大我听不清!"
+					// 		break;
+					// }
+					
+					//视屏中的实现方法,用数组索引的对应的方式去实现.
+					//判断输入的内容在q数组中是否有相同信息
+					var idx = q.indexOf(_msg);
+					console.log(q.indexOf(_msg));
+					if (idx>=0) {
+						aLi.innerHTML = a[idx];
+					}else {
+						aLi.innerHTML="风太大,我听不清!"
+					}
+					
+					
+					//设置一个延时器,来模拟应答延时
+					setTimeout(function () {
+						ul.appendChild(aLi);
+		
+						//隐藏应答状态栏
+						status.style.display = "none";
+					
+				},1200)
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>自动应答机器人</h1>
+	<div id="autoAnswer" class="msg-list">
+		<ul>
+		</ul>
+		<textarea></textarea>
+		<button>提交</button>
+		<div class="status">对方正在输入...</div>
+	</div>
+</body>
+</html>
